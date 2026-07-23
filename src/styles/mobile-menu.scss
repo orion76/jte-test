@@ -1,0 +1,106 @@
+
+.mobile-menu-overlay {
+  position: fixed;
+  z-index: var(--z-mobile-menu);
+  background: var(--color-overlay);
+  display: flex;
+}
+
+.mobile-menu {
+  width: 280px;
+  max-width: 80vw;
+  height: 100%;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-right);
+  animation: slideIn 0.2s ease;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    padding: 0 var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  &__title {
+    flex: 1;
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size-btn);
+    height: var(--size-btn);
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--color-bg-hover);
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-sm) 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--spacing-xl);
+    transition: background 0.15s ease;
+    text-align: left;
+
+    &:hover {
+      background: var(--color-bg-hover);
+    }
+
+    &:active {
+      background: var(--color-border);
+    }
+  }
+
+  &__item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size-icon);
+    height: var(--size-icon);
+    flex-shrink: 0;
+    color: var(--color-text-icon);
+  }
+
+  &__item-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}

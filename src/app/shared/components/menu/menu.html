@@ -1,0 +1,7 @@
+@if (items().length > 0) {
+  <div class="menu" [class.menu--vertical]="direction() === 'vertical'">
+    @for (item of items(); track item.id) {
+      <app-menu-item [itemData]="item" (itemClick)="onClick(item)" />
+    }
+  </div>
+}

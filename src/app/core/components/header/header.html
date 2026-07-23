@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="header__panel header__left">
+    @if (viewportObserver.isMobile()) {
+      <button class="icon-btn" (click)="openMobileMenu()" aria-label="Меню">
+        <app-icon name="menu" />
+      </button>
+    }
+    <div class="header__logo">
+      <a href="/" class="header__logo-link">
+        <img src="assets/logo.png" alt="Logo" class="header__logo-img" />
+      </a>
+    </div>
+  </div>
+
+  <nav class="header__panel header__nav">
+    <app-menu [items]="pagesMenu"></app-menu>
+    <app-search-panel/>
+
+  </nav>
+
+  <div class="header__panel header__actions">
+    <button class="icon-btn" aria-label="Добавить">
+      <app-icon name="add-circle" />
+    </button>
+  </div>
+
+  <div class="header__panel header__rught">
+    <app-user-panel />
+  </div>
+
+</header>

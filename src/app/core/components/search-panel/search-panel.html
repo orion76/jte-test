@@ -1,0 +1,11 @@
+@if (!isSearchOpen) {
+  <button
+    class="header__btn-search icon-btn"
+    (click)="openSearchForm()"
+    animate.enter="fade-in-menu"
+    animate.leave="fade-out-menu"
+    aria-label="Поиск"
+  >
+    <app-icon name="search" />
+  </button>
+} 

@@ -1,0 +1,65 @@
+@let showForm = isShowForm();
+<div class="search-form">
+  <div class="search-form__header">
+    <form class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
+      <div class="search-form__input-wrapper">
+        <app-icon name="search" [size]="20" />
+        <input
+          #searchInput
+          type="text"
+          class="search-form__input"
+          placeholder="Поиск"
+          (focus)="onSearchFieldFocus()"
+          (blur)="onSearchFieldBlur()"
+          [value]="query()"
+          (input)="query.set($any($event.target).value)"
+        />
+        @if (query()) {
+          <button
+            type="button"
+            class="search-form__clear"
+            (click)="query.set('')"
+            aria-label="Очистить"
+          >
+            <app-icon name="cancel" />
+          </button>
+        }
+      </div>
+    </form>
+  </div>
+  @if (showForm) {
+    <app-filter-panel />
+  }
+</div>
+<!-- 
+@else {
+  <div class="search-form">
+    <div class="search-form__header">
+      <form class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
+        <div class="search-form__input-wrapper">
+          <app-icon class="search-form__search" name="search" [size]="20" />
+          <input
+            #searchInput
+            type="text"
+            class="search-form__input"
+            placeholder="Поиск"
+            [value]="query()"
+            (input)="query.set($any($event.target).value)"
+          />
+          @if (query()) {
+            <button
+              type="button"
+              class="search-form__clear"
+              (click)="query.set('')"
+              aria-label="Очистить"
+            >
+              <app-icon name="cancel" />
+            </button>
+          }
+        </div>
+      </form>
+    </div>
+  </div>
+}
+
+-->

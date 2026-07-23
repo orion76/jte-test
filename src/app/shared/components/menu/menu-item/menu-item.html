@@ -1,0 +1,17 @@
+@let item = itemData();
+<button
+  class="menu-item"
+  [class.menu-item--disabled]="item.disabled"
+  [class.menu-item--icon-only]="!item.label"
+  [class.menu-item--label-only]="!item.icon"
+  (click)="onClick(item)"
+>
+  @if (item.icon) {
+    <span class="menu-item__icon">
+      <app-icon [name]="item.icon" [size]="item.label ? 24 : 20" />
+    </span>
+  }
+  @if (item.label) {
+    <span class="menu-item__label">{{ item.label }}</span>
+  }
+</button>

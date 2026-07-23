@@ -1,0 +1,31 @@
+@let options = overlayManager.activeComponent();
+
+@if (options) {
+  <!-- {{ log('[OVERLAY OPEN]', options.component.name) }} -->
+  @if (viewportObserver.isDesktop()) {
+    <ng-container [ngComponentOutlet]="options.component" />
+  } @else {
+    <div class="mobile-overlay" (click)="overlayManager.close()">
+      <div class="mobile-overlay__header">
+        <button class="mobile-overlay__action" (click)="overlayManager.close()" aria-label="Назад">
+          <app-icon name="arrow-back" />
+        </button>
+        <span class="mobile-overlay__title">{{ title() }}</span>
+        <button
+          class="mobile-overlay__action"
+          (click)="overlayManager.close()"
+          aria-label="Закрыть"
+        >
+          <app-icon name="close" />
+        </button>
+      </div>
+
+      <ng-container
+        [ngComponentOutlet]="options.component"
+        [ngComponentOutletInputs]="overlayManager.inputs()"
+      />
+    </div>
+  }
+}@else {
+    {{ log('[OVERLAY WITHOUT Options]') }}
+}

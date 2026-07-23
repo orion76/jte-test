@@ -1,0 +1,31 @@
+@use 'styles/variables';
+@use 'styles/adaptive-layer';
+@use 'styles/filter-panel';
+@use 'styles/header';
+@use 'styles/menu';
+
+@use 'styles/mobile-menu';
+@use 'styles/search-form';
+@use 'styles/viewports-overlay';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #9c9 !important;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #111827;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
