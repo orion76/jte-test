@@ -1,66 +1,50 @@
-import { Component, signal, inject } from '@angular/core';
-
-import { Icon, Menu } from '../../../shared/components';
-import { ViewportObserver } from '../../services/viewport-observer';
-import { IMenuItemData } from '../../../shared/components/menu/types';
-import { UserPanel } from '../user-panel/user-panel';
-import { OverlayManager } from '../../../features/dynamic-overlay/overlay-manager';
+import { Component, ElementRef, inject, output, signal, viewChild } from '@angular/core';
 import { PAGES_MENU } from '../../../app-menu.config';
+import { OverlayManager } from '../../../features/dynamic-overlay/overlay-manager';
 import { IOverlayShowOptions } from '../../../features/dynamic-overlay/types';
-import { SearchPanel } from '../search-panel/search-panel';
+import { Icon, Menu } from '../../../shared/components';
+import { IMenuItemData } from '../../../shared/components/menu/types';
+import { ViewportObserver } from '../../services/viewport-observer';
+import { SearchForm } from '../search-form/search-form';
+
+import { UserPanel } from '../user-panel/user-panel';
 
 @Component({
   selector: 'app-header',
-  imports: [Menu, Icon, SearchPanel, UserPanel],
+  imports: [Icon, Menu, UserPanel],
   templateUrl: './header.html',
 })
 export class Header {
-  protected readonly isSearchExpanded = signal(false);
-  protected readonly isMobileSearch = signal(false);
-
-  protected readonly searchQuery = signal('');
-
+  protected readonly menuTrigger = viewChild<ElementRef<HTMLElement>>('menuTrigger');
   protected viewportObserver = inject(ViewportObserver);
   protected overlayManager = inject(OverlayManager);
   protected readonly pagesMenu: IMenuItemData[] = inject(PAGES_MENU);
 
-  protected onSearchClick(): void {
-    if (this.viewportObserver.isMobile()) {
-      this.isMobileSearch.set(true);
+  protected readonly isSearchOpened = signal(false);
+
+  protected onSearchBackdropClick(): void {
+    this.overlayManager.notifyClickOutside('desktopSearch');
+  }
+
+  protected onSearchToggle(): void {
+    this.isSearchOpened.update((v) => !v);
+    if (this.isSearchOpened()) {
+      const options: IOverlayShowOptions = {
+        component: SearchForm,
+        title: 'Search',
+      };
+      this.overlayManager.open('desktopSearch', options);
     } else {
-      this.isSearchExpanded.set(true);
+      this.overlayManager.close('desktopSearch');
     }
-  }
-
-  protected onSearchSubmit(): void {
-    const query = this.searchQuery();
-    if (query.trim()) {
-      console.log('Search submitted:', query);
-    }
-  }
-
-  protected onMobileSearchSubmit(): void {
-    this.onSearchSubmit();
-    this.closeMobileSearch();
-  }
-
-  protected closeMobileSearch(): void {
-    this.isMobileSearch.set(false);
-    this.searchQuery.set('');
-  }
-
-  protected closeDesktopSearch(): void {
-    this.isSearchExpanded.set(false);
-    this.searchQuery.set('');
   }
 
   protected openMobileMenu(): void {
     const options: IOverlayShowOptions = {
       component: Menu,
       title: 'Menu',
+      origin: this.menuTrigger()?.nativeElement,
     };
-
     this.overlayManager.open(options, { items: this.pagesMenu, direction: 'vertical' });
   }
-
 }

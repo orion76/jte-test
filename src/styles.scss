@@ -6,8 +6,6 @@
 
 @use 'styles/mobile-menu';
 @use 'styles/search-form';
-@use 'styles/viewports-overlay';
-
 *,
 *::before,
 *::after {
@@ -28,4 +26,8 @@ html, body {
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.cdk-overlay-transparent-backdrop {
+  background: transparent;
 }

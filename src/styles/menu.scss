@@ -9,7 +9,7 @@
   }
 }
 
-.menu-item {
+.menu-item__button {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -79,5 +79,19 @@
 
   &--label-only {
     padding: 0 var(--spacing-lg);
+  }
+}
+
+
+@media (max-width: 414px) {
+  .menu-item.menu-item--history{
+    display: block;
+  }
+  .menu-item {
+    display: none;
+
+    &__label {
+      display: none;
+    }
   }
 }

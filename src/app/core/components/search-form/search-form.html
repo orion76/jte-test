@@ -1,10 +1,11 @@
 @let showForm = isShowForm();
-<div class="search-form">
+<div __loc="searchForm" class="search-form">
   <div class="search-form__header">
-    <form class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
+    <form __loc=".Form" class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
       <div class="search-form__input-wrapper">
         <app-icon name="search" [size]="20" />
         <input
+          __loc=".Input"
           #searchInput
           type="text"
           class="search-form__input"
@@ -16,6 +17,7 @@
         />
         @if (query()) {
           <button
+            __loc=".ClearBtn"
             type="button"
             class="search-form__clear"
             (click)="query.set('')"
