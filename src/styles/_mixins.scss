@@ -1,0 +1,99 @@
+// ---- Reset ----
+
+@mixin button-reset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+// ---- Кнопки ----
+
+@mixin icon-btn(
+  $size: var(--size-btn),
+  $radius: var(--radius-sm),
+  $color: var(--color-text-primary),
+  $hover-bg: var(--color-bg-hover),
+  $transition: background 0.2s ease
+) {
+  @include button-reset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+  height: $size;
+  border-radius: $radius;
+  color: $color;
+  transition: $transition;
+  flex-shrink: 0;
+
+  @if $hover-bg {
+    &:hover {
+      background: $hover-bg;
+    }
+  }
+}
+
+// ---- Инпуты ----
+
+@mixin input(
+  $height: var(--size-input-height),
+  $font-size: var(--font-size-base),
+  $line-height: var(--spacing-xl),
+  $color: var(--color-text-primary),
+  $placeholder-color: var(--color-text-muted),
+  $padding: 0 var(--spacing-md)
+) {
+  border: none;
+  height: $height;
+  padding: $padding;
+  font-family: var(--font-family);
+  font-size: $font-size;
+  font-weight: var(--font-weight-regular);
+  line-height: $line-height;
+  color: $color;
+  outline: none;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+// ---- Типографика ----
+
+@mixin text(
+  $size: var(--font-size-base),
+  $weight: var(--font-weight-regular),
+  $line-height: var(--spacing-xl),
+  $color: var(--color-text-primary),
+  $family: var(--font-family)
+) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
+}
+
+// ---- Иконки ----
+
+@mixin icon($size: var(--size-icon)) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+  height: $size;
+  flex-shrink: 0;
+}
+
+// ---- Текст ----
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

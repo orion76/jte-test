@@ -7,9 +7,7 @@
   (click)="onClick(item)"
 >
   @if (item.icon) {
-    <span class="menu-item__icon">
-      <app-icon [name]="item.icon" [size]="item.label ? 24 : 20" />
-    </span>
+    <span class="menu-item__icon" [app-icon]="item.icon"></span>
   }
   @if (item.label) {
     <span class="menu-item__label">{{ item.label }}</span>

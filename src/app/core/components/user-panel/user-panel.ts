@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ViewportObserver } from '../../services/viewport-observer';
+import { ViewportObserver } from '../../services/viewport-observer/viewport-observer';
 import { Icon } from '../../../shared/components';
 import { CurrentUser } from '../../services/current-user/current-user';
 

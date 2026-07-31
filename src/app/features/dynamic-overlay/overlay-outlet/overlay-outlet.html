@@ -1,0 +1,14 @@
+@let opts = overlay();
+@if (opts) {
+  @switch (viewport()) {
+    @case ('mobile') {
+      <app-mobile-modal (close)="closeOverlay()" (back)="closeOverlay()">
+        <ng-container *ngComponentOutlet="opts.component; inputs: opts.inputs" />
+      </app-mobile-modal>
+    }
+    @case ('desktop') {
+      <div class="overlay-outlet-backdrop" (click)="closeOverlay()"></div>
+      <ng-container *ngComponentOutlet="opts.component; inputs: opts.inputs" />
+    }
+  }
+}

@@ -1,0 +1,50 @@
+header:
+  _class: header
+  _desc: Верхняя панель
+
+  logo:
+    _class: header__logo
+    _desc: Логотип
+
+  appMenu:
+    _class: app-menu
+    _desc: Навигационное меню
+
+    links:
+      _class: menu-item__button--links
+      _desc: Пункт «Ссылки»
+    contacts:
+      _class: menu-item__button--contacts
+      _desc: Пункт «Контакты»
+    tags:
+      _class: menu-item__button--tags
+      _desc: Пункт «Теги»
+    favorites:
+      _class: menu-item__button--favorites
+      _desc: Пункт «Избранное»
+    history:
+      _class: menu-item__button--history
+      _desc: Пункт «Посещения»
+
+  appSearchForm:
+    _class: search-form-container
+    _desc: Форма поиска
+
+    searchInput:
+      _class: search-form__input
+      _desc: Поле ввода
+    searchClearBtn:
+      _class: search-form__clear
+      _desc: Кнопка очистки
+
+  buttonSearch:
+    _class: button-search
+    _desc: Кнопка открытия поиска
+
+  buttonAdd:
+    _class: button-add
+    _desc: Кнопка добавления
+
+demo:
+  _class: demo-info
+  _desc: Демо-информация под хедером

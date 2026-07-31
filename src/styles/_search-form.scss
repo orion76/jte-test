@@ -1,0 +1,159 @@
+@use 'variables' as *;
+
+.search-form {
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-2xs);
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size-btn);
+    height: var(--size-btn);
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: var(--color-bg-hover);
+    }
+  }
+
+  &__form {
+    flex: 1;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  ::ng-deep .search-page__input-wrapper>app-icon:first-child {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-text-muted);
+    z-index: 1;
+  }
+
+  &__input {
+    width: 100%;
+    height: var(--size-input-height);
+    padding: 0 44px 0 var(--spacing-3xl);
+    border: none;
+    font-family: var(--font-family);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--spacing-xl);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: background 0.2s ease;
+    position: relative;
+    z-index: 0;
+
+    &:focus {
+      background: var(--color-bg-input-focus);
+    }
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+  }
+
+  &__clear,
+  &__search {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__search {
+    left: var(--spacing-2xs);
+  }
+
+  &__clear {
+
+    right: var(--spacing-2xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+
+
+    &:hover {
+      background: var(--color-black-transparent-5);
+    }
+  }
+}
+
+.header__center {
+  .search-form-container {
+    // background-color: red;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    // z-index: 10;
+    pointer-events: none;
+  }
+
+  .search-form {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+  }
+}
+
+.slide-in {
+  animation: slideInForward 0.3s ease-out forwards;
+}
+
+.slide-out {
+  animation: slideOutBackward 0.3s ease-in forwards;
+}
+
+@keyframes slideInForward {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+
+  }
+}
+
+@keyframes slideOutBackward {
+  from {
+    transform: translateX(0);
+    ;
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}

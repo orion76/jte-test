@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Header } from './core/components/header/header';
-import { ViewportsOverlay } from './features/dynamic-overlay/viewports-overlay/viewports-overlay';
+import { OverlayOutlet } from './features/dynamic-overlay/overlay-outlet/overlay-outlet';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, ViewportsOverlay],
+  imports: [Header,  OverlayOutlet],
   templateUrl: './app.html',
 })
 export class App {}

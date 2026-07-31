@@ -1,0 +1,78 @@
+:root {
+  --color-primary: #1074CC;
+  --color-danger: #CC1910;
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-text-primary: #2A3033;
+  --color-text-secondary: #7F878C;
+  --color-text-muted: #9AA1A6;
+  --color-text-light: #8C9499;
+  --color-text-dark: #64676B;
+  --color-text-icon: #6B7280;
+
+  --color-border: #E5E7EB;
+  --color-border-light: #E1E4E6;
+  --color-border-gray: #ccc;
+
+  --color-bg-hover: #F3F4F6;
+  --color-bg-hover-light: #F9FAFB;
+  --color-bg-input: #F5F5F5;
+  --color-bg-input-focus: #EEF2FF;
+  --color-bg-btn: #EFF1F2;
+
+  --color-white-transparent-60: rgba(255, 255, 255, 0.6);
+  --color-white-transparent-50: rgba(255, 255, 255, 0.5);
+  --color-white-transparent-15: rgba(255, 255, 255, 0.15);
+  --color-white-transparent-10: rgba(255, 255, 255, 0.1);
+  --color-black-transparent-10: rgba(0, 0, 0, 0.1);
+  --color-black-transparent-8: rgba(0, 0, 0, 0.08);
+  --color-black-transparent-5: rgba(0, 0, 0, 0.05);
+
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  --font-family: Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 15px;
+  --font-size-lg: 16px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 40px;
+
+  --header-height: 56px;
+  --size-btn: 40px;
+  --size-icon: 24px;
+  --size-input-height: 48px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 100px;
+
+  --z-dropdown: 100;
+  --z-overlay: 200;
+  --z-mobile-menu: 300;
+  --z-sidebar: 1000;
+  --z-top: 9999;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-left: -2px 0 10px rgba(0, 0, 0, 0.1);
+  --shadow-right: 2px 0 12px rgba(0, 0, 0, 0.15);
+
+  --menu-item--color: var(--color-white);
+  --menu-item--padding: var(--spacing-md);
+}

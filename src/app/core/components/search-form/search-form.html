@@ -1,11 +1,11 @@
 @let showForm = isShowForm();
-<div __loc="searchForm" class="search-form">
+
+<!-- <div class="search-form"> -->
   <div class="search-form__header">
-    <form __loc=".Form" class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
+    <form class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
       <div class="search-form__input-wrapper">
-        <app-icon name="search" [size]="20" />
+        <span app-icon="search"></span>
         <input
-          __loc=".Input"
           #searchInput
           type="text"
           class="search-form__input"
@@ -17,14 +17,13 @@
         />
         @if (query()) {
           <button
-            __loc=".ClearBtn"
+            app-icon="cancel"
+            icon-position="after"
             type="button"
             class="search-form__clear"
             (click)="query.set('')"
             aria-label="Очистить"
-          >
-            <app-icon name="cancel" />
-          </button>
+          ></button>
         }
       </div>
     </form>
@@ -32,36 +31,4 @@
   @if (showForm) {
     <app-filter-panel />
   }
-</div>
-<!-- 
-@else {
-  <div class="search-form">
-    <div class="search-form__header">
-      <form class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
-        <div class="search-form__input-wrapper">
-          <app-icon class="search-form__search" name="search" [size]="20" />
-          <input
-            #searchInput
-            type="text"
-            class="search-form__input"
-            placeholder="Поиск"
-            [value]="query()"
-            (input)="query.set($any($event.target).value)"
-          />
-          @if (query()) {
-            <button
-              type="button"
-              class="search-form__clear"
-              (click)="query.set('')"
-              aria-label="Очистить"
-            >
-              <app-icon name="cancel" />
-            </button>
-          }
-        </div>
-      </form>
-    </div>
-  </div>
-}
-
--->
+<!-- </div> -->

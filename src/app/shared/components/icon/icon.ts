@@ -1,31 +1,24 @@
-import { Component, input, inject, OnInit, DestroyRef, signal } from '@angular/core';
+import { Directive, ElementRef, input, inject, OnInit, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IconRegistry } from './icon-registry';
-import { SafeHtml } from '@angular/platform-browser';
 
-@Component({
-  selector: 'app-icon',
-  imports: [],
-  template: '@if (svgContent()) { <span class="icon" [innerHTML]="svgContent()"></span> }',
-  styles: [`
-    :host { display: inline-flex; align-items: center; justify-content: center; }
-    .icon { display: inline-flex; align-items: center; justify-content: center; }
-    .icon ::ng-deep svg { display: block; }
-  `],
+@Directive({
+  selector: 'app-icon, [app-icon]',
 })
 export class Icon implements OnInit {
-  readonly name = input.required<string>();
-  readonly size = input(24);
+  readonly name = input.required<string>({ alias: 'app-icon' });
+  readonly position = input<'before' | 'after'>('before', { alias: 'icon-position' });
 
-  protected svgContent = signal<SafeHtml | null>(null);
-
+  private el = inject(ElementRef).nativeElement as HTMLElement;
   private registry = inject(IconRegistry);
   private destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
     this.registry
-      .get(this.name(), this.size())
+      .get(this.name())
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((svg) => this.svgContent.set(svg));
+      .subscribe((svg) => {
+        this.el.insertAdjacentHTML(this.position() === 'after' ? 'beforeend' : 'afterbegin', svg);
+      });
   }
 }

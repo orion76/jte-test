@@ -1,45 +1,37 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, shareReplay, map, catchError } from 'rxjs';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 export class IconRegistry {
-  private cache = new Map<string, SafeHtml>();
-  private pending = new Map<string, Observable<SafeHtml>>();
+  private cache = new Map<string, string>();
+  private pending = new Map<string, Observable<string>>();
 
   private http = inject(HttpClient);
-  private sanitizer = inject(DomSanitizer);
 
-  get(name: string, size: number): Observable<SafeHtml> {
-    const key = `${name}_${size}`;
-    const cached = this.cache.get(key);
+  get(name: string): Observable<string> {
+    const cached = this.cache.get(name);
     if (cached) return of(cached);
 
-    const pending = this.pending.get(key);
+    const pending = this.pending.get(name);
     if (pending) return pending;
 
     const req = this.http
       .get(`assets/icons/${name}.svg`, { responseType: 'text' })
       .pipe(
         map((raw) => {
-          const sized = raw.replace(
-            /<svg/,
-            `<svg width="${size}" height="${size}"`
-          );
-          const safe = this.sanitizer.bypassSecurityTrustHtml(sized);
-          this.cache.set(key, safe);
-          this.pending.delete(key);
-          return safe;
+          this.cache.set(name, raw);
+          this.pending.delete(name);
+          return raw;
         }),
         catchError(() => {
-          this.pending.delete(key);
-          return of(this.sanitizer.bypassSecurityTrustHtml(''));
+          this.pending.delete(name);
+          return of('');
         }),
         shareReplay(1),
       );
 
-    this.pending.set(key, req);
+    this.pending.set(name, req);
     return req;
   }
 }

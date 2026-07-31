@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>desktop--search-activate — Test Stand</title>
+  <link rel="stylesheet" href="style.scss" />
+  <script type="module" src="script.ts"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header__panel header__left">
+      <div class="header__logo">
+        <a href="/" class="header__logo-link">
+          <img src="/assets/logo.png" alt="Logo" class="header__logo-img" />
+        </a>
+      </div>
+    </div>
+
+    <nav class="header__panel header__center">
+      <app-menu class="app-menu">
+        <div class="menu"></div>
+      </app-menu>
+
+      <div class="search-form-container">
+        <div class="search-form">
+          <div class="search-form__header">
+            <form class="search-form__form">
+              <div class="search-form__input-wrapper">
+                <span class="search-form__search-icon" data-icon="search"></span>
+                <input
+                  type="text"
+                  class="search-form__input"
+                  placeholder="Поиск"
+                />
+                <button
+                  type="button"
+                  class="search-form__clear"
+                  data-icon="cancel"
+                  style="display: none"
+                  aria-label="Очистить"
+                ></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="button-search icon-btn"
+        data-icon="search"
+        aria-label="Поиск"
+      ></button>
+
+      <button class="button-add icon-btn" data-icon="add-circle" aria-label="Добавить"></button>
+    </nav>
+  </header>
+
+  <div class="demo-info">
+    <p>Нажмите на кнопку поиска (🔍) чтобы открыть форму.</p>
+    <p>Форма выезжает справа и перекрывает меню.</p>
+    <p>Повторный клик — форма уезжает обратно.</p>
+  </div>
+</body>
+</html>

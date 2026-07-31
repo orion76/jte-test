@@ -16,6 +16,11 @@ import { Icon } from '../../../shared/components/icon/icon';
   selector: 'app-search-form',
   imports: [FilterPanel, Icon],
   templateUrl: './search-form.html',
+  host: {
+    class:'search-form',
+    'animate.enter': 'slide-in',
+    'animate.leave': 'slide-out',
+  },
 })
 export class SearchForm {
   readonly query = model('');
@@ -23,8 +28,6 @@ export class SearchForm {
   readonly close = output<void>();
 
   readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
-
-  readonly onClickOutside = input<true>();
 
   readonly isShowForm = signal<boolean>(false);
   constructor() {

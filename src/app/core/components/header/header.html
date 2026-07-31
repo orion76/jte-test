@@ -1,9 +1,13 @@
 <header class="header">
   <div class="header__panel header__left">
-    @if (viewportObserver.isMobile()) {
-      <button #menuTrigger class="icon-btn" (click)="openMobileMenu()" aria-label="Меню">
-        <app-icon name="menu" />
-      </button>
+    @if (viewportObserver.viewport() === 'mobile') {
+      <button
+        #menuTrigger
+        app-icon="menu"
+        class="icon-btn"
+        (click)="openMobileMenu()"
+        aria-label="Меню"
+      ></button>
     }
     <div class="header__logo">
       <a href="/" class="header__logo-link">
@@ -13,20 +17,23 @@
   </div>
 
   <nav class="header__panel header__center">
-    <app-menu class="app-menu" __loc="appMenu" [items]="pagesMenu"></app-menu>
+    <app-menu class="app-menu" [items]="pagesMenu"></app-menu>
+    <!-- <div class="app-overlay-outlet" outletId="desktopSearch"> -->
+    <app-overlay-outlet
+      outletId="search-form--desktop"
+      viewport="desktop"
+      class="search-form-container"
+    ></app-overlay-outlet>
     <button
-      __loc="buttonSearch"
+      app-icon="search"
       class="button-search icon-btn"
-      (click)="onSearchToggle()"
+      (click)="onSearchOpen()"
       aria-label="Поиск"
-    >
-      <app-icon name="search" />
-    </button>
-    <button class="button-add icon-btn" aria-label="Добавить">
-      <app-icon name="add-circle" />
-    </button>
+    ></button>
   </nav>
-
+  <div class="header__panel header__item">
+    <button app-icon="add-circle" class="button-add icon-btn" aria-label="Добавить"></button>
+  </div>
   <div class="header__panel header__right">
     <app-user-panel />
   </div>
