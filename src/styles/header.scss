@@ -1,12 +1,12 @@
+@use 'mixins' as *;
+
 .header {
+  @include flex-center;
   background: var(--color-primary);
-  display: flex;
-  align-items: center;
 
 
   &__left {
-    display: flex;
-    align-items: center;
+    @include flex-center;
     flex-shrink: 0;
   }
 
@@ -20,8 +20,7 @@
     padding: 0 1em;
 
     &-link {
-      display: flex;
-      align-items: center;
+      @include flex-center;
       height: 100%;
       text-decoration: none;
     }
@@ -35,25 +34,13 @@
 
   &__panel {
     position: relative; // 1. Это самый главный анкер!
-    display: flex;
+    @include flex-center;
     box-sizing: border-box;
-    align-items: center;
   }
 
   &__center {
     width: max-content;
   }
-
-  &__nav-content {
-    display: flex;
-    // grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    position: relative;
-    flex-shrink: 0;
-    // width: 100%;
-  }
-
-
 
 }
 
@@ -62,23 +49,7 @@
 }
 
 .icon-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-btn);
-  height: var(--size-btn);
-  border: none;
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--color-white);
-  cursor: pointer;
-  transition: background 0.2s ease;
-  flex-shrink: 0;
-
-  &:hover {
-    background: var(--color-white-transparent-15);
-  }
+  @include icon-btn($color: var(--color-white), $hover-bg: var(--color-white-transparent-15));
 }
 
 .avatar-btn {
@@ -88,18 +59,15 @@
 }
 
 .badge {
+  @include flex-center($justify: center);
   position: absolute;
   top: var(--spacing-2xs);
   right: var(--spacing-2xs);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-width: var(--spacing-xl);
   height: var(--spacing-lg);
   padding: 0 var(--spacing-2xs);
   background: var(--color-danger);
   color: var(--color-white);
-  font-family: var(--font-family);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   line-height: 14px;

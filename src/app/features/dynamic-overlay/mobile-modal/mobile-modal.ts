@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Injector, Input, Output, Type } from '@angular/core';
-import { NgComponentOutlet } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-mobile-modal',
-  imports: [NgComponentOutlet],
   templateUrl: './mobile-modal.html',
   styleUrl: './mobile-modal.scss',
 })

@@ -1,6 +1,7 @@
+@use 'mixins' as *;
+
 .menu {
-  display: flex;
-  align-items: center;
+  @include flex-center;
   gap: 0;
 
   &--vertical {
@@ -10,19 +11,14 @@
 }
 
 .menu-item__button {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
+  @include flex-center($gap: var(--spacing-sm));
+  font: inherit;
   padding: 0 var(--menu-item--padding);
   height: var(--header-height);
   border: none;
   background: transparent;
   color: var(--menu-item--color);
   cursor: pointer;
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--spacing-xl);
   white-space: nowrap;
   transition: background 0.2s ease;
   text-decoration: none;
@@ -30,56 +26,20 @@
   &:hover {
     background: var(--color-black-transparent-5);
   }
+}
 
-  &--active {
-    background: var(--color-black-transparent-8);
-  }
+.menu-item__icon {
+  @include icon;
+}
 
-  &--disabled {
-    opacity: 0.4;
-    pointer-events: none;
-  }
-
-  &--icon-only {
-    justify-content: center;
-    width: var(--size-btn);
-    height: var(--size-btn);
-    padding: 0;
-    border-radius: var(--radius-sm);
-  }
-
-  &--label-only {
-    padding: 0 var(--spacing-md);
-  }
-
-  &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--size-icon);
-    height: var(--size-icon);
-    flex-shrink: 0;
-  }
-
-  &__label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.menu-item__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu--vertical .menu-item {
   height: 32px;
   padding: 0 var(--spacing-lg);
-
-  &--icon-only {
-    width: var(--size-btn);
-    height: var(--size-btn);
-    padding: 0;
-  }
-
-  &--label-only {
-    padding: 0 var(--spacing-lg);
-  }
 }
 
 

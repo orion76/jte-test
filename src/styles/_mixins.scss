@@ -10,6 +10,21 @@
   cursor: pointer;
 }
 
+// ---- Flex ----
+
+@mixin flex-center($gap: null, $justify: null) {
+  display: flex;
+  align-items: center;
+
+  @if $gap {
+    gap: $gap;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+}
+
 // ---- Кнопки ----
 
 @mixin icon-btn(
@@ -20,10 +35,8 @@
   $transition: background 0.2s ease
 ) {
   @include button-reset;
+  @include flex-center($justify: center);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: $size;
   height: $size;
   border-radius: $radius;
@@ -51,9 +64,8 @@
   border: none;
   height: $height;
   padding: $padding;
-  font-family: var(--font-family);
+  font: inherit;
   font-size: $font-size;
-  font-weight: var(--font-weight-regular);
   line-height: $line-height;
   color: $color;
   outline: none;
@@ -63,37 +75,11 @@
   }
 }
 
-// ---- Типографика ----
-
-@mixin text(
-  $size: var(--font-size-base),
-  $weight: var(--font-weight-regular),
-  $line-height: var(--spacing-xl),
-  $color: var(--color-text-primary),
-  $family: var(--font-family)
-) {
-  font-family: $family;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $line-height;
-  color: $color;
-}
-
 // ---- Иконки ----
 
 @mixin icon($size: var(--size-icon)) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center($justify: center);
   width: $size;
   height: $size;
   flex-shrink: 0;
-}
-
-// ---- Текст ----
-
-@mixin ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
