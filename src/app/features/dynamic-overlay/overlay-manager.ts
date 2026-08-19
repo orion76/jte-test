@@ -1,22 +1,22 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
-import { IOverlayManager, IOverlayOutletOptions, UOverlayOutletOptions } from './types';
+import { Injectable } from '@angular/core';
+import { IOverlayManager, IOverlayOpenOptions, TOpoenSignal } from './types';
+
+
 
 @Injectable({ providedIn: 'root' })
 export class OverlayManager implements IOverlayManager {
-  readonly outlets: Map<string, WritableSignal<undefined | IOverlayOutletOptions>> = new Map();
+  readonly outlets: Map<string, TOpoenSignal> = new Map();
 
-  register(outletId: string, openSignal: WritableSignal<IOverlayOutletOptions | undefined>) {
-    this.outlets.set(outletId, openSignal);
+  register(id: string, openSignal: TOpoenSignal) {
+    this.outlets.set(id, openSignal);
   }
 
-  open(options: UOverlayOutletOptions, inputs?: Record<string, unknown>): boolean {
-    let outletId = options.outletId || 'default';
+  open(outletId: string, outletOptions: IOverlayOpenOptions): boolean {
     const openSignal = this.outlets.get(outletId);
     if (!openSignal) {
       return false;
     }
-
-    openSignal.set(options);
+    openSignal.set(outletOptions);
 
     return true;
   }
@@ -25,7 +25,6 @@ export class OverlayManager implements IOverlayManager {
     if (!openSignal) {
       return false;
     }
-    // this.outlets.delete(outletId);
     openSignal.set(undefined);
 
     return true;

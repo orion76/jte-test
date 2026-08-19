@@ -1,11 +1,12 @@
-@if (items().length > 0) {
-  <div class="menu" [class.menu--vertical]="direction() === 'vertical'">
-    @for (item of items(); track item.id) {
-      <app-menu-item
-        [class]="'menu-item ' + 'menu-item--' + item.id"
-        [itemData]="item"
-        (itemClick)="onClick(item)"
-      />
-    }
-  </div>
+@let _items = items();
+
+<!-- <ng-content select="[header]"></ng-content> -->
+@if (_items.length > 0) {
+  @for (item of _items; track item.id) {
+    <app-menu-item
+      [class]="'menu-item menu-item--' + item.id"
+      [itemData]="item"
+      (itemClick)="onClick(item)"
+    />
+  }
 }

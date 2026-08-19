@@ -17,23 +17,25 @@
   </div>
 
   <nav class="header__panel header__center">
-    <app-menu class="app-menu" [items]="pagesMenu"></app-menu>
+    <app-menu class="menu" [items]="pagesMenu"></app-menu>
     <!-- <div class="app-overlay-outlet" outletId="desktopSearch"> -->
+
     <app-overlay-outlet
       outletId="search-form--desktop"
       viewport="desktop"
       class="search-form-container"
-    ></app-overlay-outlet>
+    >
+    </app-overlay-outlet>
     <button
       app-icon="search"
       class="button-search icon-btn"
       (click)="onSearchOpen()"
       aria-label="Поиск"
     ></button>
-  </nav>
-  <div class="header__panel header__item">
+
     <button app-icon="add-circle" class="button-add icon-btn" aria-label="Добавить"></button>
-  </div>
+  </nav>
+  <div class="header__panel header__item"></div>
   <div class="header__panel header__right">
     <app-user-panel />
   </div>

@@ -1,0 +1,110 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  @include flex;
+  height: 4em;
+  background: var(--color-primary);
+
+
+  &__left {
+    @include flex;
+    flex-shrink: 0;
+    margin-right: auto;
+  }
+
+  &__right {
+    margin-left: auto;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    // height: var(--header-height);
+
+    padding: 0 1em;
+
+    &-link {
+      @include flex;
+      height: 100%;
+      text-decoration: none;
+    }
+
+    &-img {
+      display: block;
+
+      width: 9.5em;
+    }
+  }
+
+  &__panel {
+    position: relative; // 1. Это самый главный анкер!
+    @include flex;
+    box-sizing: border-box;
+  }
+
+  &__center {
+    width: max-content;
+    height: 100%;
+    gap: var(--spacing-lg)
+  }
+
+  &__center .search-form-container {
+    width: calc(100% - (var(--size-btn) + var(--spacing-lg) / 2));
+    height: 100%;
+    pointer-events: none;
+    // overflow: hidden;
+  }
+
+  &__center .search-form {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+  }
+
+}
+
+@media (max-width: $viewport-width-mobile) {
+  .header {
+    padding: 0 0.5em;
+
+    &__left {
+      gap: 0;
+    }
+
+    &__right {
+      margin: 0;
+    }
+
+    &__center {
+      .button-add {
+        order: 0;
+      }
+
+      .menu {
+        order: 1;
+      }
+
+      .button-search {
+        order: 2;
+      }
+
+    }
+
+    .menu {
+      padding: 0;
+      margin: 0;
+
+    }
+  }
+}
+
+// app-overlay-outlet {
+//   display: contents;
+// }
+
+// .app-overlay-outlet {
+//   display: contents;
+// }

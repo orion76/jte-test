@@ -1,0 +1,14 @@
+@let _title = title();
+<div class="mobile-modal-layout__header">
+  <button
+    app-icon="arrow-back"
+    class="button-back icon-btn"
+    type="button"
+    (click)="close.emit(true)"
+    aria-label="Назад"
+  ></button>
+</div>
+@if (_title) {
+  <h3 class="mobile-modal-layout__title">{{ _title }}</h3>
+}
+<div class="mobile-modal-layout__content"><ng-content></ng-content></div>

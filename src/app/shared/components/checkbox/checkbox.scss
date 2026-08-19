@@ -1,0 +1,67 @@
+@use 'mixins' as *;
+
+.checkbox {
+  input[type='checkbox']:checked~.checkbox__icon svg {
+    display: block;
+  }
+
+  &__label {
+    cursor: pointer;
+    @include flex($gap: var(--spacing-2xs));
+  }
+
+  &__title {
+    white-space: nowrap;
+    padding-left: var(--spacing-md)
+  }
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  .checkbox__icon {
+    @include flex($justify: center);
+    border: 2px solid #999;
+
+    height: var(--input-checkbox-size);
+    width: var(--input-checkbox-size);
+    flex-shrink: 0;
+
+    svg {
+      display: none;
+      fill: none;
+      stroke-width: 4;
+      stroke: var(--color-primary);
+    }
+  }
+
+
+  &--round {
+
+    // background-color: red;
+    // input[type='checkbox']:checked~.checkbox__icon svg {
+    //   display: block;
+    // }
+
+    .checkbox__icon {
+      border: none;
+      border-radius: 50%;
+      background-color: var(--color-gray-light);
+      height: var(--input-radio-size);
+      width: var(--input-radio-size);
+
+      svg {
+
+        stroke-width: 2;
+        stroke: var(--color-gray);
+      }
+    }
+
+
+  }
+}

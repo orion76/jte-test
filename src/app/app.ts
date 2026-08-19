@@ -4,7 +4,7 @@ import { OverlayOutlet } from './features/dynamic-overlay/overlay-outlet/overlay
 
 @Component({
   selector: 'app-root',
-  imports: [Header,  OverlayOutlet],
+  imports: [Header, OverlayOutlet],
   templateUrl: './app.html',
 })
 export class App {}

@@ -7,19 +7,18 @@ import { IMenuItemData } from './types';
   selector: 'app-menu',
   imports: [MenuItem],
   templateUrl: './menu.html',
+  host: {
+    '[class]': 'hostClasses()',
+  },
 })
-export class Menu implements OnInit {
+export class Menu {
   readonly items = input<IMenuItemData[]>([]);
   readonly direction = input<'horizontal' | 'vertical'>('horizontal');
-  readonly activeItem = model<string | null>(null);
-  readonly itemClick = output<IMenuItemData>();
 
   protected onClick(item: IMenuItemData): void {
-    if (item.disabled) return;
-    this.activeItem.set(item.id);
-    this.itemClick.emit(item);
+    console.log('[Menu]- click', item.id);
   }
-  ngOnInit(): void {
-    console.log('[menu] direction', this.direction())
+  hostClasses() {
+    return `menu--${this.direction()}`;
   }
 }

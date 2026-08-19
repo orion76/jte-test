@@ -1,0 +1,99 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.search-form {
+
+  @include flex($direction: column, $align: stretch);
+
+  padding: 4px 0;
+
+  &.slide-in {
+    animation: slideInForward 0.3s ease-in forwards;
+  }
+
+  &.slide-out {
+    animation: slideOutBackward 0.3s ease-in forwards;
+  }
+
+}
+
+
+.search-form__header {
+  @include flex($gap: var(--spacing-2xs));
+  // height: var(--header-height);
+}
+
+.form-field--search {
+  @include flex;
+  position: relative;
+  width: 100%;
+  background-color: var(--app-background-color);
+  border-radius: 4px;
+
+  .form-field__input {
+    height: 3.5em;
+    // @include input($font-size: var(--font-size-lg));
+    // background-color: transparent;
+    // width: 100%;
+    // // background: transparent;
+    // transition: background 0.2s ease;
+    // position: relative;
+    // z-index: 0;
+  }
+
+  .form-field__clear {
+    right: var(--spacing-2xs);
+
+    @include icon-btn($size: 36px, $radius: var(--radius-full), $hover-bg: var(--color-black-transparent-5));
+    position: absolute;
+  }
+}
+
+
+
+
+
+@keyframes slideInForward {
+  from {
+    width: 0%
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes slideOutBackward {
+  from {
+       width: 100%
+  }
+
+  to {
+      width: 0%
+  }
+}
+
+
+
+@media (max-width: $viewport-width-mobile) {
+  .form-field--search {
+    background-color: #f5f5f5;
+    border-radius: 2em;
+  }
+}
+
+.mobile-modal-layout {
+  .search-form {
+    display: contents;
+
+    &__header {
+      grid-area: header-center;
+    }
+
+    &> :not(.search-form__header) {
+      grid-area: content;
+    }
+  }
+
+
+}

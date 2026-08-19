@@ -1,34 +1,27 @@
-@let showForm = isShowForm();
-
-<!-- <div class="search-form"> -->
-  <div class="search-form__header">
-    <form class="search-form__form" (submit)="onSubmit(); $event.preventDefault()">
-      <div class="search-form__input-wrapper">
-        <span app-icon="search"></span>
-        <input
-          #searchInput
-          type="text"
-          class="search-form__input"
-          placeholder="Поиск"
-          (focus)="onSearchFieldFocus()"
-          (blur)="onSearchFieldBlur()"
-          [value]="query()"
-          (input)="query.set($any($event.target).value)"
-        />
-        @if (query()) {
-          <button
-            app-icon="cancel"
-            icon-position="after"
-            type="button"
-            class="search-form__clear"
-            (click)="query.set('')"
-            aria-label="Очистить"
-          ></button>
-        }
-      </div>
-    </form>
+<div
+  class="search-form__header"
+>
+  <div class="form-field form-field--search">
+    <input
+      type="text"
+      class="form-field__input"
+      placeholder="Поиск"
+      (focus)="onSearchFieldFocus()"
+      [value]="query()"
+      (input)="query.set($any($event.target).value)"
+    />
+    @if (query()) {
+      <button
+        app-icon="cancel"
+        icon-position="after"
+        type="button"
+        class="form-field__clear"
+        (click)="query.set('')"
+        aria-label="Очистить"
+      ></button>
+    }
   </div>
-  @if (showForm) {
-    <app-filter-panel />
-  }
-<!-- </div> -->
+</div>
+@if (isShowForm()) {
+  <app-filter-panel class="filter-panel" [(history)]="history" [checkboxStyle]="checkboxStyle()" />
+}

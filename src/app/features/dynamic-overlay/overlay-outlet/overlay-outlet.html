@@ -1,14 +1,19 @@
-@let opts = overlay();
+@let opts = openSignal();
 @if (opts) {
   @switch (viewport()) {
     @case ('mobile') {
-      <app-mobile-modal (close)="closeOverlay()" (back)="closeOverlay()">
-        <ng-container *ngComponentOutlet="opts.component; inputs: opts.inputs" />
-      </app-mobile-modal>
+      <app-mobile-modal-layout (close)="closeOverlay()" [title]="opts.title">
+        <ng-container
+          *ngComponentOutlet="opts.component; inputs: opts.inputs; injector: overlayInjector"
+        />
+      </app-mobile-modal-layout>
     }
     @case ('desktop') {
-      <div class="overlay-outlet-backdrop" (click)="closeOverlay()"></div>
-      <ng-container *ngComponentOutlet="opts.component; inputs: opts.inputs" />
+      <div class="overlay-outlet-backdrop" (click)="closeSignal.set(true)"></div>
+      <ng-container
+        *ngComponentOutlet="opts.component; inputs: opts.inputs; injector: overlayInjector"
+      />
     }
   }
 }
+

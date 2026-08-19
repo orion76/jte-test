@@ -9,11 +9,9 @@ import { IMenuItemData } from '../types';
 })
 export class MenuItem {
   readonly itemData = input.required<IMenuItemData>();
-  readonly isActive = input<Boolean>();
   readonly itemClick = output<IMenuItemData>();
 
   protected onClick(item: IMenuItemData): void {
-    if (item.disabled) return;
-    this.itemClick.emit(item);
+    this.itemClick.emit(this.itemData());
   }
 }

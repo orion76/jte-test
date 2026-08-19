@@ -1,0 +1,68 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.mobile-modal-layout {
+  display: grid;
+  background-color: var(--app-background-color);
+  grid-template-columns: 40px 1fr auto;
+  grid-template-areas:
+    "header-start header-center header-end"
+    "content content content";
+  padding: 0 1rem;
+
+  &__header {
+    grid-area: header-start;
+    display: flex;
+    align-items: center;
+    height: 4em;
+  }
+
+  &__title {
+    grid-area: header-center;
+    font-weight: var(--font-weight-regular);
+    padding: 1rem;
+
+    align-content: center;
+  }
+
+  &__content {
+    // grid-area: content;
+    display: contents
+  }
+
+  .button-back {
+    @include button-reset;
+
+    svg {
+      stroke-width: 2;
+    }
+  }
+
+  &.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  &.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

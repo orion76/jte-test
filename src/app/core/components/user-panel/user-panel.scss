@@ -1,0 +1,11 @@
+@use 'mixins' as *;
+
+.user-panel {
+  @include flex($align: stretch, $gap: var(--spacing-md));
+}
+
+.avatar-btn {
+  width: var(--size-btn);
+  height: var(--size-btn);
+  padding: var(--spacing-2xs);
+}

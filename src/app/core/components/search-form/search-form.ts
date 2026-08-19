@@ -1,59 +1,56 @@
 import {
-  afterNextRender,
   Component,
+  computed,
   effect,
-  ElementRef,
-  input,
+  inject,
+  linkedSignal,
   model,
-  output,
   signal,
-  viewChild,
+  ViewEncapsulation,
 } from '@angular/core';
-import { FilterPanel } from '../filter-panel/filter-panel';
-import { Icon } from '../../../shared/components/icon/icon';
+import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '@features/dynamic-overlay/tokens';
+import { Icon } from '@shared/components/icon/icon';
+import { ViewportObserver } from '../../services/viewport-observer/viewport-observer';
+import { FilterPanel } from './filter-panel/filter-panel';
 
 @Component({
   selector: 'app-search-form',
   imports: [FilterPanel, Icon],
   templateUrl: './search-form.html',
+  styleUrl: './search-form.scss',
+  encapsulation: ViewEncapsulation.None,
   host: {
-    class:'search-form',
-    'animate.enter': 'slide-in',
-    'animate.leave': 'slide-out',
+    class: 'search-form',
+    '[animate.enter]': 'enterAnimation()',
+    '[animate.leave]': 'leaveAnimation()',
   },
 })
 export class SearchForm {
-  readonly query = model('');
-  readonly submit = output<void>();
-  readonly close = output<void>();
+  protected viewportObserver = inject(ViewportObserver);
 
-  readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
+  readonly query = model<string>('');
+  history = signal<string>('');
 
-  readonly isShowForm = signal<boolean>(false);
+  readonly close = inject(OVERLAY_OUTLET_CLOSE_EVENT_TOKEN);
+
+  readonly isMobile = computed(() => this.viewportObserver.viewport() === 'mobile');
+  readonly isDesktop = computed(() => this.viewportObserver.viewport() === 'desktop');
+  readonly checkboxStyle = computed(() => (this.isMobile() ? 'round' : 'default'));
+  protected readonly enterAnimation = computed(() => (this.isDesktop() ? 'slide-in' : ''));
+  protected readonly leaveAnimation = computed(() => (this.isDesktop() ? 'slide-out' : ''));
+  readonly isShowForm = linkedSignal(() => {
+    const isOpen = !this.close();
+    const isMobile = !this.isDesktop();
+    return isMobile && isOpen;
+  });
+
   constructor() {
-    effect(() => {
-      console.log('[search form] isShowForm:', this.isShowForm());
-    });
-  }
-
-  protected onSubmit(): void {
-    this.submit.emit();
-  }
-
-  protected onBack(): void {
-    this.submit.emit();
+    effect(() => this.query.set(this.history()));
   }
 
   onSearchFieldFocus() {
-    console.log('[SEARCH FORM] - on focus');
-    this.isShowForm.set(true);
-  }
-
-  onSearchFieldBlur() {
-    console.log('[SEARCH FORM] - on blur');
-    this.isShowForm.set(false);
-  }
-  log(...args: any[]) {
-    console.log('[search form]', ...args);
+    if (this.isDesktop()) {
+      this.isShowForm.set(true);
+    }
   }
 }
