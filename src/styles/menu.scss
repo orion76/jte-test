@@ -1,57 +1,86 @@
+@use 'variables' as *;
 @use 'mixins' as *;
 
 .menu {
-  @include flex-center;
+  @include flex;
   gap: 0;
+  padding: 0 var(--spacing-xxl);
+  margin-right: 1em;
 
   &--vertical {
-    flex-direction: column;
-    align-items: stretch;
+    @include flex($direction: column, $align: stretch);
+    padding: 1em;
+
+    .menu-item {
+      padding: .5rem 1rem;
+    }
   }
 }
 
-.menu-item__button {
-  @include flex-center($gap: var(--spacing-sm));
-  font: inherit;
-  padding: 0 var(--menu-item--padding);
-  height: var(--header-height);
-  border: none;
-  background: transparent;
-  color: var(--menu-item--color);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s ease;
-  text-decoration: none;
+.menu-item {
+
 
   &:hover {
     background: var(--color-black-transparent-5);
   }
-}
 
-.menu-item__icon {
-  @include icon;
-}
-
-.menu-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.menu--vertical .menu-item {
-  height: 32px;
-  padding: 0 var(--spacing-lg);
-}
-
-
-@media (max-width: 414px) {
-  .menu-item.menu-item--history{
-    display: block;
+  &__button {
+    @include icon-btn($color: var(--color-white), $hover-bg: var(--color-white-transparent-15));
+    width: auto;
+    gap: var(--spacing-sm);
+    padding: 0 var(--menu-item--padding);
+    white-space: nowrap;
+    text-decoration: none;
   }
-  .menu-item {
-    display: none;
 
-    &__label {
+  &__icon {
+    @include icon;
+  }
+
+  &__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+
+.mobile-modal-layout {
+  .menu--vertical {
+    grid-area: content;
+  }
+
+  .menu-item {
+    &__button {
+      color: var(--color-text-primary);
+      width: 100%;
+      padding: 0;
+      justify-content: flex-start;
+    }
+
+  }
+}
+
+@media (max-width: $viewport-width-mobile) {
+  .header {
+    .menu-item {
       display: none;
+
+      &__label {
+        display: none;
+      }
+    }
+
+    .menu-item.menu-item--history {
+      display: block;
+    }
+
+
+    .menu-item__button {
+      width: var(--size-btn);
+      height: var(--size-btn);
+      padding: 0;
+      gap: 0;
     }
   }
+
 }

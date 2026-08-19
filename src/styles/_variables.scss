@@ -1,13 +1,17 @@
+$viewport-width-mobile: 439px;
+$viewport-width-tablet: 768px;
+
 :root {
   // ---- Colors ----
   --color-primary: #1074CC;
   --color-danger: #CC1910;
   --color-white: #fff;
   --color-black: #000;
-
+  --color-gray: #7F878C;
+  --color-gray-light: #F5F5F5;
   // Text
   --color-text-primary: #2A3033;
-  --color-text-secondary: #7F878C;
+  --color-text-secondary: var(--color-gray);
   --color-text-muted: #9AA1A6;
   --color-text-light: #8C9499;
   --color-text-dark: #64676B;
@@ -34,6 +38,7 @@
   --font-size-lg: 16px;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
+  --title-font-weight: var(--font-weight-regular);
 
   // ---- Spacing ----
   --spacing-3xs: 2px;
@@ -43,13 +48,17 @@
   --spacing-md: 12px;
   --spacing-lg: 16px;
   --spacing-xl: 20px;
+  --spacing-xxl: 1.5em;
   --spacing-3xl: 40px;
 
   // ---- Sizing ----
   --header-height: 56px;
+  --input-height: 20px;
+  --input-radio-size: 32px;
+  --input-checkbox-size: 18px;
   --size-btn: 40px;
   --size-icon: 24px;
-  --size-input-height: 48px;
+
 
   // ---- Border Radius ----
   --radius-xs: 4px;
@@ -57,5 +66,9 @@
   --radius-full: 100px;
 
   --menu-item--color: var(--color-white);
-  --menu-item--padding: var(--spacing-md)
+  --menu-item--padding: var(--spacing-lg);
+
+
+  --app-background-color: var(--color-white);
+  --filter-panel-history-width: 216px;
 }

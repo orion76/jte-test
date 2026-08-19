@@ -1,0 +1,22 @@
+@use 'mixins' as *;
+
+.icon-btn {
+  @include icon-btn($color: var(--color-white), $hover-bg: var(--color-white-transparent-15));
+}
+
+.badge {
+  @include flex($justify: center);
+  position: absolute;
+  top: var(--spacing-2xs);
+  right: var(--spacing-2xs);
+  min-width: var(--spacing-xl);
+  height: var(--spacing-lg);
+  padding: 0 var(--spacing-2xs);
+  background: var(--color-danger);
+  color: var(--color-white);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 14px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
