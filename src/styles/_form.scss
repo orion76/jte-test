@@ -1,8 +1,6 @@
 @use 'mixins' as *;
 
 .form-field {
-  // margin-top: var(--spacing-md);
-  // max-width: 439px;
   position: relative;
 
   &__label {
@@ -13,7 +11,6 @@
     color: var(--color-text-light);
     margin-bottom: var(--spacing-3xs);
     background: var(--color-white);
-    z-index: 1;
   }
 
   &__title {

@@ -3,7 +3,6 @@
 
 .menu {
   @include flex;
-  gap: 0;
   padding: 0 var(--spacing-xxl);
   margin-right: 1em;
 
@@ -33,10 +32,6 @@
     text-decoration: none;
   }
 
-  &__icon {
-    @include icon;
-  }
-
   &__label {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -64,14 +59,10 @@
   .header {
     .menu-item {
       display: none;
-
-      &__label {
-        display: none;
-      }
     }
 
     .menu-item.menu-item--history {
-      display: block;
+      display: none;
     }
 
 

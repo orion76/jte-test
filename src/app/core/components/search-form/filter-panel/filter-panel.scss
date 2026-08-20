@@ -45,13 +45,12 @@
 }
 
 .form-section {
-  &__header {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    line-height: 14px;
-    color: var(--color-text-secondary);
-    // padding: 0 var(--spacing-lg) var(--spacing-xs);
-    letter-spacing: 0.5px;
+    &__header {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      line-height: 14px;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.5px;
 
     &--label {
       text-transform: none;
@@ -67,7 +66,6 @@
     height: 2em;
     background: linear-gradient(transparent, var(--color-white) 75%);
     position: absolute;
-    // width: 100%;
     bottom: 0;
     right: 0;
     left: 0;
@@ -93,10 +91,6 @@
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-xs);
   transition: background 0.15s ease;
-
-  &__label {
-    white-space: nowrap;
-  }
 }
 
 .input-action-button {
@@ -114,20 +108,6 @@
     color: var(--color-text-dark);
   }
 
-}
-
-
-.search-field {
-  @include flex;
-  position: relative;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xs);
-  background: var(--color-white);
-  margin-top: var(--spacing-sm);
-
-  &:focus-within {
-    border-color: var(--color-primary);
-  }
 }
 
 .form-field--author {
@@ -161,25 +141,3 @@
     }
   }
 }
-
-
-// @media (max-width:  $viewport-width-tablet) {
-//   .filter-panel {
-//     &__layout {
-//       box-shadow: none;
-//       border: none;
-//     }
-
-//     &__column--history {
-//       display: none;
-//     }
-
-//     &__column--filters {
-//       padding: 0;
-//     }
-
-//     .filter-chips {
-//       flex-direction: column;
-//     }
-//   }
-// }

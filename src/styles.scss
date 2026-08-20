@@ -1,9 +1,10 @@
-@use 'styles/variables';
-@use 'styles/filter-panel';
-@use 'styles/header';
+@use 'styles/theme';
 @use 'styles/menu';
+@use 'styles/form';
+@use 'styles/elements';
 
-@use 'styles/search-form';
+
+
 *,
 *::before,
 *::after {
@@ -12,18 +13,20 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+html,
+body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--spacing-xl);
   color: var(--color-text-primary);
-  background: #fff;
+  background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.cdk-overlay-transparent-backdrop {
-  background: transparent;
+.app-content {
+  height: 100%;
+  width: 100%;
+  background-color: var(--app-background-color);
 }

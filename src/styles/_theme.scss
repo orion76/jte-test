@@ -1,0 +1,63 @@
+:root {
+  // ---- Colors ----
+  --color-primary: #1074CC;
+  --color-danger: #CC1910;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #7F878C;
+  --color-gray-light: #F5F5F5;
+  // Text
+  --color-text-primary: #2A3033;
+  --color-text-secondary: var(--color-gray);
+  --color-text-muted: #9AA1A6;
+  --color-text-light: #8C9499;
+  --color-text-dark: #64676B;
+
+  // Border
+  --color-border: #E5E7EB;
+  --color-border-light: #E1E4E6;
+  --color-border-checkbox: #999;
+
+  // Background
+  --color-bg-hover: #F3F4F6;
+  --color-bg-btn: #EFF1F2;
+
+  // Transparent
+  --color-white-transparent-15: rgba(255, 255, 255, 0.15);
+  --color-black-transparent-5: rgba(0, 0, 0, 0.05);
+
+  // ---- Typography ----
+  --font-family: Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  // ---- Spacing ----
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 1.5em;
+
+  // ---- Sizing ----
+  --input-height: 20px;
+  --input-radio-size: 32px;
+  --input-checkbox-size: 18px;
+  --size-btn: 40px;
+  --size-icon: 24px;
+
+  // ---- Border Radius ----
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-full: 100px;
+
+  --menu-item--padding: var(--spacing-lg);
+
+  --app-background-color: var(--color-white);
+  --filter-panel-history-width: 216px;
+}

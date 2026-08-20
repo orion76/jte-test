@@ -19,8 +19,6 @@
 
   &__logo {
     flex-shrink: 0;
-    // height: var(--header-height);
-
     padding: 0 1em;
 
     &-link {
@@ -37,22 +35,19 @@
   }
 
   &__panel {
-    position: relative; // 1. Это самый главный анкер!
+    position: relative;
     @include flex;
-    box-sizing: border-box;
   }
 
   &__center {
     width: max-content;
     height: 100%;
-    gap: var(--spacing-lg)
   }
 
   &__center .search-form-container {
     width: calc(100% - (var(--size-btn) + var(--spacing-lg) / 2));
     height: 100%;
     pointer-events: none;
-    // overflow: hidden;
   }
 
   &__center .search-form {
@@ -69,10 +64,6 @@
 @media (max-width: $viewport-width-mobile) {
   .header {
     padding: 0 0.5em;
-
-    &__left {
-      gap: 0;
-    }
 
     &__right {
       margin: 0;
@@ -96,15 +87,6 @@
     .menu {
       padding: 0;
       margin: 0;
-
     }
   }
 }
-
-// app-overlay-outlet {
-//   display: contents;
-// }
-
-// .app-overlay-outlet {
-//   display: contents;
-// }
