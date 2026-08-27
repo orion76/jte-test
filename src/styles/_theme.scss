@@ -19,6 +19,9 @@
   --color-border-checkbox: #999;
 
   // Background
+  --button-background-color-hover-light: rgba(from var(--color-white) r g b / .2);
+  --button-background-color-hover-dark: rgba(from var(--color-black) r g b /.2);
+  --button-background-hover-color: var(--button-background-color-hover-light);
   --color-bg-hover: #F3F4F6;
   --color-bg-btn: #EFF1F2;
 
@@ -49,7 +52,7 @@
   --input-radio-size: 32px;
   --input-checkbox-size: 18px;
   --size-btn: 40px;
-  --size-icon: 24px;
+  --icon-size: 20px;
 
   // ---- Border Radius ----
   --radius-xs: 4px;
@@ -59,5 +62,16 @@
   --menu-item--padding: var(--spacing-lg);
 
   --app-background-color: var(--color-white);
+  --button-text-color: var(--color-white);
+
   --filter-panel-history-width: 216px;
+
+
+
+  --button-radius: 0px;
+  --button-padding-vertical: 18px;
+  --button-padding-horizontal: 18px;
+  --button-gap: var(--spacing-sm);
+
+
 }

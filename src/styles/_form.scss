@@ -29,3 +29,49 @@
     background: transparent;
   }
 }
+
+
+.form-section {
+  &__header {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    line-height: 14px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+
+    &--label {
+      text-transform: none;
+      letter-spacing: normal;
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-black);
+      padding: 0 0 var(--spacing-sm);
+    }
+  }
+
+  &__gradient {
+    height: 2em;
+    background: linear-gradient(transparent, var(--color-white) 75%);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.input-action-button {
+  --button-radius: var(--radius-xs);
+  --button-background-hover-color: transparent;
+  @include button;
+  margin-right: var(--spacing-sm);
+  background: var(--color-bg-btn);
+  width: var(--icon-size);
+  height: var(--icon-size);
+
+  &__text {
+    position: relative;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+  }
+
+}

@@ -1,9 +1,5 @@
 @use 'mixins' as *;
 
-.icon-btn {
-  @include icon-btn($color: var(--color-white), $hover-bg: var(--color-white-transparent-15));
-}
-
 .badge {
   @include flex($justify: center);
   position: absolute;

@@ -1,7 +1,8 @@
+@use 'styles/variables' as *;
 @use 'styles/theme';
-@use 'styles/menu';
 @use 'styles/form';
-@use 'styles/elements';
+@use 'styles/elements/button';
+@use 'styles/elements/badge';
 
 
 
@@ -25,8 +26,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app-content {
-  height: 100%;
+.overlay-outlet--mobile {
+  top: 0;
   width: 100%;
-  background-color: var(--app-background-color);
+}
+
+@media (max-width: $viewport-width-mobile) {
+  .menu--pages {
+    .button {
+      display: none;
+
+      &__label {
+        display: none;
+        ;
+      }
+
+      &--history {
+        display: inherit;
+      }
+    }
+  }
+
+  .badge {
+    display: none;
+    ;
+  }
+}
+
+.mobile-modal-layout {
+  .menu--vertical {
+
+    grid-area: content;
+  }
 }

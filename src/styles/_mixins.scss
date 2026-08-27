@@ -1,31 +1,29 @@
-// ---- Reset ----
+@use 'variables' as *;
 
 @mixin button-reset {
   border: none;
-  padding: 0;
-  margin: 0;
+  // padding: 0;
+  // margin: 0;
   background: transparent;
-  color: inherit;
+  // color: inherit;
   font: inherit;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
 // ---- Flex ----
 
-@mixin flex(
-  $direction: row,
+@mixin flex($direction: row,
   $wrap: nowrap,
   $align: center,
   $justify: null,
-  $gap: null
-) {
+  $gap: null) {
   display: flex;
 
-  @if $direction != row {
+  @if $direction !=row {
     flex-direction: $direction;
   }
 
-  @if $wrap != nowrap {
+  @if $wrap !=nowrap {
     flex-wrap: $wrap;
   }
 
@@ -41,42 +39,62 @@
 }
 
 // ---- Кнопки ----
+@mixin button() {
+  // --local-button-height: var(--button-height, var(--size-btn));
+  --local-button-radius: var(--button-radius, var(--radius-xs));
+  --local-button-text-color: var(--button-text-color, var(--color-white));
+  --local-button-background-hover-color: var(--button-background-hover-color, var(--color-bg-hover));
+  --local-button-transition: var(--button-transition, background 0.2s ease);
+  --local-icon-size: var(--button-icon-size, var(--icon-size));
+  --local-button-padding-vertical: var(--button-padding-vertical, 10px);
+  --local-button-padding-horizontal: var(--button-padding-horizontal, 10px);
+  --local-button-gap: var(--button-gap, var(--spasing-sm));
 
-@mixin icon-btn(
-  $size: var(--size-btn),
-  $radius: var(--radius-sm),
-  $color: var(--color-text-primary),
-  $hover-bg: var(--color-bg-hover),
-  $transition: background 0.2s ease,
-  $position: relative
-) {
   @include button-reset;
-  @include flex($justify: center);
-  position: $position;
-  width: $size;
-  height: $size;
-  border-radius: $radius;
-  color: $color;
-  transition: $transition;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--local-button-gap);
+  padding: var(--local-button-padding-vertical) var(--local-button-padding-horizontal);
+  border-radius: var(--local-button-radius);
+  cursor: pointer;
+  color: var(--local-button-text-color);
+  // height: var(--local-button-height);
+  transition: var(--local-button-transition);
   flex-shrink: 0;
 
-  @if $hover-bg {
-    &:hover {
-      background: $hover-bg;
-    }
+  &:hover {
+    background: var(--local-button-background-hover-color);
   }
+
+  .button__icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: var(--local-icon-size);
+    height: var(--local-icon-size);
+  }
+
+  .button__image {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  @media (max-width: $viewport-width-mobile) {
+    --button-padding-vertical: 10px;
+    --button-padding-horizontal: 10px;
+  }
+
 }
+
 
 // ---- Инпуты ----
 
-@mixin input(
-  $height: var(--input-height),
+@mixin input($height: var(--input-height),
   $font-size: var(--font-size-base),
   $line-height: var(--spacing-xl),
   $color: var(--color-text-primary),
   $placeholder-color: var(--color-text-muted),
-  $padding: 0 var(--spacing-md)
-) {
+  $padding: 0 var(--spacing-md)) {
   border: none;
   height: $height;
   padding: $padding;
@@ -91,4 +109,15 @@
   }
 }
 
+// ---- Списки ----
 
+@mixin list-items {
+  @include flex($wrap: wrap, $align: stretch);
+}
+
+@mixin list-item {
+  @include flex($gap: var(--spacing-sm));
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-xs);
+  transition: background 0.15s ease;
+}
