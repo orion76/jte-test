@@ -1,0 +1,21 @@
+ @use 'variables' as *;
+ @use 'mixins' as *;
+
+ :host {
+   line-height: 0;
+
+
+   .icon__svg {
+     display: inline-block;
+     flex-shrink: 0;
+     height: var(--icon-size);
+     width: var(--icon-size);
+   }
+
+   .icon__image {
+     height: 32px;
+     width: 32px;
+     border-radius: 50%;
+     object-fit: cover;
+   }
+ }

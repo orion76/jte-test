@@ -1,8 +1,44 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
+
+:host {
+
+  .filter-chips {
+    @include list-items;
+  }
+
+
+  .filter-list-item {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: var(--color-bg-hover);
+    }
+  }
+
+  .filter-chip {
+    @include list-item;
+  }
+
+
+  .form-field--author {
+    .form-field__label {
+      border: 1px solid var(--color-border-light);
+    }
+
+    .form-field__input-wrapper {
+      display: flex;
+      align-items: center;
+      height: 4em;
+    }
+  }
+}
+
 .filter-panel {
-  padding-top: 2px;
+
 
   &__layout {
     @include flex($align: stretch);
@@ -18,24 +54,25 @@
     gap: 1.6em;
 
 
-    &--history {
-      position: relative;
-      overflow: hidden;
-      width: var(--filter-panel-history-width);
+  }
 
-      height: 16em;
+  &__column--history {
+    position: relative;
+    overflow: hidden;
+    width: var(--filter-panel-history-width);
 
-      .form-section {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-      }
+    height: 16em;
+
+    .form-section {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
     }
+  }
 
-    &--filters {
-      flex: 1;
-      padding: var(--spacing-lg);
-    }
+  &__column--filters {
+    flex: 1;
+    padding: var(--spacing-lg);
   }
 
   &__divider {
@@ -44,92 +81,13 @@
   }
 }
 
-.form-section {
-    &__header {
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-medium);
-      line-height: 14px;
-      color: var(--color-text-secondary);
-      letter-spacing: 0.5px;
-
-    &--label {
-      text-transform: none;
-      letter-spacing: normal;
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-regular);
-      color: var(--color-black);
-      padding: 0 0 var(--spacing-sm);
-    }
-  }
-
-  &__gradient {
-    height: 2em;
-    background: linear-gradient(transparent, var(--color-white) 75%);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-}
-
-.filter-list-item {
-  padding: var(--spacing-xs) var(--spacing-lg);
-  cursor: pointer;
-  transition: background 0.15s ease;
-
-  &:hover {
-    background: var(--color-bg-hover);
-  }
-}
-
-.filter-chips {
-  @include flex($wrap: wrap, $align: stretch);
-}
-
-.filter-chip {
-  @include flex($gap: var(--spacing-sm));
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: var(--radius-xs);
-  transition: background 0.15s ease;
-}
-
-.input-action-button {
-  @include icon-btn($size: var(--size-icon),
-    $radius: var(--radius-xs),
-    $color: var(--color-bg-btn),
-    $hover-bg: null);
-  margin-right: var(--spacing-sm);
-  background: var(--color-bg-btn);
-
-
-  &__text {
-    position: relative;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-dark);
-  }
-
-}
-
-.form-field--author {
-  .form-field__label {
-    border: 1px solid var(--color-border-light);
-  }
-
-  .form-field__input-wrapper {
-    display: flex;
-    align-items: center;
-    height: 4em;
-  }
-}
-
 @media (max-width: $viewport-width-mobile) {
+  .filter-chips {
+    flex-direction: column;
+  }
 
   .filter-panel {
     margin-top: 1rem;
-
-    .filter-chips {
-      flex-direction: column;
-    }
 
     &__layout {
       box-shadow: none;

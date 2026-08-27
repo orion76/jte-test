@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   effect,
@@ -6,19 +7,21 @@ import {
   linkedSignal,
   model,
   signal,
-  ViewEncapsulation,
 } from '@angular/core';
 import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '@features/dynamic-overlay/tokens';
-import { Icon } from '@shared/components/icon/icon';
 import { ViewportObserver } from '../../services/viewport-observer/viewport-observer';
 import { FilterPanel } from './filter-panel/filter-panel';
+import { IButton } from '@shared/components/button/types';
+import { Button } from '@shared/components/button/button';
+
+const buttons: IButton[] = [{ id: 'clear', icon: 'cancel', iconPlace: 'end' }];
 
 @Component({
   selector: 'app-search-form',
-  imports: [FilterPanel, Icon],
+  imports: [FilterPanel, Button],
   templateUrl: './search-form.html',
   styleUrl: './search-form.scss',
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'search-form',
     '[animate.enter]': 'enterAnimation()',
@@ -43,6 +46,13 @@ export class SearchForm {
     const isMobile = !this.isDesktop();
     return isMobile && isOpen;
   });
+
+  protected readonly buttonClear: IButton = {
+    id: 'clear',
+    icon: 'cancel',
+    iconPlace: 'end',
+    ariaLabel: 'Очистить',
+  };
 
   constructor() {
     effect(() => this.query.set(this.history()));

@@ -1,0 +1,16 @@
+@switch (imageType) {
+  @case ('svg') {
+    @if (svgAttributes) {
+      <svg
+        class="{{ baseClass }}__svg"
+        xmlns="http://w3.org"
+        [innerHTML]="svgAttributes.safeHtml"
+        [attr.viewBox]="svgAttributes.viewBox"
+        fill="none"
+      ></svg>
+    }
+  }
+  @case ('imageUrl') {
+    <img class="{{ baseClass }}__image" [src]="imageSource" />
+  }
+}

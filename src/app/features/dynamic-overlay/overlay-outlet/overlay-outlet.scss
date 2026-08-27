@@ -1,12 +1,10 @@
-.overlay-outlet {
+:host {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
 
-.overlay-outlet-backdrop {
-  position: fixed;
-  inset: 0;
-  pointer-events: auto;
+
+  .overlay-outlet__backdrop {
+    position: fixed;
+    inset: 0;
+    pointer-events: auto;
+  }
 }

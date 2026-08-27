@@ -1,13 +1,14 @@
-import { Component, computed, input, model, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { UCheckboxStyle } from './types';
 
 @Component({
   selector: 'app-checkbox',
   templateUrl: 'checkbox.html',
   styleUrl: './checkbox.scss',
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '[class]': 'styleClass()',
+    class: 'checkbox',
+    '[class]': 'hostClasses()',
   },
 })
 export class Checkbox {
@@ -15,7 +16,7 @@ export class Checkbox {
   readonly label = input('');
   readonly inputStyle = input<UCheckboxStyle>('default');
 
-  readonly styleClass = computed(() => `checkbox checkbox--${this.inputStyle()}`);
+  readonly hostClasses = computed(() => `checkbox--${this.inputStyle()}`);
 
   protected onChange(value: boolean): void {
     this.checked.set(value);

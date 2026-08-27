@@ -1,9 +1,11 @@
 @use 'mixins' as *;
 
-.user-panel {
-  @include flex($align: stretch, $gap: var(--spacing-md));
-}
+:host {
+  .user-panel {
+    @include flex($align: center, $gap: var(--spacing-md));
+  }
 
-.avatar-btn {
-  padding: var(--spacing-2xs);
+  .button--notifications {
+    position: relative;
+  }
 }

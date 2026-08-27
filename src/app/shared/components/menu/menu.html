@@ -1,12 +1,6 @@
-@let _items = items();
-
-<!-- <ng-content select="[header]"></ng-content> -->
+@let _items = itemsWithClass();
 @if (_items.length > 0) {
   @for (item of _items; track item.id) {
-    <app-menu-item
-      [class]="'menu-item menu-item--' + item.id"
-      [itemData]="item"
-      (itemClick)="onClick(item)"
-    />
+    <button class="menu-item" [app-button]="item" (click)="onClick(item)"></button>
   }
 }

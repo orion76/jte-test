@@ -1,25 +1,25 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.header {
+:host {
   @include flex;
   height: 4em;
   background: var(--color-primary);
+  padding: 0 12px;
 
-
-  &__left {
+  .header__left {
     @include flex;
     flex-shrink: 0;
     margin-right: auto;
   }
 
-  &__right {
+  .header__right {
     margin-left: auto;
   }
 
-  &__logo {
+  .header__logo {
     flex-shrink: 0;
-    padding: 0 1em;
+    padding: 0 4px;
 
     &-link {
       @include flex;
@@ -34,59 +34,71 @@
     }
   }
 
-  &__panel {
+  .header__panel {
     position: relative;
     @include flex;
+    gap: 16px;
   }
 
-  &__center {
+  .menu--pages {
+    padding: 0 16px;
+  }
+
+  .header__center {
     width: max-content;
     height: 100%;
-  }
 
-  &__center .search-form-container {
-    width: calc(100% - (var(--size-btn) + var(--spacing-lg) / 2));
-    height: 100%;
-    pointer-events: none;
-  }
+    .search-form-container {
+      top: 0;
+      left: 0;
+      right: 0;
+      width: calc(100% - (var(--size-btn) + var(--spacing-lg) / 2));
+      height: fit-content;
+      pointer-events: none;
 
-  &__center .search-form {
-    position: absolute;
-    right: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    pointer-events: auto;
+    }
   }
-
 }
 
 @media (max-width: $viewport-width-mobile) {
-  .header {
-    padding: 0 0.5em;
+  :host {
 
-    &__right {
-      margin: 0;
+    .menu--pages {
+      padding: 0;
     }
 
-    &__center {
-      .button-add {
-        order: 0;
+    .header {
+      padding: 0 0.5em;
+
+      &__logo {
+        padding: 0;
+      }
+
+      &__right {
+        margin: 0;
+      }
+
+      &__center {
+        gap: 4px;
+
+        .button--add {
+          order: 0;
+        }
+
+        .menu {
+          order: 1;
+        }
+
+        .button--search {
+          order: 2;
+        }
+
       }
 
       .menu {
-        order: 1;
+        padding: 0;
+        margin: 0;
       }
-
-      .button-search {
-        order: 2;
-      }
-
-    }
-
-    .menu {
-      padding: 0;
-      margin: 0;
     }
   }
 }

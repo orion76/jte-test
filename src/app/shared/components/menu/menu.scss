@@ -1,0 +1,35 @@
+ @use 'variables' as *;
+ @use 'mixins' as *;
+
+ :host {
+   @include flex;
+   // padding: 0 var(--spacing-xxl);
+   // margin-right: 1em;
+ }
+
+ :host(.menu--vertical) {
+   @include flex($direction: column, $align: start);
+   padding: 1em;
+
+   .menu-item {
+     width: 100%;
+   }
+ }
+
+
+
+
+
+ @media (max-width: $viewport-width-mobile) {
+
+   :host-context(.header) {
+
+     .app-button {
+       display: none;
+
+       &--history {
+         display: inherit;
+       }
+     }
+   }
+ }

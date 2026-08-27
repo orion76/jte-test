@@ -1,5 +1,6 @@
 import { NgComponentOutlet } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   effect,
@@ -11,7 +12,6 @@ import {
   signal,
   TemplateRef,
   viewChild,
-  ViewEncapsulation,
 } from '@angular/core';
 import { MobileModalLayout } from '@shared/components';
 import { UViewport } from '../../../core/services/viewport-observer/types';
@@ -24,9 +24,10 @@ import { IOverlayOpenOptions } from '../types';
   imports: [NgComponentOutlet, MobileModalLayout],
   templateUrl: './overlay-outlet.html',
   styleUrl: './overlay-outlet.scss',
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'overlay-outlet',
+    '[class]': 'hostClasses()',
   },
 })
 export class OverlayOutlet implements OnInit {
@@ -47,20 +48,7 @@ export class OverlayOutlet implements OnInit {
   headerTemplate = viewChild<TemplateRef<unknown>>('headerTmp');
 
   private activeViews: EmbeddedViewRef<unknown>[] = [];
-  projectedContent = computed(() => {
-    this.destroyActiveViews();
-    const header = this.headerTemplate();
-    if (!header) return [];
 
-    const headerView = header.createEmbeddedView({}, this.parentInjector);
-
-    headerView.detectChanges();
-
-    this.activeViews = [headerView];
-    return [
-      headerView.rootNodes, // для первого <ng-content select="[header]">
-    ];
-  });
   constructor() {
     this.overlayInjector = this.createInjector();
     effect(() => {
@@ -89,10 +77,10 @@ export class OverlayOutlet implements OnInit {
   protected closeOverlay() {
     this.overlayManager.close(this.outletId());
   }
-  // protected hostClasses(): string {
-  //   const prefix = 'overlay-outlet';
-  //   return `${prefix}-id--${this.outletId()} ${prefix}-state--${this.state()}`;
-  // }
+  protected hostClasses(): string {
+    const prefix = 'overlay-outlet';
+    return `${prefix}--${this.outletId()} ${prefix}-state--${this.state()}`;
+  }
   private destroyActiveViews() {
     this.activeViews.forEach((view) => {
       if (!view.destroyed) {

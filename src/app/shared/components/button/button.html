@@ -1,0 +1,13 @@
+@let _options = options();
+
+@if (_options.icon && place === 'start') {
+  <span [icon]="_options.icon" [icon-type]="iconType"></span>
+}
+
+@if (_options.label) {
+  <span class="{{ baseClass }}__label">{{ _options.label }}</span>
+}
+<ng-content></ng-content>
+@if (_options.icon && place === 'end') {
+  <span [icon]="_options.icon" [icon-type]="iconType"></span>
+}

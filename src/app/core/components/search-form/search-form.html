@@ -1,6 +1,4 @@
-<div
-  class="search-form__header"
->
+<div class="search-form__header">
   <div class="form-field form-field--search">
     <input
       type="text"
@@ -11,17 +9,14 @@
       (input)="query.set($any($event.target).value)"
     />
     @if (query()) {
-      <button
-        app-icon="cancel"
-        icon-position="after"
-        type="button"
-        class="form-field__clear"
-        (click)="query.set('')"
-        aria-label="Очистить"
-      ></button>
+      <button [app-button]="buttonClear" class="form-field__clear" (click)="query.set('')"></button>
     }
   </div>
 </div>
 @if (isShowForm()) {
-  <app-filter-panel class="filter-panel" [(history)]="history" [checkboxStyle]="checkboxStyle()" />
+  <app-filter-panel
+    class="search-form__filters"
+    [(history)]="history"
+    [checkboxStyle]="checkboxStyle()"
+  />
 }

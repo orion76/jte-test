@@ -9,7 +9,7 @@
       </app-mobile-modal-layout>
     }
     @case ('desktop') {
-      <div class="overlay-outlet-backdrop" (click)="closeSignal.set(true)"></div>
+      <div class="overlay-outlet__backdrop" (click)="closeSignal.set(true)"></div>
       <ng-container
         *ngComponentOutlet="opts.component; inputs: opts.inputs; injector: overlayInjector"
       />

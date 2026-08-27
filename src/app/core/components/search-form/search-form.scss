@@ -1,89 +1,105 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.search-form {
 
+:host {
   @include flex($direction: column, $align: stretch);
-
   padding: 4px 0;
 
-  &.slide-in {
-    animation: slideInForward 0.3s ease-in forwards;
-  }
-
-  &.slide-out {
-    animation: slideOutBackward 0.3s ease-in forwards;
-  }
-
-}
-
-
-.search-form__header {
-  @include flex($gap: var(--spacing-2xs));
-}
-
-.form-field--search {
-  @include flex;
-  position: relative;
+  position: absolute;
   width: 100%;
-  background-color: var(--app-background-color);
-  border-radius: 4px;
 
-  .form-field__input {
-    height: 3.5em;
+  right: 0;
+  z-index: 2;
+  pointer-events: auto;
+
+
+
+  .filter-panel {
+    padding-top: 2px;
   }
 
-  .form-field__clear {
-    @include icon-btn($size: 36px, $radius: var(--radius-full), $hover-bg: var(--color-black-transparent-5), $position: absolute);
-    right: var(--spacing-2xs);
+  .search-form__header {
+    @include flex($gap: var(--spacing-2xs));
   }
+
+  .form-field--search {
+    @include flex;
+    position: relative;
+    width: 100%;
+    background-color: var(--app-background-color);
+    border-radius: 4px;
+
+    .form-field__input {
+      height: 3.5em;
+    }
+
+    .form-field__clear {
+      --button-size: 36px;
+      --button-radius: var(--radius-full);
+      --button-background-hover-color: var(--color-black-transparent-5);
+      @include button;
+      right: var(--spacing-2xs);
+      position: absolute
+    }
+  }
+
+
+}
+
+:host(.slide-in) {
+  animation: slideInForward 0.3s ease-in forwards;
+}
+
+:host(.slide-out) {
+  animation: slideOutBackward 0.3s ease-in forwards;
 }
 
 
+:host-context(.mobile-modal-layout) {
+  display: contents;
 
+  .search-form__header {
+    grid-area: header-center;
+  }
+
+  .search-form__filters {
+    grid-area: content;
+  }
+}
 
 
 @keyframes slideInForward {
   from {
-    width: 0%
+    left: 100%;
+    width: 0%;
   }
 
   to {
-    width: 100%
+    left: 0%;
+    width: 100%;
   }
 }
 
 @keyframes slideOutBackward {
   from {
-       width: 100%
+    width: 100%
   }
 
   to {
-      width: 0%
+    width: 0%
   }
 }
-
-
 
 @media (max-width: $viewport-width-mobile) {
-  .form-field--search {
-    background-color: var(--color-gray-light);
-    border-radius: 2em;
-  }
-}
-
-.mobile-modal-layout {
-  .search-form {
-    display: contents;
-
-    &__header {
-      grid-area: header-center;
+  :host {
+    .filter-panel {
+      padding-top: 12px;
     }
 
-    &> :not(.search-form__header) {
-      grid-area: content;
+    .form-field--search {
+      background-color: var(--color-gray-light);
+      border-radius: 2em;
     }
   }
-
-
 }

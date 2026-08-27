@@ -1,7 +1,6 @@
-import { Component, inject, input, model, output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, model } from '@angular/core';
 import { Checkbox } from '@shared/components';
 import { UCheckboxStyle } from '@shared/components/checkbox/types';
-import { UViewport } from '../../../services/viewport-observer/types';
 import { ViewportObserver } from '../../../services/viewport-observer/viewport-observer';
 
 @Component({
@@ -9,10 +8,14 @@ import { ViewportObserver } from '../../../services/viewport-observer/viewport-o
   imports: [Checkbox],
   templateUrl: './filter-panel.html',
   styleUrl: './filter-panel.scss',
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'filter-panel',
+  },
+  // encapsulation: ViewEncapsulation.None,
 })
 export class FilterPanel {
-    protected viewportObserver = inject(ViewportObserver);
+  protected viewportObserver = inject(ViewportObserver);
   readonly checkboxStyle = input<UCheckboxStyle>('default');
 
   history = model<string>('');

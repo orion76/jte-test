@@ -1,28 +1,67 @@
-import { Directive, ElementRef, input, inject, OnInit, DestroyRef, computed } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  DestroyRef,
+  inject,
+  input,
+  OnInit,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IconRegistry } from './icon-registry';
+import { IconRegistry, ISvgData } from './icon-registry';
 
-@Directive({
-  selector: 'app-icon, [app-icon]',
+export type UImageType = 'imageUrl' | 'svg';
+
+@Component({
+  selector: '[icon]',
+  templateUrl: './icon.html',
+  styleUrl: './icon.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class]': 'hostClasses()',
+  },
 })
 export class Icon implements OnInit {
-  readonly name = input<string | undefined>(undefined, { alias: 'app-icon' });
-  readonly position = input<'before' | 'after'>('before', { alias: 'icon-position' });
+  readonly imageSourceInput = input.required<string>({ alias: 'icon' });
+  readonly imageTypeInput = input<UImageType>(undefined, { alias: 'icon-type' });
 
-  private el = inject(ElementRef).nativeElement as HTMLElement;
+
+  protected imageSource!: string;
+  protected imageType!: UImageType;
+  protected svgAttributes!: ISvgData;
+
+
+  private cdr = inject(ChangeDetectorRef);
   private registry = inject(IconRegistry);
   private destroyRef = inject(DestroyRef);
 
+  protected readonly baseClass = 'icon';
+
   ngOnInit(): void {
-    const _name = this.name();
-    if (!_name) {
-      return;
+    this.imageSource = this.imageSourceInput();
+    this.imageType = this.imageTypeInput() ?? 'svg';
+  
+
+    if (this.imageType === 'svg') {
+      this.registry
+        .get(this.imageSource)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe((svgData) => {
+          if (!svgData) {
+            throw new Error('todo');
+          }
+
+          this.svgAttributes = svgData;
+          this.cdr.markForCheck();
+        });
     }
-    this.registry
-      .get(_name)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((svg) => {
-        this.el.insertAdjacentHTML(this.position() === 'after' ? 'beforeend' : 'afterbegin', svg);
-      });
+  }
+
+  hostClasses() {
+    const typeModifier = this.imageType === 'svg' ? 'svg' : 'image';
+    const classes = [this.baseClass, `${this.baseClass}--${typeModifier}`];
+
+    return classes.join(' ');
   }
 }

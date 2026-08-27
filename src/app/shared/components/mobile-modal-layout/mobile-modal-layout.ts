@@ -1,21 +1,14 @@
-import {
-  Component,
-  inject,
-  input,
-  OnDestroy,
-  OnInit,
-  output,
-  ViewEncapsulation,
-} from '@angular/core';
-import { Icon } from '../icon/icon';
+import { ChangeDetectionStrategy, Component, inject, input, OnDestroy, OnInit, output } from '@angular/core';
 import { ThemeManager } from '../../../core/services/theme-manager/theme-manager';
+import { Button } from '../button/button';
+import { IButton } from '../button/types';
 
 @Component({
   selector: 'app-mobile-modal-layout',
-  imports: [Icon],
+  imports: [Button],
   templateUrl: './mobile-modal-layout.html',
   styleUrl: './mobile-modal-layout.scss',
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'mobile-modal-layout',
     'animate.enter': 'fade-in',
@@ -27,6 +20,7 @@ export class MobileModalLayout implements OnInit, OnDestroy {
   readonly close = output<boolean>();
   private themeManager = inject(ThemeManager);
 
+  protected readonly buttonBack: IButton = { id: 'back', icon: 'arrow-back', ariaLabel: 'Назад' };
   ngOnInit(): void {
     this.themeManager.onOpenMobileModalLayout();
   }

@@ -1,42 +1,28 @@
-<header class="header">
-  <div class="header__panel header__left">
-    @if (viewportObserver.viewport() === 'mobile') {
-      <button
-        #menuTrigger
-        app-icon="menu"
-        class="icon-btn"
-        (click)="openMobileMenu()"
-        aria-label="Меню"
-      ></button>
-    }
-    <div class="header__logo">
-      <a href="/" class="header__logo-link">
-        <img src="assets/logo.png" alt="Logo" class="header__logo-img" />
-      </a>
-    </div>
+<div class="header__panel header__left">
+  @if (viewportObserver.viewport() === 'mobile') {
+    <button [app-button]="buttons['menu']" (click)="openMobileMenu()"></button>
+  }
+  <div class="header__logo">
+    <a href="/" class="header__logo-link">
+      <img src="assets/logo.png" alt="Logo" class="header__logo-img" />
+    </a>
   </div>
+</div>
 
-  <nav class="header__panel header__center">
-    <app-menu class="menu" [items]="pagesMenu"></app-menu>
-    <!-- <div class="app-overlay-outlet" outletId="desktopSearch"> -->
+<nav class="header__panel header__center">
+  <app-menu class="menu menu--pages" [items]="pagesMenu"></app-menu>
+  <!-- <div class="app-overlay-outlet" outletId="desktopSearch"> -->
 
-    <app-overlay-outlet
-      outletId="search-form--desktop"
-      viewport="desktop"
-      class="search-form-container"
-    >
-    </app-overlay-outlet>
-    <button
-      app-icon="search"
-      class="button-search icon-btn"
-      (click)="onSearchOpen()"
-      aria-label="Поиск"
-    ></button>
+  <app-overlay-outlet
+    outletId="search-form--desktop"
+    viewport="desktop"
+    class="search-form-container"
+  >
+  </app-overlay-outlet>
+  <button [app-button]="buttons['search']" (click)="onSearchOpen()" aria-label="Поиск"></button>
 
-    <button app-icon="add-circle" class="button-add icon-btn" aria-label="Добавить"></button>
-  </nav>
-  <div class="header__panel"></div>
-  <div class="header__panel header__right">
-    <app-user-panel />
-  </div>
-</header>
+  <button [app-button]="buttons['add']"></button>
+</nav>
+<div class="header__panel header__right">
+  <app-user-panel />
+</div>

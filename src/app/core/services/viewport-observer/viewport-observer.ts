@@ -3,8 +3,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IViewportObserver, UViewport } from './types';
 
+const MOBILE_SCREEN = '(max-width: 439px)';
+const DESCTOP_SCREEN = '(min-width: 439px)';
+
 @Injectable({ providedIn: 'root' })
-export class ViewportObserver implements IViewportObserver{
+export class ViewportObserver implements IViewportObserver {
   readonly viewport = signal<UViewport>('desktop');
 
   private breakpoint = inject(BreakpointObserver);
@@ -12,10 +15,15 @@ export class ViewportObserver implements IViewportObserver{
 
   constructor() {
     this.breakpoint
-      .observe([Breakpoints.HandsetPortrait])
+      .observe([MOBILE_SCREEN, DESCTOP_SCREEN])
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((state) => {
-        this.viewport.set(state.matches ? 'mobile' : 'desktop');
+        if (state.breakpoints[MOBILE_SCREEN]) {
+          this.viewport.set('mobile');
+        }
+        if (state.breakpoints[DESCTOP_SCREEN]) {
+          this.viewport.set('desktop');
+        }
       });
   }
 }

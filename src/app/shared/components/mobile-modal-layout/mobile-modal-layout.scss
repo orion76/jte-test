@@ -1,6 +1,6 @@
 @use 'mixins' as *;
 
-.mobile-modal-layout {
+:host {
   display: grid;
   background-color: var(--app-background-color);
   grid-template-columns: 40px 1fr auto;
@@ -9,14 +9,26 @@
     "content content content";
   padding: 0 1rem;
 
-  &__header {
+}
+
+:host(.fade-in) {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+:host(.fade-out) {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+:host(.mobile-modal-layout) {
+
+  .mobile-modal-layout__header {
     grid-area: header-start;
     display: flex;
     align-items: center;
     height: 4em;
   }
 
-  &__title {
+  .mobile-modal-layout__title {
     grid-area: header-center;
     font-weight: var(--font-weight-regular);
     padding: 1rem;
@@ -24,24 +36,8 @@
     align-content: center;
   }
 
-  &__content {
+  .mobile-modal-layout__content {
     display: contents
-  }
-
-  .button-back {
-    @include button-reset;
-
-    svg {
-      stroke-width: 2;
-    }
-  }
-
-  &.fade-in {
-    animation: fadeIn 0.3s ease-out forwards;
-  }
-
-  &.fade-out {
-    animation: fadeOut 0.3s ease-out forwards;
   }
 }
 
