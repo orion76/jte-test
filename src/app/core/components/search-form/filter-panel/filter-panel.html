@@ -27,7 +27,7 @@
   </div>
 
   <div class="section">
-    <div class="content">
+    <div class="content checkboxes">
       @for (item of ['Я участник', 'Строгий поиск', 'В заголовках']; track item) {
         <app-checkbox [label]="item" [inputStyle]="_checkboxStyle" />
       }
@@ -35,7 +35,7 @@
   </div>
   <div class="section">
     <div class="title">Только</div>
-    <div class="content">
+    <div class="content checkboxes">
       @for (item of ['Теги', 'Просьбы', 'Контакты']; track item) {
         <app-checkbox [label]="item" [inputStyle]="_checkboxStyle" />
       }

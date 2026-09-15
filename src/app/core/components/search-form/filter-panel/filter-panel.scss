@@ -45,15 +45,14 @@
     @include fieldset;
 
     .container {
+      --align-items: center;
       @include flex;
-      // display: flex;
-      // align-items: center;
       width: 100%;
     }
   }
 
   .history {
-    .section>.content {
+    .section>.checkboxes {
       --flex-direction: column;
       --flex-align: start;
     }
@@ -85,7 +84,7 @@
     box-shadow: none;
     border: none;
 
-    .section>.content {
+    .section>.checkboxes {
       --flex-direction: column;
       --flex-align: start;
     }
