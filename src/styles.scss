@@ -27,21 +27,21 @@ body {
 
 
 
-.overlay-outlet.mobile {
+.overlay.mobile {
   top: 0;
   width: 100%;
 }
 
 @media (max-width: $viewport-width-mobile) {
-  .menu--pages {
+  .pages {
     .button {
       display: none;
 
-      &__label {
+      .label {
         display: none;
       }
 
-      &--history {
+      &.history {
         display: inherit;
       }
     }

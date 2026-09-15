@@ -1,9 +1,6 @@
 @use 'mixins' as *;
 
-
-
-
-.form-field {
+.field {
   @include form-field;
 
   input[type="text"] {
@@ -11,8 +8,7 @@
   }
 }
 
-
-.form-section {
+.section {
   .title {
     font-size: var(--theme--title-small-font-size);
     font-weight: var(--theme--control-label-font-weight);
@@ -21,10 +17,6 @@
     letter-spacing: 0.5px;
     padding-left: var(--theme--spacing-lg);
     margin-bottom: 6px;
-  }
-
-  .items {
-    @include flex;
   }
 
   .gradient {
@@ -37,7 +29,7 @@
   }
 }
 
-.input-action-button {
+.action {
   --button-radius: var(--theme--radius-xs);
   --button-background-hover-color: transparent;
   --button-padding: 0;
@@ -47,10 +39,9 @@
   width: var(--icon-size, var(--theme--icon-size));
   height: var(--icon-size, var(--theme--icon-size));
 
-  &__text {
+  .text {
     position: relative;
     font-weight: var(--theme--control-label-font-weight);
     color: var(--theme--color-text-dark);
   }
-
 }

@@ -1,6 +1,6 @@
-@let _items = itemsWithClass();
+@let _items = items();
 @if (_items.length > 0) {
   @for (item of _items; track item.id) {
-    <button class="menu-item" [app-button]="item" (click)="onClick(item)"></button>
+    <button class="item" [app-button]="item" (click)="onClick(item)"></button>
   }
 }

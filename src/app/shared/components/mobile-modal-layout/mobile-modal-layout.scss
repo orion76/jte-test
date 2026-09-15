@@ -9,18 +9,6 @@
     "content content content";
   padding: 0 14px;
 
-}
-
-:host(.fade-in) {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-:host(.fade-out) {
-  animation: fadeOut 0.3s ease-out forwards;
-}
-
-:host(.mobile-modal-layout) {
-
   .header {
     grid-area: header-start;
     display: flex;
@@ -37,8 +25,16 @@
   }
 
   .content {
-    display: contents
+    display: contents;
   }
+}
+
+:host(.fade-in) {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+:host(.fade-out) {
+  animation: fadeOut 0.3s ease-out forwards;
 }
 
 @keyframes fadeIn {

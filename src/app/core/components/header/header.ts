@@ -19,9 +19,6 @@ import { UserPanel } from '../user-panel/user-panel';
   styleUrl: './header.scss',
   // encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    class: 'header',
-  },
 })
 export class Header {
   protected viewportObserver = inject(ViewportObserver);
@@ -40,7 +37,7 @@ export class Header {
 
     switch (viewport) {
       case 'desktop':
-        this.overlayManager.open('search-form--desktop', {
+        this.overlayManager.open('search-form-desktop', {
           component: SearchForm,
         });
         break;

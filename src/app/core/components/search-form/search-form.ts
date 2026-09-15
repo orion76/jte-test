@@ -23,7 +23,6 @@ const buttons: IButton[] = [{ id: 'clear', icon: 'cancel', iconPlace: 'end' }];
   styleUrl: './search-form.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'search-form',
     '[animate.enter]': 'enterAnimation()',
     '[animate.leave]': 'leaveAnimation()',
   },

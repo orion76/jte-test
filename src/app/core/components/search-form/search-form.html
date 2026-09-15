@@ -1,5 +1,5 @@
-<div class="search-form__header">
-  <div class="form-field">
+<div class="header">
+  <div class="field">
     <input
       type="text"
       name="search"
@@ -16,7 +16,7 @@
 </div>
 @if (isShowForm()) {
   <app-filter-panel
-    class="search-form__filters"
+    class="filters"
     [(history)]="history"
     [checkboxStyle]="checkboxStyle()"
   />

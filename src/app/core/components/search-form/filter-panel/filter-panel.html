@@ -1,12 +1,11 @@
 @let _checkboxStyle = checkboxStyle();
-<!-- <div class="filter-panel__layout"> -->
 @if (viewportObserver.viewport() === 'desktop') {
   <div class="column history">
-    <div class="form-section">
+    <div class="section">
       <div class="title">История</div>
       <div class="content">
         @for (item of historyItems; track item) {
-          <div class="history-value" (click)="history.set(item)">{{ item }}</div>
+          <div class="value" (click)="history.set(item)">{{ item }}</div>
         }
       </div>
       <div class="gradient"></div>
@@ -15,26 +14,26 @@
   <div class="divider"></div>
 }
 <div class="column filters">
-  <div class="form-section">
-    <label class="content form-field">
+  <div class="section">
+    <label class="content field">
       <span class="title">Автор</span>
-      <div class="input-container">
+      <div class="container">
         <input type="text" name="author" placeholder="Имя или должность" autocomplete="off"/>
-        <button class="input-action-button">
-          <span class="input-action-button__text">Я</span>
+        <button class="action">
+          <span class="text">Я</span>
         </button>
       </div>
     </label>
   </div>
 
-  <div class="form-section">
+  <div class="section">
     <div class="content">
       @for (item of ['Я участник', 'Строгий поиск', 'В заголовках']; track item) {
         <app-checkbox [label]="item" [inputStyle]="_checkboxStyle" />
       }
     </div>
   </div>
-  <div class="form-section">
+  <div class="section">
     <div class="title">Только</div>
     <div class="content">
       @for (item of ['Теги', 'Просьбы', 'Контакты']; track item) {
@@ -43,4 +42,3 @@
     </div>
   </div>
 </div>
-<!-- </div> -->

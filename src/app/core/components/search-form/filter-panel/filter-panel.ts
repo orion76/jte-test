@@ -9,9 +9,6 @@ import { ViewportObserver } from '../../../services/viewport-observer/viewport-o
   templateUrl: './filter-panel.html',
   styleUrl: './filter-panel.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    class: 'filter-panel',
-  },
   // encapsulation: ViewEncapsulation.None,
 })
 export class FilterPanel {

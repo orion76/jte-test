@@ -10,16 +10,6 @@
   border-radius: var(--theme--form-section-radius);
   box-shadow: 0px 8px 16px 0px rgba(93, 95, 97, 0.14);
 
-  //   &__layout {
-  //     --flex-align: stretch;
-  //     @include flex;
-  // background-color: red;
-  //     // background: var(--theme--app-background-color);
-  //     border: 1px solid var(--theme--color-border);
-  //     border-radius: var(--theme--form-section-radius);
-  //     box-shadow: 0px 8px 16px 0px rgba(93, 95, 97, 0.14);
-  //   }
-
   .column {
     --flex-direction: column;
     --flex-align: stretch;
@@ -31,7 +21,7 @@
       overflow: hidden;
       width: var(--theme--filter-panel-history-width);
 
-      .form-section {
+      .section {
         padding-top: var(--spacing-xl);
         display: flex;
         flex-direction: column;
@@ -50,29 +40,30 @@
     background: var(--theme--color-border-light);
   }
 
-  .form-field:has(input[name="author"]) {
+  .field:has(input[name="author"]) {
     @include form-field;
     @include fieldset;
 
-    .input-container {
-      display: flex;
-      align-items: center;
+    .container {
+      @include flex;
+      // display: flex;
+      // align-items: center;
       width: 100%;
     }
   }
 
   .history {
-    .form-section>.content {
-      --theme--flex-direction: column;
-      --theme--flex-align: start;
+    .section>.content {
+      --flex-direction: column;
+      --flex-align: start;
     }
   }
 
-  .form-section>.content {
+  .section>.content {
     @include flex;
 
     app-checkbox,
-    .history-value {
+    .value {
       --list-item-padding: 6px 0 6px 1rem;
       width: 100%;
       cursor: pointer;
@@ -80,7 +71,7 @@
       line-height: var(--theme--line-height-base);
 
       &:hover {
-        background-color: var(--theme--color-bg-hover)
+        background-color: var(--theme--color-bg-hover);
       }
     }
 
@@ -93,6 +84,11 @@
     margin-top: 14px;
     box-shadow: none;
     border: none;
+
+    .section>.content {
+      --flex-direction: column;
+      --flex-align: start;
+    }
 
     .column.filters {
       padding: 0;

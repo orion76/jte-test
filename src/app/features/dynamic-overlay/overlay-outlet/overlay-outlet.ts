@@ -26,7 +26,7 @@ import { IOverlayOpenOptions } from '../types';
   styleUrl: './overlay-outlet.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'overlay-outlet',
+    class: 'overlay',
     '[class]': 'hostClasses()',
   },
 })

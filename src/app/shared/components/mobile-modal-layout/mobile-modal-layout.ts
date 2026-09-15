@@ -10,7 +10,7 @@ import { IButton } from '../button/types';
   styleUrl: './mobile-modal-layout.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'mobile-modal-layout',
+    class: 'modal',
     'animate.enter': 'fade-in',
     'animate.leave': 'fade-out',
   },

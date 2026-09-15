@@ -18,9 +18,6 @@ export type UImageType = 'imageUrl' | 'svg';
   templateUrl: './icon.html',
   styleUrl: './icon.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[class]': 'hostClasses()',
-  },
 })
 export class Icon implements OnInit {
   readonly imageSourceInput = input.required<string>({ alias: 'icon' });
@@ -35,8 +32,6 @@ export class Icon implements OnInit {
   private cdr = inject(ChangeDetectorRef);
   private registry = inject(IconRegistry);
   private destroyRef = inject(DestroyRef);
-
-  protected readonly baseClass = 'icon';
 
   ngOnInit(): void {
     this.imageSource = this.imageSourceInput();
@@ -56,12 +51,5 @@ export class Icon implements OnInit {
           this.cdr.markForCheck();
         });
     }
-  }
-
-  hostClasses() {
-    const typeModifier = this.imageType === 'svg' ? 'svg' : 'image';
-    const classes = [this.baseClass, `${this.baseClass}--${typeModifier}`];
-
-    return classes.join(' ');
   }
 }

@@ -15,7 +15,7 @@ export class Checkbox {
   readonly label = input('');
   readonly inputStyle = input<UCheckboxStyle>('default');
 
-  readonly hostClasses = computed(() => `${this.inputStyle()}`);
+  readonly hostClasses = computed(() => (this.inputStyle() === 'default' ? '' : this.inputStyle()));
 
   protected onChange(value: boolean): void {
     this.checked.set(value);

@@ -9,22 +9,23 @@
   inherits: false;
 }
 
- :host {
-   --local--icon-size: var(--icon-size, var(--theme--icon-size));
-   --local--icon-image-size: var(--icon-image-size, var(--theme--icon-image-size));
-   line-height: 0;
+:host {
+  --local--icon-size: var(--icon-size, var(--theme--icon-size));
+  --local--icon-image-size: var(--icon-image-size, var(--theme--icon-image-size));
+  line-height: 0;
 
-   .icon__svg {
-     display: inline-block;
-     flex-shrink: 0;
-     height: var(--local--icon-size);
-     width: var(--local--icon-size);
-   }
+  .svg {
+    display: inline-block;
+    flex-shrink: 0;
+    height: var(--local--icon-size);
+    width: var(--local--icon-size);
+  }
 
-   .icon__image {
-     height: var(--local--icon-image-size);
-     width: var(--local--icon-image-size);
-     border-radius: 50%;
-     object-fit: cover;
-   }
- }
+  .image {
+    height: var(--local--icon-image-size);
+    width: var(--local--icon-image-size);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+

@@ -69,13 +69,13 @@ export class Button {
     return fileRegex.test(source);
   }
   getHostClasses({ id, buttonType }: IButton) {
-    const classes = [this.baseClass, `${this.baseClass}--${id}`];
+    const classes = [this.baseClass, id];
 
     const _buttonType = buttonType ?? 'icon-and-text';
-    classes.push(`${this.baseClass}--${_buttonType}`);
+    classes.push(_buttonType);
 
-    const sourceType = this.iconType === 'imageUrl' ? 'file' : 'svg';
-    classes.push(`${this.baseClass}--source-type-${sourceType}`);
+    const sourceType = this.iconType === 'imageUrl' ? 'image' : 'svg';
+    classes.push(sourceType);
 
     return classes.join(' ');
   }

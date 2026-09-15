@@ -18,19 +18,19 @@
   z-index: 2;
   pointer-events: auto;
 
-  .search-form__header {
+  .header {
     --flex-gap: var(--theme--spacing-2xs);
     @include flex;
   }
 
-  .search-form__filters {
+  .filters {
     position: absolute;
     top: calc(100% - 2px);
     width: 100%;
     background-color: var(--theme--app-background-color);
   }
 
-  .form-field:has(input[name="search"]) {
+  .field:has(input[name="search"]) {
     @include flex;
     position: relative;
     background-color: var(--theme--app-background-color);
@@ -61,14 +61,14 @@
 }
 
 
-:host-context(.mobile-modal-layout) {
+:host-context(.modal) {
   display: contents;
 
-  .search-form__header {
+  .header {
     grid-area: header-center;
   }
 
-  .search-form__filters {
+  .filters {
     grid-area: content;
   }
 }
@@ -98,11 +98,11 @@
 
 @media (max-width: $viewport-width-mobile) {
   :host {
-    .filter-panel {
+    .filters {
       padding-top: 12px;
     }
 
-    .form-field:has(input[name="search"]) {
+    .field:has(input[name="search"]) {
       background-color: var(--theme--color-gray-light);
       border-radius: 28px;
     }

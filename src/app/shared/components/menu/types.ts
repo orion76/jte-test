@@ -3,4 +3,3 @@ export interface IMenuItemData {
   label?: string;
   icon?: string;
 }
-export type TMenuItemData = IMenuItemData & { class: string };

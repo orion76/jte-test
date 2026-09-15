@@ -1,4 +1,4 @@
-<div class="header-panel left">
+<div class="panel left">
   @if (viewportObserver.viewport() === 'mobile') {
     <button [app-button]="buttons['menu']" (click)="openMobileMenu()"></button>
   }
@@ -9,17 +9,17 @@
   </div>
 </div>
 
-<nav class="header-panel center">
-  <app-menu class="menu menu--pages" [items]="pagesMenu"></app-menu>
+<nav class="panel center">
+  <app-menu class="pages" [items]="pagesMenu"></app-menu>
   <app-overlay-outlet
-    outletId="search-form--desktop"
+    outletId="search-form-desktop"
     viewport="desktop"
-    class="search-form-container"
+    class="container"
   >
   </app-overlay-outlet>
   <button [app-button]="buttons['search']" (click)="onSearchOpen()"></button>
   <button [app-button]="buttons['add']"></button>
 </nav>
-<div class="header-panel right">
+<div class="panel right">
   <app-user-panel />
 </div>

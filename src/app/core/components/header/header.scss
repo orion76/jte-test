@@ -33,13 +33,13 @@
     }
   }
 
-  .header-panel {
+  .panel {
     position: relative;
     --flex-gap: 16px;
     @include flex;
   }
 
-  .menu--pages {
+  .pages {
     padding: 0 16px;
   }
 
@@ -47,7 +47,7 @@
     width: max-content;
     height: 100%;
 
-    .search-form-container {
+    .container {
       top: 0;
       bottom: 0;
       width: calc(100% - (var(--theme--size-btn) + var(--theme--spacing-lg) / 2));
@@ -59,11 +59,11 @@
 @media (max-width: $viewport-width-mobile) {
   :host {
 
-    .menu--pages {
+    .pages {
       padding: 0;
     }
 
-    .header-panel {
+    .panel {
       --flex-gap: 0;
     }
 

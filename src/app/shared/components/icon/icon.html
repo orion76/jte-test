@@ -2,7 +2,7 @@
   @case ('svg') {
     @if (svgAttributes) {
       <svg
-        class="{{ baseClass }}__svg"
+        class="svg"
         xmlns="http://w3.org"
         [innerHTML]="svgAttributes.safeHtml"
         [attr.viewBox]="svgAttributes.viewBox"
@@ -11,6 +11,6 @@
     }
   }
   @case ('imageUrl') {
-    <img class="{{ baseClass }}__image" [src]="imageSource" />
+    <img class="image" [src]="imageSource" />
   }
 }

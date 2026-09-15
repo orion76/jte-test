@@ -1,20 +1,20 @@
- @use 'mixins' as *;
+@use 'mixins' as *;
 
- :host {
-   @include flex;
- }
+:host {
+  @include flex;
+}
 
- :host(.vertical) {
-   --flex-direction: column;
-   --flex-align: start;
-   @include flex;
-   padding: 14px;
+:host(.vertical) {
+  --flex-direction: column;
+  --flex-align: start;
+  @include flex;
+  padding: 14px;
 
-   .menu-item {
-     width: 100%;
-   }
- }
+  .item {
+    width: 100%;
+  }
+}
 
- :host-context(.mobile-modal-layout).vertical {
-   grid-area: content;
- }
+:host-context(.modal).vertical {
+  grid-area: content;
+}

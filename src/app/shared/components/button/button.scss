@@ -1,19 +1,19 @@
- @use 'mixins' as *;
+@use 'mixins' as *;
 
- :host {
-   @include button;
- }
+:host {
+  @include button;
+}
 
- :host(.button--icon-only) {
-   --button-padding: 10px;
- }
+:host(.icon-only) {
+  --button-padding: 10px;
+}
 
-  :host(.button--source-type-file) {
-    --button-padding: 4px;
-  }
+:host(.image) {
+  --button-padding: 4px;
+}
 
-  :host-context(.mobile-modal-layout) {
-    --button-text-color: var(--theme--color-text-primary);
-    --button-background-hover-color: var(--theme--button-background-color-hover-dark);
-    justify-content: start;
-  }
+:host-context(.modal) {
+  --button-text-color: var(--theme--color-text-primary);
+  --button-background-hover-color: var(--theme--button-background-color-hover-dark);
+  justify-content: start;
+}

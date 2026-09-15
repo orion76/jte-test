@@ -1,12 +1,12 @@
 @use 'mixins' as *;
 
 :host {
-  .user-panel {
+  .panel {
     --flex-gap: var(--theme--spacing-md);
     @include flex;
   }
 
-  .button--notifications {
+  .notifications {
     position: relative;
   }
 }
