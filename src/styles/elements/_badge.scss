@@ -1,18 +1,32 @@
 @use 'mixins' as *;
 
+
+@property --badge-background-color {
+  syntax: "*";
+  inherits: false;
+}
+
 .badge {
-  @include flex($justify: center);
+  --local--badge-background-color: var(--badge-background-color, var(--theme--badge-background-color));
+  --local--badge-position-top: var(--badge-position-top, var(--theme--badge-position-top));
+  --local--badge-position-right: var(--badge-position-right, var(--theme--badge-position-right));
+
+  --flex-justify: center;
+  @include flex;
   position: absolute;
-  top: var(--spacing-2xs);
-  right: var(--spacing-2xs);
-  min-width: var(--spacing-xl);
-  height: var(--spacing-lg);
-  padding: 0 var(--spacing-2xs);
-  background: var(--color-danger);
-  color: var(--color-white);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
+  background: var(--local--badge-background-color);
+  color: var(--theme--text-white-color);
+
+
+  top: var(--local--badge-position-top);
+  right: var(--local--badge-position-right);
+  min-width: var(--theme--spacing-xl);
+  height: var(--theme--spacing-lg);
+  padding: 0 var(--theme--spacing-2xs);
+
+  font-size: var(--theme--title-small-font-size);
+  font-weight: var(--theme--control-label-font-weight);
   line-height: 14px;
-  border-radius: var(--radius-full);
+  border-radius: 50%;
   white-space: nowrap;
 }

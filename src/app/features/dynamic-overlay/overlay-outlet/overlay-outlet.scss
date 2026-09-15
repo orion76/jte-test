@@ -1,8 +1,7 @@
 :host {
   position: absolute;
 
-
-  .overlay-outlet__backdrop {
+  .backdrop {
     position: fixed;
     inset: 0;
     pointer-events: auto;

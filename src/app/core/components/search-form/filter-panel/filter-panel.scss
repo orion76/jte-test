@@ -1,100 +1,100 @@
 @use 'mixins' as *;
-@use 'variables' as *;
 
 
 :host {
+  --flex-align: stretch;
+  @include flex;
+  // background-color: rgb(132, 255, 0);
+  // background: var(--theme--app-background-color);
+  border: 1px solid var(--theme--color-border);
+  border-radius: var(--theme--form-section-radius);
+  box-shadow: 0px 8px 16px 0px rgba(93, 95, 97, 0.14);
 
-  .filter-chips {
-    @include list-items;
-  }
+  //   &__layout {
+  //     --flex-align: stretch;
+  //     @include flex;
+  // background-color: red;
+  //     // background: var(--theme--app-background-color);
+  //     border: 1px solid var(--theme--color-border);
+  //     border-radius: var(--theme--form-section-radius);
+  //     box-shadow: 0px 8px 16px 0px rgba(93, 95, 97, 0.14);
+  //   }
 
+  .column {
+    --flex-direction: column;
+    --flex-align: stretch;
+    @include flex;
+    gap: 22.4px;
 
-  .filter-list-item {
-    padding: var(--spacing-xs) var(--spacing-lg);
-    cursor: pointer;
-    transition: background 0.15s ease;
+    &.history {
+      position: relative;
+      overflow: hidden;
+      width: var(--theme--filter-panel-history-width);
 
-    &:hover {
-      background: var(--color-bg-hover);
+      .form-section {
+        padding-top: var(--spacing-xl);
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &.filters {
+      flex: 1;
+      padding: var(--theme--spacing-lg);
+      padding-top: var(--spacing-xxl);
     }
   }
 
-  .filter-chip {
-    @include list-item;
+  .divider {
+    width: 1px;
+    background: var(--theme--color-border-light);
   }
 
+  .form-field:has(input[name="author"]) {
+    @include form-field;
+    @include fieldset;
 
-  .form-field--author {
-    .form-field__label {
-      border: 1px solid var(--color-border-light);
-    }
-
-    .form-field__input-wrapper {
+    .input-container {
       display: flex;
       align-items: center;
-      height: 4em;
-    }
-  }
-}
-
-.filter-panel {
-
-
-  &__layout {
-    @include flex($align: stretch);
-    margin-top: var(--spacing-3xs);
-    background: var(--app-background-color);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xs);
-    box-shadow: 0px 8px 16px 0px rgba(93, 95, 97, 0.14);
-  }
-
-  &__column {
-    @include flex($direction: column, $align: stretch);
-    gap: 1.6em;
-
-
-  }
-
-  &__column--history {
-    position: relative;
-    overflow: hidden;
-    width: var(--filter-panel-history-width);
-
-    height: 16em;
-
-    .form-section {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
     }
   }
 
-  &__column--filters {
-    flex: 1;
-    padding: var(--spacing-lg);
+  .history {
+    .form-section>.content {
+      --theme--flex-direction: column;
+      --theme--flex-align: start;
+    }
   }
 
-  &__divider {
-    width: 1px;
-    background: var(--color-border-light);
+  .form-section>.content {
+    @include flex;
+
+    app-checkbox,
+    .history-value {
+      --list-item-padding: 6px 0 6px 1rem;
+      width: 100%;
+      cursor: pointer;
+      @include list-item;
+      line-height: var(--theme--line-height-base);
+
+      &:hover {
+        background-color: var(--theme--color-bg-hover)
+      }
+    }
+
   }
 }
+
 
 @media (max-width: $viewport-width-mobile) {
-  .filter-chips {
-    flex-direction: column;
-  }
+  :host {
+    margin-top: 14px;
+    box-shadow: none;
+    border: none;
 
-  .filter-panel {
-    margin-top: 1rem;
-
-    &__layout {
-      box-shadow: none;
-      border: none;
-    }
-
-    &__column--filters {
+    .column.filters {
       padding: 0;
     }
   }

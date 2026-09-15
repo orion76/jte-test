@@ -1,10 +1,9 @@
-import { Injectable, signal, inject, DestroyRef } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IViewportObserver, UViewport } from './types';
 
-const MOBILE_SCREEN = '(max-width: 439px)';
-const DESCTOP_SCREEN = '(min-width: 439px)';
+const MOBILE_SCREEN = '(max-width: 414px)';
 
 @Injectable({ providedIn: 'root' })
 export class ViewportObserver implements IViewportObserver {
@@ -15,13 +14,12 @@ export class ViewportObserver implements IViewportObserver {
 
   constructor() {
     this.breakpoint
-      .observe([MOBILE_SCREEN, DESCTOP_SCREEN])
+      .observe([MOBILE_SCREEN])
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((state) => {
         if (state.breakpoints[MOBILE_SCREEN]) {
           this.viewport.set('mobile');
-        }
-        if (state.breakpoints[DESCTOP_SCREEN]) {
+        } else {
           this.viewport.set('desktop');
         }
       });

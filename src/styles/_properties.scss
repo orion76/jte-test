@@ -1,0 +1,94 @@
+// Override: регистрация переменных внешнего переопределения (top-level @property).
+// inherits: false — точечная кастомизация не «течёт» на вложенные элементы.
+
+@property --flex-direction {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --flex-wrap {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --flex-align {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --flex-justify {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --flex-gap {
+  syntax: "*";
+  inherits: false;
+}
+
+// Override: button
+@property --button-radius {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --button-padding {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --button-gap {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --button-text-color {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --button-background-hover-color {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --button-transition {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --button-icon-size {
+  syntax: "*";
+  inherits: false;
+}
+
+// Override: input
+@property --input-height {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --input-padding {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --input-font-size {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --input-line-height {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --input-color {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --input-placeholder-color {
+  syntax: "*";
+  inherits: false;
+}

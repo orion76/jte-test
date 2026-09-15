@@ -1,28 +1,25 @@
-<div class="header__panel header__left">
+<div class="header-panel left">
   @if (viewportObserver.viewport() === 'mobile') {
     <button [app-button]="buttons['menu']" (click)="openMobileMenu()"></button>
   }
-  <div class="header__logo">
-    <a href="/" class="header__logo-link">
-      <img src="assets/logo.png" alt="Logo" class="header__logo-img" />
+  <div class="logo">
+    <a href="/" class="link">
+      <img src="assets/logo.png" alt="Logo" />
     </a>
   </div>
 </div>
 
-<nav class="header__panel header__center">
+<nav class="header-panel center">
   <app-menu class="menu menu--pages" [items]="pagesMenu"></app-menu>
-  <!-- <div class="app-overlay-outlet" outletId="desktopSearch"> -->
-
   <app-overlay-outlet
     outletId="search-form--desktop"
     viewport="desktop"
     class="search-form-container"
   >
   </app-overlay-outlet>
-  <button [app-button]="buttons['search']" (click)="onSearchOpen()" aria-label="Поиск"></button>
-
+  <button [app-button]="buttons['search']" (click)="onSearchOpen()"></button>
   <button [app-button]="buttons['add']"></button>
 </nav>
-<div class="header__panel header__right">
+<div class="header-panel right">
   <app-user-panel />
 </div>

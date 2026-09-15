@@ -1,15 +1,16 @@
 <div class="search-form__header">
-  <div class="form-field form-field--search">
+  <div class="form-field">
     <input
       type="text"
-      class="form-field__input"
+      name="search"
+      autocomplete="off"
       placeholder="Поиск"
       (focus)="onSearchFieldFocus()"
       [value]="query()"
       (input)="query.set($any($event.target).value)"
     />
     @if (query()) {
-      <button [app-button]="buttonClear" class="form-field__clear" (click)="query.set('')"></button>
+      <button [app-button]="buttonClear" class="clear" (click)="query.set('')"></button>
     }
   </div>
 </div>

@@ -2,12 +2,12 @@
 
 :host {
   display: grid;
-  background-color: var(--app-background-color);
+  background-color: var(--theme--app-background-color);
   grid-template-columns: 40px 1fr auto;
   grid-template-areas:
     "header-start header-center header-end"
     "content content content";
-  padding: 0 1rem;
+  padding: 0 14px;
 
 }
 
@@ -21,22 +21,22 @@
 
 :host(.mobile-modal-layout) {
 
-  .mobile-modal-layout__header {
+  .header {
     grid-area: header-start;
     display: flex;
     align-items: center;
-    height: 4em;
+    height: var(--theme--header-height);
   }
 
-  .mobile-modal-layout__title {
+  .title {
     grid-area: header-center;
-    font-weight: var(--font-weight-regular);
-    padding: 1rem;
+    font-weight: var(--theme--title-font-weight);
+    padding: 14px;
 
     align-content: center;
   }
 
-  .mobile-modal-layout__content {
+  .content {
     display: contents
   }
 }

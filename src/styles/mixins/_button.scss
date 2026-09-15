@@ -1,0 +1,38 @@
+@use 'structured' as *;
+
+@mixin button-reset {
+  border: none;
+  background: transparent;
+  font: inherit;
+}
+
+// ---- Кнопки ----
+@mixin button() {
+  --local--button-radius: var(--button-radius, var(--theme--button-radius));
+  --local--button-text-color: var(--button-text-color, var(--theme--button-text-color));
+  --local--button-background-hover-color: var(--button-background-hover-color, var(--theme--button-background-hover-color));
+  --local--button-transition: var(--button-transition, var(--theme--button-transition));
+  --local--button-padding: var(--button-padding, var(--theme--button-padding));
+  --local--button-gap: var(--button-gap, var(--theme--button-gap));
+
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--local--button-gap);
+  padding: var(--local--button-padding);
+  border-radius: var(--local--button-radius);
+  cursor: pointer;
+  color: var(--local--button-text-color);
+  transition: var(--local--button-transition);
+  flex-shrink: 0;
+
+  &:hover {
+    background: var(--local--button-background-hover-color);
+  }
+
+  @media (max-width: $viewport-width-mobile) {
+    --button-padding: 10px;
+  }
+
+}

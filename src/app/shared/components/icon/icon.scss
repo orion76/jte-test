@@ -1,20 +1,29 @@
- @use 'variables' as *;
- @use 'mixins' as *;
+// Override: точечная кастомизация экземпляра не наследуется во вложенные элементы
+@property --icon-size {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --icon-image-size {
+  syntax: "*";
+  inherits: false;
+}
 
  :host {
+   --local--icon-size: var(--icon-size, var(--theme--icon-size));
+   --local--icon-image-size: var(--icon-image-size, var(--theme--icon-image-size));
    line-height: 0;
-
 
    .icon__svg {
      display: inline-block;
      flex-shrink: 0;
-     height: var(--icon-size);
-     width: var(--icon-size);
+     height: var(--local--icon-size);
+     width: var(--local--icon-size);
    }
 
    .icon__image {
-     height: 32px;
-     width: 32px;
+     height: var(--local--icon-image-size);
+     width: var(--local--icon-image-size);
      border-radius: 50%;
      object-fit: cover;
    }

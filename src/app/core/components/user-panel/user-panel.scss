@@ -2,7 +2,8 @@
 
 :host {
   .user-panel {
-    @include flex($align: center, $gap: var(--spacing-md));
+    --flex-gap: var(--theme--spacing-md);
+    @include flex;
   }
 
   .button--notifications {

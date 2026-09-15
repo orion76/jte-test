@@ -1,46 +1,46 @@
 @let _checkboxStyle = checkboxStyle();
-<div class="filter-panel__layout">
-  @if (viewportObserver.viewport() === 'desktop') {
-    <div class="filter-panel__column filter-panel__column--history">
-      <div class="form-section">
-        <div class="form-section__header">История</div>
+<!-- <div class="filter-panel__layout"> -->
+@if (viewportObserver.viewport() === 'desktop') {
+  <div class="column history">
+    <div class="form-section">
+      <div class="title">История</div>
+      <div class="content">
         @for (item of historyItems; track item) {
-          <div class="filter-list-item" (click)="history.set(item)">{{ item }}</div>
+          <div class="history-value" (click)="history.set(item)">{{ item }}</div>
         }
-        <div class="form-section__gradient"></div>
       </div>
+      <div class="gradient"></div>
     </div>
-    <div class="filter-panel__divider"></div>
-  }
-  <div class="filter-panel__column filter-panel__column--filters">
-    <div class="form-section">
-      <div class="form-field form-field--author">
-        <label class="form-field__label">
-          <span class="form-field__title">Автор</span>
-          <div class="form-field__input-wrapper">
-            <input type="text" class="form-field__input" placeholder="Имя или должность" />
-            <button class="input-action-button">
-              <span class="input-action-button__text">Я</span>
-            </button>
-          </div>
-        </label>
+  </div>
+  <div class="divider"></div>
+}
+<div class="column filters">
+  <div class="form-section">
+    <label class="content form-field">
+      <span class="title">Автор</span>
+      <div class="input-container">
+        <input type="text" name="author" placeholder="Имя или должность" autocomplete="off"/>
+        <button class="input-action-button">
+          <span class="input-action-button__text">Я</span>
+        </button>
       </div>
-    </div>
+    </label>
+  </div>
 
-    <div class="form-section">
-      <div class="filter-chips">
-        @for (item of ['Я участник', 'Строгий поиск', 'В заголовках']; track item) {
-          <app-checkbox class="filter-chip" [label]="item" [inputStyle]="_checkboxStyle" />
-        }
-      </div>
+  <div class="form-section">
+    <div class="content">
+      @for (item of ['Я участник', 'Строгий поиск', 'В заголовках']; track item) {
+        <app-checkbox [label]="item" [inputStyle]="_checkboxStyle" />
+      }
     </div>
-    <div class="form-section">
-      <div class="form-section__header form-section__header--label">Только</div>
-      <div class="filter-chips">
-        @for (item of ['Теги', 'Просьбы', 'Контакты']; track item) {
-          <app-checkbox class="filter-chip" [label]="item" [inputStyle]="_checkboxStyle" />
-        }
-      </div>
+  </div>
+  <div class="form-section">
+    <div class="title">Только</div>
+    <div class="content">
+      @for (item of ['Теги', 'Просьбы', 'Контакты']; track item) {
+        <app-checkbox [label]="item" [inputStyle]="_checkboxStyle" />
+      }
     </div>
   </div>
 </div>
+<!-- </div> -->

@@ -1,0 +1,42 @@
+@mixin input {
+  --local--input-height: var(--input-height, var(--theme--input-height));
+  --local--input-font-size: var(--input-font-size, var(--theme--input-font-size));
+  --local--input-line-height: var(--input-line-height, var(--theme--input-line-height));
+  --local--input-color: var(--input-color, var(--theme--input-color));
+  --local--input-placeholder-color: var(--input-placeholder-color, var(--theme--input-placeholder-color));
+  --local--input-padding: var(--input-padding, var(--theme--input-padding));
+
+  border: none;
+  height: var(--local--input-height);
+  padding: var(--local--input-padding);
+  font: inherit;
+  font-size: var(--local--input-font-size);
+  line-height: var(--local--input-line-height);
+  color: var(--local--input-color);
+  outline: none;
+
+  &::placeholder {
+    color: var(--local--input-placeholder-color);
+  }
+}
+
+@mixin form-field() {
+  display: block;
+
+  width: 100%;
+
+  .title {
+    font-size: var(--theme--control-label-small-font-size);
+    font-weight: var(--theme--control-label-font-weight);
+    line-height: var(--theme--spacing-lg);
+    color: var(--theme--color-text-light);
+  }
+
+  input {
+    --input-padding: var(--theme--spacing-lg);
+    @include input;
+    flex: 1;
+    border-radius: var(--theme--form-section-radius);
+    background: transparent;
+  }
+}

@@ -1,10 +1,10 @@
-<label class="checkbox__label">
+<label>
   <input
     type="checkbox"
     [checked]="checked()"
     (change)="onChange($any($event.target)?.checked ?? false)"
   />
-  <span class="checkbox__icon">
+  <span class="icon">
     @switch (inputStyle()) {
       @case ('default') {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -21,6 +21,6 @@
     }
   </span>
   @if (label()) {
-    <span class="checkbox__title">{{ label() }}</span>
+    <span class="label">{{ label() }}</span>
   }
 </label>

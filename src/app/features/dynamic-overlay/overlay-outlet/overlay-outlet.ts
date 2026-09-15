@@ -33,9 +33,6 @@ import { IOverlayOpenOptions } from '../types';
 export class OverlayOutlet implements OnInit {
   readonly outletId = input.required<string>();
   readonly viewport = input.required<UViewport>();
-  readonly state = computed(() => {
-    return this.openSignal() !== undefined ? 'is-opened' : 'is-closed';
-  });
 
   private overlayManager = inject(OverlayManager);
   parentInjector = inject(Injector);
@@ -78,8 +75,7 @@ export class OverlayOutlet implements OnInit {
     this.overlayManager.close(this.outletId());
   }
   protected hostClasses(): string {
-    const prefix = 'overlay-outlet';
-    return `${prefix}--${this.outletId()} ${prefix}-state--${this.state()}`;
+    return `${this.outletId()}`;
   }
   private destroyActiveViews() {
     this.activeViews.forEach((view) => {

@@ -1,7 +1,33 @@
 @use 'mixins' as *;
 
+@property --input-checkbox-size {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --input-checkbox-color {
+  syntax: "*";
+  inherits: false;
+}
+
+
+@property --input-radio-size {
+  syntax: "*";
+  inherits: false;
+}
+
 :host {
-  input[type='checkbox']:checked~.checkbox__icon svg {
+  --local--input-checkbox-size: var(--input-checkbox-size, var(--theme--input-checkbox-size));
+  --local--input-radio-size: var(--input-radio-size, var(--theme--input-radio-size));
+
+  label {
+    cursor: pointer;
+    --flex-gap: var(--theme--spacing-md);
+    @include flex;
+  }
+
+
+  input[type='checkbox']:checked~.icon svg {
     display: block;
   }
 
@@ -11,54 +37,43 @@
     pointer-events: none;
     width: 0;
     height: 0;
-    margin: 0;
-  }
-}
-
-.checkbox {
-
-
-  &__label {
-    cursor: pointer;
-    @include flex($gap: var(--spacing-md));
   }
 
-  &__title {
+
+  .label {
     white-space: nowrap;
   }
 
-  &__icon {
-    @include flex($justify: center);
-    border: 2px solid var(--color-border-checkbox);
+  .icon {
+    --flex-justify: center;
+    @include flex;
+    border: 2px solid var(--theme--color-border-checkbox);
 
-    height: var(--input-checkbox-size);
-    width: var(--input-checkbox-size);
+    height: var(--local--input-checkbox-size);
+    width: var(--local--input-checkbox-size);
     flex-shrink: 0;
 
     svg {
       display: none;
       fill: none;
       stroke-width: 4;
-      stroke: var(--color-primary);
+      stroke: var(--theme--checkbox-color);
     }
   }
-
-
-
 }
 
-:host(.checkbox--round) {
-  .checkbox__icon {
+:host(.round) {
+  .icon {
     border: none;
     border-radius: 50%;
-    background-color: var(--color-gray-light);
-    height: var(--input-radio-size);
-    width: var(--input-radio-size);
+    background-color: var(--theme--color-gray-light);
+    height: var(--local--input-radio-size);
+    width: var(--local--input-radio-size);
 
     svg {
 
       stroke-width: 2;
-      stroke: var(--color-gray);
+      stroke: var(--theme--color-gray);
     }
   }
 }

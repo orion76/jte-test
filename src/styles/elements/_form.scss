@@ -1,0 +1,56 @@
+@use 'mixins' as *;
+
+
+
+
+.form-field {
+  @include form-field;
+
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+
+.form-section {
+  .title {
+    font-size: var(--theme--title-small-font-size);
+    font-weight: var(--theme--control-label-font-weight);
+    line-height: 14px;
+    color: var(--theme--color-text-secondary);
+    letter-spacing: 0.5px;
+    padding-left: var(--theme--spacing-lg);
+    margin-bottom: 6px;
+  }
+
+  .items {
+    @include flex;
+  }
+
+  .gradient {
+    height: 28px;
+    background: linear-gradient(transparent, var(--theme--app-background-color) 75%);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.input-action-button {
+  --button-radius: var(--theme--radius-xs);
+  --button-background-hover-color: transparent;
+  --button-padding: 0;
+  @include button;
+  margin-right: var(--theme--spacing-sm);
+  background: var(--theme--color-bg-btn);
+  width: var(--icon-size, var(--theme--icon-size));
+  height: var(--icon-size, var(--theme--icon-size));
+
+  &__text {
+    position: relative;
+    font-weight: var(--theme--control-label-font-weight);
+    color: var(--theme--color-text-dark);
+  }
+
+}

@@ -1,0 +1,55 @@
+$viewport-width-mobile: 414px;
+
+
+
+// ---- Flex ----
+
+@mixin flex {
+  --local--flex-direction: var(--flex-direction, var(--theme--flex-direction));
+  --local--flex-wrap: var(--flex-wrap, var(--theme--flex-wrap));
+  --local--flex-align: var(--flex-align, var(--theme--flex-align));
+  --local--flex-justify: var(--flex-justify, var(--theme--flex-justify));
+  --local--flex-gap: var(--flex-gap, var(--theme--flex-gap));
+
+  display: flex;
+
+  flex-direction: var(--local--flex-direction);
+  flex-wrap: var(--local--flex-wrap);
+  align-items: var(--local--flex-align);
+  justify-content: var(--local--flex-justify);
+  gap: var(--local--flex-gap);
+}
+
+
+// ---- Списки ----
+
+@mixin list-item {
+  --local--list-item-padding: var(--list-item-padding, var(--theme--list-item-padding));
+  --local--list-item-radius: var(--list-item-radius, var(--theme--list-item-radius));
+  --local--list-item-transition: var(--list-item-transition, var(--theme--list-item-transition));
+
+  --flex-gap: var(--theme--spacing-sm);
+  @include flex;
+
+  padding: var(--local--list-item-padding);
+  border-radius: var(--local--list-item-radius);
+  transition: var(--local--list-item-transition);
+}
+
+@mixin fieldset() {
+  display: flex;
+  position: relative;
+  align-items: center;
+  border: 1px solid var(--theme--color-border-light);
+  min-height: var(--theme-fieldset-min-height);
+
+  .title {
+    position: absolute;
+    z-index: 1;
+    padding: 0 .5rem;
+    left: 9px;
+    top: -.5rem;
+    background-color: white;
+  }
+}
+

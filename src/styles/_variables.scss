@@ -1,1 +1,56 @@
-$viewport-width-mobile: 439px;
+// Global: сырые справочные значения дизайн-системы.
+// Не знают о компонентах. Файл излучает CSS, поэтому @use-ится только в styles.scss;
+// компоненты получают Sass-брейкпоинт из mixins.
+
+:root {
+  // ---- Colors ----
+  --color-primary: #1074CC;
+  --color-danger: #CC1910;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #7F878C;
+  --color-gray-light: #F5F5F5;
+  --color-black-transparent-5: rgba(0, 0, 0, 0.05);
+
+  // ---- Typography ----
+  --font-family: Roboto, sans-serif;
+  --font-size-base: 16px;
+  --font-size-md: 14px;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --line-height-base: 1.5;
+  --line-height-label: 1.25;
+  --line-height-control: 1;
+
+  // ---- Spacing ----
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+
+  // ---- Border Radius ----
+  --radius-xs: 4px;
+  --radius-full: 100px;
+
+  // ---- Text ----
+  --color-text-primary: #2A3033;
+  --color-text-secondary: var(--color-gray);
+  --color-text-muted: #9AA1A6;
+  --color-text-light: #8C9499;
+  --color-text-dark: #64676B;
+
+  // ---- Border ----
+  --color-border: #E5E7EB;
+  --color-border-light: #E1E4E6;
+  --color-border-checkbox: #999;
+
+  // ---- Background ----
+  --color-bg-hover: #F3F4F6;
+  --color-bg-btn: #EFF1F2;
+}

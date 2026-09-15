@@ -7,7 +7,6 @@ import { UCheckboxStyle } from './types';
   styleUrl: './checkbox.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'checkbox',
     '[class]': 'hostClasses()',
   },
 })
@@ -16,7 +15,7 @@ export class Checkbox {
   readonly label = input('');
   readonly inputStyle = input<UCheckboxStyle>('default');
 
-  readonly hostClasses = computed(() => `checkbox--${this.inputStyle()}`);
+  readonly hostClasses = computed(() => `${this.inputStyle()}`);
 
   protected onChange(value: boolean): void {
     this.checked.set(value);

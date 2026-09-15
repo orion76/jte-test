@@ -25,7 +25,7 @@ export class Menu {
     console.log('[Menu]- click', item.id);
   }
   hostClasses() {
-    return `menu menu--${this.direction()}`;
+    return `menu ${this.direction()}`;
   }
   private addItemClasses = (item: IMenuItemData): TMenuItemData => {
     const classes = [this.menuItemClass, `${this.menuItemClass}--${item.id}`];

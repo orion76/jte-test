@@ -1,9 +1,8 @@
-@use 'styles/variables' as *;
+@use 'styles/properties';
+@use 'styles/variables';
+@use 'styles/mixins' as *;
 @use 'styles/theme';
-@use 'styles/form';
-@use 'styles/elements/button';
-@use 'styles/elements/badge';
-
+@use 'styles/elements';
 
 
 *,
@@ -16,17 +15,19 @@
 
 html,
 body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--spacing-xl);
-  color: var(--color-text-primary);
-  background: var(--color-white);
+  font-family: var(--theme--font-family-base);
+  font-size: var(--theme--font-size-base);
+  font-weight: var(--theme--font-weight-regular);
+  line-height: var(--theme--line-height-base);
+  color: var(--theme--color-text-primary);
+  background: var(--theme--app-background-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.overlay-outlet--mobile {
+
+
+.overlay-outlet.mobile {
   top: 0;
   width: 100%;
 }
@@ -38,7 +39,6 @@ body {
 
       &__label {
         display: none;
-        ;
       }
 
       &--history {
@@ -49,13 +49,5 @@ body {
 
   .badge {
     display: none;
-    ;
-  }
-}
-
-.mobile-modal-layout {
-  .menu--vertical {
-
-    grid-area: content;
   }
 }

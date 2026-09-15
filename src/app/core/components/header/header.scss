@@ -1,61 +1,57 @@
-@use 'variables' as *;
 @use 'mixins' as *;
 
 :host {
   @include flex;
-  height: 4em;
-  background: var(--color-primary);
+  min-width: max-content;
+  height: var(--theme--header-height);
+  background: var(--theme--header-background-color);
   padding: 0 12px;
 
-  .header__left {
+  .left {
     @include flex;
     flex-shrink: 0;
     margin-right: auto;
   }
 
-  .header__right {
+  .right {
     margin-left: auto;
+    padding-left: 16px;
   }
 
-  .header__logo {
+  .logo {
     flex-shrink: 0;
     padding: 0 4px;
 
-    &-link {
+    .link {
       @include flex;
       height: 100%;
       text-decoration: none;
     }
 
-    &-img {
+    img {
       display: block;
-
-      width: 9.5em;
     }
   }
 
-  .header__panel {
+  .header-panel {
     position: relative;
+    --flex-gap: 16px;
     @include flex;
-    gap: 16px;
   }
 
   .menu--pages {
     padding: 0 16px;
   }
 
-  .header__center {
+  .center {
     width: max-content;
     height: 100%;
 
     .search-form-container {
       top: 0;
-      left: 0;
-      right: 0;
-      width: calc(100% - (var(--size-btn) + var(--spacing-lg) / 2));
-      height: fit-content;
+      bottom: 0;
+      width: calc(100% - (var(--theme--size-btn) + var(--theme--spacing-lg) / 2));
       pointer-events: none;
-
     }
   }
 }
@@ -67,38 +63,12 @@
       padding: 0;
     }
 
-    .header {
-      padding: 0 0.5em;
+    .header-panel {
+      --flex-gap: 0;
+    }
 
-      &__logo {
-        padding: 0;
-      }
-
-      &__right {
-        margin: 0;
-      }
-
-      &__center {
-        gap: 4px;
-
-        .button--add {
-          order: 0;
-        }
-
-        .menu {
-          order: 1;
-        }
-
-        .button--search {
-          order: 2;
-        }
-
-      }
-
-      .menu {
-        padding: 0;
-        margin: 0;
-      }
+    .right {
+      padding: 0;
     }
   }
 }

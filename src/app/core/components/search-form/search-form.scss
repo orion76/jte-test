@@ -1,45 +1,50 @@
-@use 'variables' as *;
 @use 'mixins' as *;
 
 
 :host {
-  @include flex($direction: column, $align: stretch);
-  padding: 4px 0;
+  --flex-direction: column;
+  --flex-align: stretch;
+  --flex-justify: center;
+  --flex-gap: 0;
+  @include flex;
 
   position: absolute;
+  top: 0;
+  bottom: 0;
   width: 100%;
+
 
   right: 0;
   z-index: 2;
   pointer-events: auto;
 
-
-
-  .filter-panel {
-    padding-top: 2px;
-  }
-
   .search-form__header {
-    @include flex($gap: var(--spacing-2xs));
+    --flex-gap: var(--theme--spacing-2xs);
+    @include flex;
   }
 
-  .form-field--search {
+  .search-form__filters {
+    position: absolute;
+    top: calc(100% - 2px);
+    width: 100%;
+    background-color: var(--theme--app-background-color);
+  }
+
+  .form-field:has(input[name="search"]) {
     @include flex;
     position: relative;
-    width: 100%;
-    background-color: var(--app-background-color);
+    background-color: var(--theme--app-background-color);
     border-radius: 4px;
 
-    .form-field__input {
-      height: 3.5em;
+    input {
+      --input-height: 48px;
     }
 
-    .form-field__clear {
-      --button-size: 36px;
-      --button-radius: var(--radius-full);
-      --button-background-hover-color: var(--color-black-transparent-5);
+    button.clear {
+      --button-radius: 50%;
+      --button-background-hover-color: var(--theme--color-black-transparent-5);
       @include button;
-      right: var(--spacing-2xs);
+      right: var(--theme--spacing-2xs);
       position: absolute
     }
   }
@@ -97,9 +102,9 @@
       padding-top: 12px;
     }
 
-    .form-field--search {
-      background-color: var(--color-gray-light);
-      border-radius: 2em;
+    .form-field:has(input[name="search"]) {
+      background-color: var(--theme--color-gray-light);
+      border-radius: 28px;
     }
   }
 }
