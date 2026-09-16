@@ -1,4 +1,4 @@
-import { isWritableSignal, WritableSignal } from '@angular/core';
+import { WritableSignal } from '@angular/core';
 
 export type UViewport = 'desktop' | 'mobile';
 export interface IViewportObserver {

@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnDestroy, OnInit, output } from '@angular/core';
-import { ThemeManager } from '../../../core/services/theme-manager/theme-manager';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  OnDestroy,
+  OnInit,
+  output,
+} from '@angular/core';
+import { ThemeManager } from '@core/services/theme-manager/theme-manager';
 import { Button } from '../button/button';
 import { IButton } from '../button/types';
 

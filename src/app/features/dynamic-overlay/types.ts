@@ -1,6 +1,6 @@
 import { Type, WritableSignal } from '@angular/core';
 
-export type TOpoenSignal = WritableSignal<IOverlayOpenOptions | undefined>;
+export type TOpenSignal = WritableSignal<IOverlayOpenOptions | undefined>;
 export interface IOverlayOpenOptions {
   component: Type<unknown>;
   inputs?: Record<string, unknown>;
@@ -8,6 +8,7 @@ export interface IOverlayOpenOptions {
 }
 
 export interface IOverlayManager {
-  register(id: string, openSignal: TOpoenSignal): void;
+  register(id: string, openSignal: TOpenSignal): void;
   open(outletId: string, outletOptions: IOverlayOpenOptions): boolean;
+  close(outletId: string): boolean;
 }

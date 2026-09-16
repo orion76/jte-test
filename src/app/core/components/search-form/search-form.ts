@@ -8,13 +8,11 @@ import {
   model,
   signal,
 } from '@angular/core';
+import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
 import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '@features/dynamic-overlay/tokens';
-import { ViewportObserver } from '../../services/viewport-observer/viewport-observer';
-import { FilterPanel } from './filter-panel/filter-panel';
-import { IButton } from '@shared/components/button/types';
 import { Button } from '@shared/components/button/button';
-
-const buttons: IButton[] = [{ id: 'clear', icon: 'cancel', iconPlace: 'end' }];
+import { IButton } from '@shared/components/button/types';
+import { FilterPanel } from './filter-panel/filter-panel';
 
 @Component({
   selector: 'app-search-form',

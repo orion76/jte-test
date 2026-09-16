@@ -2,9 +2,7 @@ import { NgComponentOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   effect,
-  EmbeddedViewRef,
   inject,
   Injector,
   input,
@@ -13,8 +11,8 @@ import {
   TemplateRef,
   viewChild,
 } from '@angular/core';
+import { UViewport } from '@core/services/viewport-observer/types';
 import { MobileModalLayout } from '@shared/components';
-import { UViewport } from '../../../core/services/viewport-observer/types';
 import { OverlayManager } from '../overlay-manager';
 import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '../tokens';
 import { IOverlayOpenOptions } from '../types';
@@ -44,8 +42,6 @@ export class OverlayOutlet implements OnInit {
 
   headerTemplate = viewChild<TemplateRef<unknown>>('headerTmp');
 
-  private activeViews: EmbeddedViewRef<unknown>[] = [];
-
   constructor() {
     this.overlayInjector = this.createInjector();
     effect(() => {
@@ -61,10 +57,7 @@ export class OverlayOutlet implements OnInit {
   ngOnInit(): void {
     this.overlayManager.register(this.outletId(), this.openSignal);
   }
-  ngOnDestroy() {
-    // Финальная очистка при уничтожении всего компонента
-    this.destroyActiveViews();
-  }
+
   private createInjector(): Injector {
     return Injector.create({
       providers: [{ provide: OVERLAY_OUTLET_CLOSE_EVENT_TOKEN, useValue: this.closeSignal }],
@@ -76,13 +69,5 @@ export class OverlayOutlet implements OnInit {
   }
   protected hostClasses(): string {
     return `${this.outletId()}`;
-  }
-  private destroyActiveViews() {
-    this.activeViews.forEach((view) => {
-      if (!view.destroyed) {
-        view.destroy();
-      }
-    });
-    this.activeViews = [];
   }
 }

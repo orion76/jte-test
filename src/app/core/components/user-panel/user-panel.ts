@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
 import { Button } from '@shared/components/button/button';
 import { IButton } from '@shared/components/button/types';
-import { ViewportObserver } from '../../services/viewport-observer/viewport-observer';
 
 @Component({
   selector: 'app-user-panel',

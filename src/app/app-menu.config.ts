@@ -1,8 +1,5 @@
-import {
-  InjectionToken,
-  Provider
-} from '@angular/core';
-import { IMenuItemData } from './shared/components';
+import { InjectionToken, Provider } from '@angular/core';
+import { IMenuItemData } from '@shared/components';
 
 const pagesMenu: IMenuItemData[] = [
   { id: 'links', label: 'Ссылки', icon: 'link' },

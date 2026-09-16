@@ -1,7 +1,6 @@
-import { DOCUMENT, inject, Injectable, Renderer2 } from '@angular/core';
+import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { IThemeManager } from './types';
-import { UViewport } from '../viewport-observer/types';
 
 export type ULayoutTheme = 'default' | 'mobile-modal';
 

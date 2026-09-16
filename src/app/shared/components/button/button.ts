@@ -1,14 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  input,
-  Renderer2,
-} from '@angular/core';
-import { IButton, UButtonType, UIconPlace } from './types';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Icon, UImageType } from '../icon/icon';
+import { IButton, UIconPlace } from './types';
 
 @Component({
   selector: '[app-button]',

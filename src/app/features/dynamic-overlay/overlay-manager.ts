@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IOverlayManager, IOverlayOpenOptions, TOpoenSignal } from './types';
-
-
+import { IOverlayManager, IOverlayOpenOptions, TOpenSignal } from './types';
 
 @Injectable({ providedIn: 'root' })
 export class OverlayManager implements IOverlayManager {
-  readonly outlets: Map<string, TOpoenSignal> = new Map();
+  readonly outlets: Map<string, TOpenSignal> = new Map();
 
-  register(id: string, openSignal: TOpoenSignal) {
+  register(id: string, openSignal: TOpenSignal) {
     this.outlets.set(id, openSignal);
   }
 

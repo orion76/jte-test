@@ -15,7 +15,7 @@ npm test         # unit-тесты (Vitest)
 
 ## 1. Структура проекта
 
-Архитектура — послойная (feature-sliced style): слои изолированы директориями и path-алиасами `@shared/*`, `@features/*` (tsconfig.app.json).
+Архитектура — послойная (feature-sliced style): слои изолированы директориями и path-алиасами `@app/*`, `@core/*`, `@features/*`, `@shared/*` (tsconfig.json).
 
 ```
 src/

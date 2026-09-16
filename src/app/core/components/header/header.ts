@@ -1,15 +1,14 @@
-import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { PAGES_MENU } from '@app/app-menu.config';
+import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
+import { OverlayManager } from '@features/dynamic-overlay/overlay-manager';
+import { OverlayOutlet } from '@features/dynamic-overlay/overlay-outlet/overlay-outlet';
+import { IOverlayOpenOptions } from '@features/dynamic-overlay/types';
 import { Menu } from '@shared/components';
-import { IMenuItemData } from '@shared/components/menu/types';
-import { PAGES_MENU } from '../../../app-menu.config';
-import { OverlayManager } from '../../../features/dynamic-overlay/overlay-manager';
-import { IOverlayOpenOptions } from '../../../features/dynamic-overlay/types';
-import { ViewportObserver } from '../../services/viewport-observer/viewport-observer';
-import { SearchForm } from '../search-form/search-form';
-
 import { Button } from '@shared/components/button/button';
 import { IButton } from '@shared/components/button/types';
-import { OverlayOutlet } from '../../../features/dynamic-overlay/overlay-outlet/overlay-outlet';
+import { IMenuItemData } from '@shared/components/menu/types';
+import { SearchForm } from '../search-form/search-form';
 import { UserPanel } from '../user-panel/user-panel';
 
 @Component({
@@ -17,7 +16,6 @@ import { UserPanel } from '../user-panel/user-panel';
   imports: [Menu, UserPanel, OverlayOutlet, Button],
   templateUrl: './header.html',
   styleUrl: './header.scss',
-  // encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
