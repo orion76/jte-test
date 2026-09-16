@@ -1,5 +1,11 @@
 # JteApp — тестовое задание (Frontend-разработчик Angular 2+)
 
+[![Deploy to GitHub Pages](https://github.com/orion76/jte-test/actions/workflows/deploy.yml/badge.svg)](https://github.com/orion76/jte-test/actions/workflows/deploy.yml)
+
+**Live demo:** https://orion76.github.io/jte-test/
+
+**CI/CD (GitHub Actions, `.github/workflows/deploy.yml`):** каждый push в `master` (или ручной `workflow_dispatch`) прогоняет гейты качества — `ng lint` (ESLint + angular-eslint) и `prettier --check` — затем production-сборку с `--base-href /jte-test/` и публикует приложение на GitHub Pages через `upload-pages-artifact` / `deploy-pages`. Локально те же проверки запускаются git-хуками: pre-commit (lint-staged: eslint --fix + prettier по staged-файлам) и pre-push (format:check + lint по всему проекту).
+
 Веб-приложение с адаптивным хедером: навигационное меню, панель пользователя и форма поиска с фильтрами. Ключевая функциональность — единая форма поиска, которая на десктопе открывается как overlay-панель, а на мобильных — как модальный экран, через собственную систему динамических оверлеев.
 
 ## Запуск
