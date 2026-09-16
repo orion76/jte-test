@@ -57,6 +57,7 @@
   // ---- Sizing ----
   --theme--icon-size: #{size('icon')};
   --theme--icon-image-size: #{size('icon-image')};
+  --theme--form-field-height: #{size('form-field-height')};
 
   // ---- Filter panel ----
   --theme--filter-panel-history-width: #{size('panel-width')};
@@ -116,7 +117,7 @@
   --theme--badge-position-top: #{spacing('2xs')};
   --theme--badge-position-right: #{spacing('2xs')};
 
-  --theme--fieldset-min-height: #{size('form-field-height')};
+  --theme--fieldset-min-height: var(--theme--form-field-height);
   --theme--fieldset-title-background: var(--theme--app-background-color);
   --theme--fieldset-title-padding: 0 #{spacing('sm')};
   --theme--fieldset-title-left: #{size('fieldset-title-left')};

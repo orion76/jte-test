@@ -9,7 +9,7 @@
 }
 
 :host(.image) {
-  --button-padding: 4px;
+  --button-padding: var(--theme--spacing-2xs);
 }
 
 :host-context(.modal) {

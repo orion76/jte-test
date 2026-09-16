@@ -38,12 +38,14 @@ $colors: (
 );
 
 // ---- Typography ----
+// rem — масштабируется с настройкой размера шрифта в браузере пользователя
+// (html { font-size: 100% } в styles.scss).
 $typography: (
   'family': $font-family,
-  'size-base': 16px,
-  'size-md': 14px,
-  'size-xs': 11px,
-  'size-sm': 12px,
+  'size-base': 1rem,
+  'size-md': 0.875rem,
+  'size-xs': 0.6875rem,
+  'size-sm': 0.75rem,
   'weight-regular': 400,
   'weight-medium': 500,
   'line-height-base': 1.5,

@@ -5,7 +5,7 @@
   min-width: max-content;
   height: var(--theme--header-height);
   background: var(--theme--header-background-color);
-  padding: 0 12px;
+  padding: 0 var(--theme--spacing-md);
 
   .left {
     @include flex;
@@ -15,12 +15,12 @@
 
   .right {
     margin-left: auto;
-    padding-left: 16px;
+    padding-left: var(--theme--spacing-lg);
   }
 
   .logo {
     flex-shrink: 0;
-    padding: 0 4px;
+    padding: 0 var(--theme--spacing-2xs);
 
     .link {
       @include flex;
@@ -35,12 +35,12 @@
 
   .panel {
     position: relative;
-    --flex-gap: 16px;
+    --flex-gap: var(--theme--spacing-lg);
     @include flex;
   }
 
   .pages {
-    padding: 0 16px;
+    padding: 0 var(--theme--spacing-lg);
   }
 
   .center {
@@ -76,7 +76,8 @@
   :host {
     .pages {
       flex-grow: 1;
-      --flex-justify: space-between;
+      --flex-gap: 2rem;
+      --flex-justify: center;
     }
   }
 }

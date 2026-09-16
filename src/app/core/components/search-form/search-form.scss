@@ -32,10 +32,10 @@
     @include flex;
     position: relative;
     background-color: var(--theme--app-background-color);
-    border-radius: 4px;
+    border-radius: var(--theme--radius-xs);
 
     input {
-      --input-height: 48px;
+      --input-height: var(--theme--form-field-height);
     }
 
     button.clear {
@@ -94,7 +94,7 @@
 @media (max-width: $viewport-width-mobile) {
   :host {
     .filters {
-      padding-top: 12px;
+      padding-top: var(--theme--spacing-md);
     }
 
     .field:has(input[name='search']) {

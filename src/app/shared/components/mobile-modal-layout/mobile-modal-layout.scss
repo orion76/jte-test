@@ -3,7 +3,7 @@
 :host {
   display: grid;
   background-color: var(--theme--app-background-color);
-  grid-template-columns: 40px 1fr auto;
+  grid-template-columns: var(--theme--button-size) 1fr auto;
   grid-template-areas:
     'header-start header-center header-end'
     'content content content';

@@ -11,16 +11,25 @@
   box-sizing: border-box;
 }
 
+html {
+  // rem-база = настройка пользователя в браузере (a11y);
+  // размер шрифта приложения задаётся на body токеном темы.
+  font-size: 100%;
+}
+
 html,
 body {
   font-family: var(--theme--font-family-base);
-  font-size: var(--theme--font-size-base);
   font-weight: var(--theme--font-weight-regular);
   line-height: var(--theme--line-height-base);
   color: var(--theme--color-text-primary);
   background: var(--theme--app-background-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: var(--theme--font-size-base);
 }
 
 .overlay.mobile {
