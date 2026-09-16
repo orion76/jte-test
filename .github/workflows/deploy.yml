@@ -24,15 +24,6 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-        if: false
-      - name: npm ci (debug via annotations)
-        run: |
-          code=0
-          npm ci > npm-ci.log 2>&1 || code=$?
-          if [ "$code" -ne 0 ]; then
-            tail -n 50 npm-ci.log | while IFS= read -r l; do echo "::error::${l:0:250}"; done
-            exit "$code"
-          fi
       - run: npm run lint
       - run: npm run format:check
       - run: npx ng build --base-href /jte-test/
