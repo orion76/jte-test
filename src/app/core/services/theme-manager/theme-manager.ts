@@ -1,14 +1,6 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { IThemeManager } from './types';
-
-export type ULayoutTheme = 'default' | 'mobile-modal';
-
-export interface ILayoutTheme {
-  statusBarColor: string;
-}
-
-export type TLayoutThemes = Record<ULayoutTheme, ILayoutTheme>;
+import { IThemeManager, TLayoutThemes, ULayoutTheme } from './types';
 
 export const deviceThemes: TLayoutThemes = {
   default: { statusBarColor: '#1074CC' },
