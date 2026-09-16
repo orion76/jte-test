@@ -44,7 +44,7 @@
   }
 
   .center {
-    width: max-content;
+    width: 100%;
     height: 100%;
 
     .container {
@@ -68,6 +68,15 @@
 
     .right {
       padding: 0;
+    }
+  }
+}
+
+@media (min-width: $viewport-width-desktop) {
+  :host {
+    .pages {
+      flex-grow: 1;
+      --flex-justify: space-between;
     }
   }
 }
