@@ -4,6 +4,7 @@ import {
   computed,
   effect,
   inject,
+  linkedSignal,
   model,
   signal,
 } from '@angular/core';
@@ -39,8 +40,13 @@ export class SearchForm {
   protected readonly enterAnimation = computed(() => (this.isDesktop() ? 'slide-in' : ''));
   protected readonly leaveAnimation = computed(() => (this.isDesktop() ? 'slide-out' : ''));
   // Mobile: открыта вместе с модалкой (уничтожается при закрытии).
-  // Desktop: показывается по фокусу поля и остаётся видимой во время slide-out.
-  readonly isShowForm = signal(this.isMobile());
+  // Desktop: показывается по фокусу поля; при клике на backdrop скрывается
+  // сразу — до старта slide-out анимации строки поиска.
+  readonly isShowForm = linkedSignal(() => {
+    const isOpen = !this.close();
+    const isMobile = !this.isDesktop();
+    return isMobile && isOpen;
+  });
 
   protected readonly buttonClear: IButton = {
     id: 'clear',

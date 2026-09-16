@@ -29,6 +29,11 @@ import { IOverlayManager, IOverlayOpenOptions } from '../types';
   },
 })
 export class OverlayOutlet implements OnInit {
+  // Пауза между сигналом закрытия и стартом native leave-анимации:
+  // контент успевает применить своё leave-состояние (например, SearchForm
+  // скрывает панель фильтров) до того, как строка поиска уедет вправо.
+  private static readonly CONTENT_LEAVE_DELAY_MS = 150;
+
   readonly outletId = input.required<string>();
   readonly viewport = input.required<UViewport>();
 
@@ -49,7 +54,7 @@ export class OverlayOutlet implements OnInit {
         setTimeout(() => {
           this.overlayManager.close(this.outletId());
           this.closeSignal.set(false);
-        }, 0);
+        }, OverlayOutlet.CONTENT_LEAVE_DELAY_MS);
       }
     });
   }
