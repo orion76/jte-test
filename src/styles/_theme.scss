@@ -1,19 +1,25 @@
 // Theme: семантические переменные темы — дефолты компонентов на весь сайт.
-// Обязательный префикс theme; ссылаются на Global-слой из variables.scss.
-
+// Обязательный префикс theme; цвета берутся из Global-палитры $colors
+// на этапе сборки, размеры/отступы/радиусы/типографика — из Global var(--*).
+@use 'sass:map';
 @use 'breakpoints' as *;
+@use 'variables' as *;
+
+@function color($name) {
+  @return map.get($colors, $name);
+}
 
 :root {
   // ---- App ----
-  --theme--app-background-color: var(--color-white);
+  --theme--app-background-color: #{color('white')};
 
   // ---- Button ----
-  --theme--button-text-color: var(--color-white);
+  --theme--button-text-color: #{color('white')};
   --theme--button-radius: var(--radius-none);
   --theme--button-padding: var(--size-button-padding);
   --theme--button-gap: var(--spacing-sm);
-  --theme--button-background-hover-light: rgba(from var(--color-white) r g b / 0.2);
-  --theme--button-background-hover-dark: rgba(from var(--color-gray) r g b / 0.1);
+  --theme--button-background-hover-light: #{rgba(color('white'), 0.2)};
+  --theme--button-background-hover-dark: #{rgba(color('gray'), 0.1)};
   --theme--button-background-hover-color: var(--theme--button-background-hover-light);
   --theme--button-transition: background 0.2s ease;
   --theme--button-justify: center;
@@ -25,8 +31,8 @@
   --theme--input-checkbox-size: var(--size-checkbox);
   --theme--input-font-size: var(--font-size-md);
   --theme--input-line-height: var(--size-input-height);
-  --theme--input-color: var(--color-text-primary);
-  --theme--input-placeholder-color: var(--color-text-muted);
+  --theme--input-color: #{color('text-primary')};
+  --theme--input-placeholder-color: #{color('text-muted')};
   --theme--input-padding: 0 var(--spacing-md);
 
   // ---- Flex ----
@@ -74,27 +80,27 @@
 
   // ---- Зеркала Global: colors ----
 
-  --theme--checkbox-color: var(--color-primary);
+  --theme--checkbox-color: #{color('primary')};
 
-  --theme--header-background-color: var(--color-primary);
+  --theme--header-background-color: #{color('primary')};
   --theme--header-height: var(--header-height);
 
-  --theme--color-gray: var(--color-gray);
-  --theme--color-gray-light: var(--color-gray-light);
-  --theme--color-gray-dark: var(--color-gray-dark);
-  --theme--color-black-transparent-5: var(--color-black-transparent-5);
-  --theme--color-text-primary: var(--color-text-primary);
-  --theme--color-text-secondary: var(--color-text-secondary);
-  --theme--color-text-light: var(--color-text-light);
-  --theme--color-text-dark: var(--color-text-dark);
-  --theme--color-border: var(--color-border);
-  --theme--color-border-light: var(--color-border-light);
-  --theme--color-border-checkbox: var(--color-border-checkbox);
-  --theme--color-bg-hover: var(--color-bg-hover);
-  --theme--color-bg-btn: var(--color-bg-btn);
+  --theme--color-gray: #{color('gray')};
+  --theme--color-gray-light: #{color('gray-light')};
+  --theme--color-gray-dark: #{color('gray-dark')};
+  --theme--color-black-transparent-5: #{color('black-transparent-5')};
+  --theme--color-text-primary: #{color('text-primary')};
+  --theme--color-text-secondary: #{color('text-secondary')};
+  --theme--color-text-light: #{color('text-light')};
+  --theme--color-text-dark: #{color('text-dark')};
+  --theme--color-border: #{color('border')};
+  --theme--color-border-light: #{color('border-light')};
+  --theme--color-border-checkbox: #{color('border-checkbox')};
+  --theme--color-bg-hover: #{color('bg-hover')};
+  --theme--color-bg-btn: #{color('bg-btn')};
 
-  --theme--badge-background-color: var(--color-danger);
-  --theme--badge-text-color: var(--color-white);
+  --theme--badge-background-color: #{color('danger')};
+  --theme--badge-text-color: #{color('white')};
   --theme--badge-position-top: var(--spacing-2xs);
   --theme--badge-position-right: var(--spacing-2xs);
 

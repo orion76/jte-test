@@ -1,23 +1,41 @@
 // Global: сырые справочные значения дизайн-системы.
 // Не знают о компонентах. Файл излучает CSS, поэтому @use-ится только в styles.scss;
 // компоненты получают Sass-брейкпоинт из mixins.
+// Цвета не дублируются в --color-*: палитра живёт в map $colors,
+// единственный потребитель — _theme.scss (читает на этапе сборки).
 @use 'sass:color';
 
-// Sass-переменные — источник для вычисляемых токенов: значения кастомных
-// свойств Sass не вычисляет, поэтому производные цвета интерполируются.
+// Серая база — источник производных цветов палитры
+// (значения кастомных свойств Sass не вычисляет).
 $color-gray: #7f878c;
 
-:root {
-  // ---- Colors ----
-  --color-primary: #1074cc;
-  --color-danger: #cc1910;
-  --color-white: #fff;
-  --color-black: #000;
-  --color-gray: #{$color-gray};
-  --color-gray-light: #{color.scale($color-gray, $lightness: 20%)};
-  --color-gray-dark: #{color.scale($color-gray, $lightness: -20%)};
-  --color-black-transparent-5: rgba(0, 0, 0, 0.05);
+// Global-палитра: единый источник цветов для Theme-слоя.
+$colors: (
+  // ---- Base ----
+  'primary': #1074cc,
+  'danger': #cc1910,
+  'white': #fff,
+  'black': #000,
+  'gray': $color-gray,
+  'gray-light': color.scale($color-gray, $lightness: 20%),
+  'gray-dark': color.scale($color-gray, $lightness: -20%),
+  'black-transparent-5': rgba(0, 0, 0, 0.05),
+  // ---- Text ----
+  'text-primary': #2a3033,
+  'text-secondary': $color-gray,
+  'text-muted': #9aa1a6,
+  'text-light': #8c9499,
+  'text-dark': #64676b,
+  // ---- Border ----
+  'border': #e5e7eb,
+  'border-light': #e1e4e6,
+  'border-checkbox': #999,
+  // ---- Background ----
+  'bg-hover': #fafafa,
+  'bg-btn': #eff1f2
+);
 
+:root {
   // ---- Typography ----
   --font-family: Roboto, sans-serif;
   --font-size-base: 16px;
@@ -54,20 +72,4 @@ $color-gray: #7f878c;
   // ---- Border Radius ----
   --radius-none: 0;
   --radius-xs: 4px;
-
-  // ---- Text ----
-  --color-text-primary: #2a3033;
-  --color-text-secondary: var(--color-gray);
-  --color-text-muted: #9aa1a6;
-  --color-text-light: #8c9499;
-  --color-text-dark: #64676b;
-
-  // ---- Border ----
-  --color-border: #e5e7eb;
-  --color-border-light: #e1e4e6;
-  --color-border-checkbox: #999;
-
-  // ---- Background ----
-  --color-bg-hover: #fafafa;
-  --color-bg-btn: #eff1f2;
 }
