@@ -55,6 +55,9 @@
 }
 
 :host(.round) {
+  &:hover .icon {
+    background-color: var(--theme--color-gray-dark);
+  }
   .icon {
     border: none;
     border-radius: 50%;
