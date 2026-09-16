@@ -15,7 +15,7 @@ import { UViewport } from '@core/services/viewport-observer/types';
 import { MobileModalLayout } from '@shared/components';
 import { OverlayManager } from '../overlay-manager';
 import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '../tokens';
-import { IOverlayOpenOptions } from '../types';
+import { IOverlayManager, IOverlayOpenOptions } from '../types';
 
 @Component({
   selector: 'app-overlay-outlet',
@@ -32,7 +32,7 @@ export class OverlayOutlet implements OnInit {
   readonly outletId = input.required<string>();
   readonly viewport = input.required<UViewport>();
 
-  private overlayManager = inject(OverlayManager);
+  private overlayManager: IOverlayManager = inject(OverlayManager);
   parentInjector = inject(Injector);
   overlayInjector!: Injector;
 

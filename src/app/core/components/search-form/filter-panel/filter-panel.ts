@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, input, model } from '@angular/core';
+import { IViewportObserver } from '@core/services/viewport-observer/types';
 import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
 import { Checkbox } from '@shared/components';
 import { UCheckboxStyle } from '@shared/components/checkbox/types';
@@ -11,7 +12,7 @@ import { UCheckboxStyle } from '@shared/components/checkbox/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterPanel {
-  protected viewportObserver = inject(ViewportObserver);
+  protected viewportObserver: IViewportObserver = inject(ViewportObserver);
   readonly checkboxStyle = input<UCheckboxStyle>('default');
 
   history = model<string>('');

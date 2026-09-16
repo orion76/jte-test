@@ -3,10 +3,10 @@ import { Injectable, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DOM_PARSER } from '@shared/services/dom-parser';
 import { Observable, catchError, map, of, shareReplay, take, timeout } from 'rxjs';
-import { ISvgData } from './types';
+import { IIconRegistry, ISvgData } from './types';
 
 @Injectable({ providedIn: 'root' })
-export class IconRegistry {
+export class IconRegistry implements IIconRegistry {
   private requestTimeout = 10_000;
   private cache = new Map<string, Observable<ISvgData | undefined>>();
 
