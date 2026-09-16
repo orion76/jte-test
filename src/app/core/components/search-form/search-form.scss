@@ -1,6 +1,5 @@
 @use 'mixins' as *;
 
-
 :host {
   --flex-direction: column;
   --flex-align: stretch;
@@ -12,7 +11,6 @@
   top: 0;
   bottom: 0;
   width: 100%;
-
 
   right: 0;
   z-index: 2;
@@ -30,7 +28,7 @@
     background-color: var(--theme--app-background-color);
   }
 
-  .field:has(input[name="search"]) {
+  .field:has(input[name='search']) {
     @include flex;
     position: relative;
     background-color: var(--theme--app-background-color);
@@ -45,11 +43,9 @@
       --button-background-hover-color: var(--theme--color-black-transparent-5);
       @include button;
       right: var(--theme--spacing-2xs);
-      position: absolute
+      position: absolute;
     }
   }
-
-
 }
 
 :host(.slide-in) {
@@ -59,7 +55,6 @@
 :host(.slide-out) {
   animation: slideOutBackward 0.3s ease-in forwards;
 }
-
 
 :host-context(.modal) {
   display: contents;
@@ -73,7 +68,6 @@
     grid-area: content;
   }
 }
-
 
 @keyframes slideInForward {
   from {
@@ -89,11 +83,11 @@
 
 @keyframes slideOutBackward {
   from {
-    width: 100%
+    width: 100%;
   }
 
   to {
-    width: 0%
+    width: 0%;
   }
 }
 
@@ -103,7 +97,7 @@
       padding-top: 12px;
     }
 
-    .field:has(input[name="search"]) {
+    .field:has(input[name='search']) {
       background-color: var(--theme--color-gray-light);
       border-radius: 28px;
     }

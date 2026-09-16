@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { Icon, UImageType } from '../icon/icon';
 import { IButton, UIconPlace } from './types';
 
@@ -13,7 +13,7 @@ import { IButton, UIconPlace } from './types';
     '[attr.aria-label]': 'ariaLabel',
   },
 })
-export class Button {
+export class Button implements OnInit {
   readonly options = input.required<IButton>({ alias: 'app-button' });
   protected readonly baseClass = 'button';
 

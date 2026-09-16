@@ -3,7 +3,7 @@ import { IOverlayManager, IOverlayOpenOptions, TOpenSignal } from './types';
 
 @Injectable({ providedIn: 'root' })
 export class OverlayManager implements IOverlayManager {
-  readonly outlets: Map<string, TOpenSignal> = new Map();
+  readonly outlets: Map<string, TOpenSignal> = new Map<string, TOpenSignal>();
 
   register(id: string, openSignal: TOpenSignal) {
     this.outlets.set(id, openSignal);

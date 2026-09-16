@@ -15,9 +15,5 @@
   </div>
 </div>
 @if (isShowForm()) {
-  <app-filter-panel
-    class="filters"
-    [(history)]="history"
-    [checkboxStyle]="checkboxStyle()"
-  />
+  <app-filter-panel class="filters" [(history)]="history" [checkboxStyle]="checkboxStyle()" />
 }

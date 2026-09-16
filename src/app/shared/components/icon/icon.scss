@@ -1,11 +1,11 @@
 // Override: точечная кастомизация экземпляра не наследуется во вложенные элементы
 @property --icon-size {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --icon-image-size {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
@@ -28,4 +28,3 @@
     object-fit: cover;
   }
 }
-

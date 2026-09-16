@@ -1,12 +1,12 @@
 @use 'mixins' as *;
 
 @property --input-checkbox-size {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --input-radio-size {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
@@ -20,8 +20,7 @@
     @include flex;
   }
 
-
-  input[type='checkbox']:checked~.icon svg {
+  input[type='checkbox']:checked ~ .icon svg {
     display: block;
   }
 
@@ -32,7 +31,6 @@
     width: 0;
     height: 0;
   }
-
 
   .label {
     white-space: nowrap;
@@ -65,7 +63,6 @@
     width: var(--local--input-radio-size);
 
     svg {
-
       stroke-width: 2;
       stroke: var(--theme--color-gray);
     }

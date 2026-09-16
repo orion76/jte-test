@@ -1,6 +1,5 @@
 @use 'mixins' as *;
 
-
 :host {
   --flex-align: stretch;
   @include flex;
@@ -38,7 +37,7 @@
     background: var(--theme--color-border-light);
   }
 
-  .field:has(input[name="author"]) {
+  .field:has(input[name='author']) {
     @include form-field;
     @include fieldset;
 
@@ -49,13 +48,13 @@
   }
 
   .history {
-    .section>.content {
+    .section > .content {
       --flex-direction: column;
       --flex-align: start;
     }
   }
 
-  .section>.content {
+  .section > .content {
     @include flex;
 
     app-checkbox,
@@ -70,10 +69,8 @@
         background-color: var(--theme--color-bg-hover);
       }
     }
-
   }
 }
-
 
 @media (max-width: $viewport-width-mobile) {
   :host {
@@ -81,7 +78,7 @@
     box-shadow: none;
     border: none;
 
-    .section>.checkboxes {
+    .section > .checkboxes {
       --flex-direction: column;
       --flex-align: start;
     }

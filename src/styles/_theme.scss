@@ -12,8 +12,8 @@
   --theme--button-radius: var(--radius-none);
   --theme--button-padding: var(--size-button-padding);
   --theme--button-gap: var(--spacing-sm);
-  --theme--button-background-hover-light: rgba(from var(--color-white) r g b / .2);
-  --theme--button-background-hover-dark: rgba(from var(--color-gray) r g b /.1);
+  --theme--button-background-hover-light: rgba(from var(--color-white) r g b / 0.2);
+  --theme--button-background-hover-dark: rgba(from var(--color-gray) r g b / 0.1);
   --theme--button-background-hover-color: var(--theme--button-background-hover-light);
   --theme--button-transition: background 0.2s ease;
   --theme--button-justify: center;
@@ -72,7 +72,6 @@
   --theme--input-radius: var(--radius-xs);
   --theme--panel-radius: var(--radius-xs);
 
-
   // ---- Зеркала Global: colors ----
 
   --theme--checkbox-color: var(--color-primary);
@@ -93,12 +92,10 @@
   --theme--color-bg-hover: var(--color-bg-hover);
   --theme--color-bg-btn: var(--color-bg-btn);
 
-
   --theme--badge-background-color: var(--color-danger);
   --theme--badge-text-color: var(--color-white);
   --theme--badge-position-top: var(--spacing-2xs);
   --theme--badge-position-right: var(--spacing-2xs);
-
 
   --theme--fieldset-min-height: var(--form-field-height);
   --theme--fieldset-title-background: var(--theme--app-background-color);

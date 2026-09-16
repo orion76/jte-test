@@ -5,8 +5,8 @@
   background-color: var(--theme--app-background-color);
   grid-template-columns: 40px 1fr auto;
   grid-template-areas:
-    "header-start header-center header-end"
-    "content content content";
+    'header-start header-center header-end'
+    'content content content';
   padding: 0 14px;
 
   .header {

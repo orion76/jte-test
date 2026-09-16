@@ -1,6 +1,5 @@
 @forward 'breakpoints';
 
-
 // ---- Flex ----
 
 @mixin flex {
@@ -19,7 +18,6 @@
   gap: var(--local--flex-gap);
 }
 
-
 // ---- Списки ----
 
 @mixin list-item {
@@ -37,8 +35,14 @@
 }
 
 @mixin fieldset() {
-  --local--fieldset-title-background: var(--fieldset-title-background, var(--theme--fieldset-title-background));
-  --local--fieldset-title-padding: var(--fieldset-title-padding, var(--theme--fieldset-title-padding));
+  --local--fieldset-title-background: var(
+    --fieldset-title-background,
+    var(--theme--fieldset-title-background)
+  );
+  --local--fieldset-title-padding: var(
+    --fieldset-title-padding,
+    var(--theme--fieldset-title-padding)
+  );
   --local--fieldset-title-left: var(--fieldset-title-left, var(--theme--fieldset-title-left));
   --local--fieldset-title-top: var(--fieldset-title-top, var(--theme--fieldset-title-top));
 
@@ -57,4 +61,3 @@
     background-color: var(--local--fieldset-title-background);
   }
 }
-

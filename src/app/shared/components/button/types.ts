@@ -9,5 +9,4 @@ export interface IButton {
   ariaLabel?: string;
   icon?: string;
   iconPlace?: UIconPlace;
-
 }

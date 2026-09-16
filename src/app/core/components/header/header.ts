@@ -12,7 +12,7 @@ import { SearchForm } from '../search-form/search-form';
 import { UserPanel } from '../user-panel/user-panel';
 
 @Component({
-  selector: 'header',
+  selector: 'app-header',
   imports: [Menu, UserPanel, OverlayOutlet, Button],
   templateUrl: './header.html',
   styleUrl: './header.scss',

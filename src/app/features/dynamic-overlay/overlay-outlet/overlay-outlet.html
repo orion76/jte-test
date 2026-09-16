@@ -2,18 +2,22 @@
 @if (opts) {
   @switch (viewport()) {
     @case ('mobile') {
-      <app-mobile-modal-layout (close)="closeOverlay()" [title]="opts.title">
+      <app-mobile-modal-layout (closed)="closeOverlay()" [title]="opts.title">
         <ng-container
           *ngComponentOutlet="opts.component; inputs: opts.inputs; injector: overlayInjector"
         />
       </app-mobile-modal-layout>
     }
     @case ('desktop') {
-      <div class="backdrop" (click)="closeSignal.set(true)"></div>
+      <div
+        class="backdrop"
+        role="presentation"
+        aria-hidden="true"
+        (click)="closeSignal.set(true)"
+      ></div>
       <ng-container
         *ngComponentOutlet="opts.component; inputs: opts.inputs; injector: overlayInjector"
       />
     }
   }
 }
-

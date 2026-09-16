@@ -25,7 +25,7 @@ import { IButton } from '../button/types';
 })
 export class MobileModalLayout implements OnInit, OnDestroy {
   readonly title = input<string>();
-  readonly close = output<boolean>();
+  readonly closed = output<boolean>();
   private themeManager = inject(ThemeManager);
 
   protected readonly buttonBack: IButton = { id: 'back', icon: 'arrow-back', ariaLabel: 'Назад' };

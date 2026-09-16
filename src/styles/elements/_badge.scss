@@ -1,8 +1,10 @@
 @use 'mixins' as *;
 
-
 .badge {
-  --local--badge-background-color: var(--badge-background-color, var(--theme--badge-background-color));
+  --local--badge-background-color: var(
+    --badge-background-color,
+    var(--theme--badge-background-color)
+  );
   --local--badge-position-top: var(--badge-position-top, var(--theme--badge-position-top));
   --local--badge-position-right: var(--badge-position-right, var(--theme--badge-position-right));
 
@@ -11,7 +13,6 @@
   position: absolute;
   background: var(--local--badge-background-color);
   color: var(--theme--badge-text-color);
-
 
   top: var(--local--badge-position-top);
   right: var(--local--badge-position-right);

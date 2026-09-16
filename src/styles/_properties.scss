@@ -2,146 +2,146 @@
 // inherits: false — точечная кастомизация не «течёт» на вложенные элементы.
 
 @property --flex-direction {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --flex-wrap {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --flex-align {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --flex-justify {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --flex-gap {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 // Override: button
 @property --button-radius {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --button-padding {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --button-gap {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --button-text-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --button-background-hover-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --button-transition {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --button-justify {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 // Override: input
 @property --input-height {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --input-padding {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --input-font-size {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --input-line-height {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --input-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --input-placeholder-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 // Override: list-item
 @property --list-item-padding {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --list-item-radius {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --list-item-transition {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 // Override: fieldset
 @property --fieldset-title-background {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --fieldset-title-padding {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --fieldset-title-left {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --fieldset-title-top {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 // Override: badge
 @property --badge-background-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --badge-position-top {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 
 @property --badge-position-right {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }

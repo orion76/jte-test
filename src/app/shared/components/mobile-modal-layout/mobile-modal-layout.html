@@ -1,6 +1,6 @@
 @let _title = title();
 <div class="header">
-  <button [app-button]="buttonBack" (click)="close.emit(true)"></button>
+  <button [app-button]="buttonBack" (click)="closed.emit(true)"></button>
 </div>
 @if (_title) {
   <h3 class="title">{{ _title }}</h3>

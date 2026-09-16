@@ -13,20 +13,20 @@ import { IconRegistry, ISvgData } from './icon-registry';
 export type UImageType = 'imageUrl' | 'svg';
 
 @Component({
-  selector: '[icon]',
+  selector: '[app-icon]',
   templateUrl: './icon.html',
   styleUrl: './icon.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Icon implements OnInit {
-  readonly imageSourceInput = input.required<string>({ alias: 'icon' });
+  readonly imageSourceInput = input.required<string>({ alias: 'app-icon' });
+  // Alias is part of the attribute-component public API: <span [app-icon]="src" [icon-type]="type">
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   readonly imageTypeInput = input<UImageType>(undefined, { alias: 'icon-type' });
-
 
   protected imageSource!: string;
   protected imageType!: UImageType;
   protected svgAttributes!: ISvgData;
-
 
   private cdr = inject(ChangeDetectorRef);
   private registry = inject(IconRegistry);
@@ -35,7 +35,6 @@ export class Icon implements OnInit {
   ngOnInit(): void {
     this.imageSource = this.imageSourceInput();
     this.imageType = this.imageTypeInput() ?? 'svg';
-  
 
     if (this.imageType === 'svg') {
       this.registry

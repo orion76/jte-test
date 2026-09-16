@@ -4,7 +4,6 @@
 @use 'styles/theme';
 @use 'styles/elements';
 
-
 *,
 *::before,
 *::after {
@@ -24,8 +23,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 .overlay.mobile {
   top: 0;

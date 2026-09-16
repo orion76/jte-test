@@ -8,7 +8,10 @@
 @mixin button() {
   --local--button-radius: var(--button-radius, var(--theme--button-radius));
   --local--button-text-color: var(--button-text-color, var(--theme--button-text-color));
-  --local--button-background-hover-color: var(--button-background-hover-color, var(--theme--button-background-hover-color));
+  --local--button-background-hover-color: var(
+    --button-background-hover-color,
+    var(--theme--button-background-hover-color)
+  );
   --local--button-transition: var(--button-transition, var(--theme--button-transition));
   --local--button-padding: var(--button-padding, var(--theme--button-padding));
   --local--button-gap: var(--button-gap, var(--theme--button-gap));

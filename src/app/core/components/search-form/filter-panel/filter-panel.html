@@ -5,7 +5,16 @@
       <div class="title">История</div>
       <div class="content">
         @for (item of historyItems; track item) {
-          <div class="value" (click)="history.set(item)">{{ item }}</div>
+          <div
+            class="value"
+            role="button"
+            tabindex="0"
+            (click)="history.set(item)"
+            (keydown.enter)="history.set(item)"
+            (keydown.space)="history.set(item)"
+          >
+            {{ item }}
+          </div>
         }
       </div>
       <div class="gradient"></div>
@@ -18,7 +27,7 @@
     <label class="content field">
       <span class="title">Автор</span>
       <div class="container">
-        <input type="text" name="author" placeholder="Имя или должность" autocomplete="off"/>
+        <input type="text" name="author" placeholder="Имя или должность" autocomplete="off" />
         <button class="action">
           <span class="text">Я</span>
         </button>

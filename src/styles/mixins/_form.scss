@@ -3,7 +3,10 @@
   --local--input-font-size: var(--input-font-size, var(--theme--input-font-size));
   --local--input-line-height: var(--input-line-height, var(--theme--input-line-height));
   --local--input-color: var(--input-color, var(--theme--input-color));
-  --local--input-placeholder-color: var(--input-placeholder-color, var(--theme--input-placeholder-color));
+  --local--input-placeholder-color: var(
+    --input-placeholder-color,
+    var(--theme--input-placeholder-color)
+  );
   --local--input-padding: var(--input-padding, var(--theme--input-padding));
 
   border: none;
