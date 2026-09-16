@@ -40,10 +40,6 @@
   }
 
   .pages {
-    // Прижимает search/add к правому краю nav: геометрия overlay-контейнера
-    // (width: calc(100% - (button-size + spacing-lg / 2))) рассчитана на то,
-    // что панель накрывает кнопку поиска и не доходит до кнопки «Добавить».
-    margin-right: auto;
     padding: 0 var(--theme--spacing-lg);
   }
 
@@ -51,10 +47,21 @@
     width: 100%;
     height: 100%;
 
+    // search/add прижаты влево к меню на любой ширине: зона занимает ровно
+    // [меню + поиск], overlay-панель заполняет её и накрывает кнопку поиска,
+    // а кнопка «Добавить» остаётся снаружи зоны и всегда видима.
+    .search-zone {
+      position: relative;
+      height: 100%;
+      --flex-gap: var(--theme--spacing-lg);
+      @include flex;
+    }
+
     .container {
       top: 0;
       bottom: 0;
-      width: calc(100% - (var(--theme--button-size) + var(--theme--spacing-lg) / 2));
+      left: 0;
+      width: 100%;
       pointer-events: none;
     }
   }
@@ -67,6 +74,10 @@
     }
 
     .panel {
+      --flex-gap: 0;
+    }
+
+    .search-zone {
       --flex-gap: 0;
     }
 
