@@ -40,6 +40,10 @@
   }
 
   .pages {
+    // Прижимает search/add к правому краю nav: геометрия overlay-контейнера
+    // (width: calc(100% - (button-size + spacing-lg / 2))) рассчитана на то,
+    // что панель накрывает кнопку поиска и не доходит до кнопки «Добавить».
+    margin-right: auto;
     padding: 0 var(--theme--spacing-lg);
   }
 

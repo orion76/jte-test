@@ -4,7 +4,6 @@ import {
   computed,
   effect,
   inject,
-  linkedSignal,
   model,
   signal,
 } from '@angular/core';
@@ -39,11 +38,9 @@ export class SearchForm {
   readonly checkboxStyle = computed(() => (this.isMobile() ? 'round' : 'default'));
   protected readonly enterAnimation = computed(() => (this.isDesktop() ? 'slide-in' : ''));
   protected readonly leaveAnimation = computed(() => (this.isDesktop() ? 'slide-out' : ''));
-  readonly isShowForm = linkedSignal(() => {
-    const isOpen = !this.close();
-    const isMobile = !this.isDesktop();
-    return isMobile && isOpen;
-  });
+  // Mobile: открыта вместе с модалкой (уничтожается при закрытии).
+  // Desktop: показывается по фокусу поля и остаётся видимой во время slide-out.
+  readonly isShowForm = signal(this.isMobile());
 
   protected readonly buttonClear: IButton = {
     id: 'clear',
