@@ -3,6 +3,7 @@
 /src/temp-sources
 .playwright-mcp
 .opencode
+opencode.json
 .project
 .review
 
