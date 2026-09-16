@@ -75,7 +75,6 @@
 @media (min-width: $viewport-width-desktop) {
   :host {
     .pages {
-      flex-grow: 1;
       --flex-gap: 2rem;
       --flex-justify: center;
     }
