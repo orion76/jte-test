@@ -1,12 +1,24 @@
 // Theme: семантические переменные темы — дефолты компонентов на весь сайт.
-// Обязательный префикс theme; цвета берутся из Global-палитры $colors
-// на этапе сборки, размеры/отступы/радиусы/типографика — из Global var(--*).
+// Обязательный префикс theme; значения берутся из Global-слоя (Sass-maps
+// в variables.scss) на этапе сборки — runtime-дублей Global-токенов нет.
 @use 'sass:map';
 @use 'breakpoints' as *;
 @use 'variables' as *;
 
 @function color($name) {
   @return map.get($colors, $name);
+}
+@function font($name) {
+  @return map.get($typography, $name);
+}
+@function spacing($name) {
+  @return map.get($spacing, $name);
+}
+@function size($name) {
+  @return map.get($sizes, $name);
+}
+@function radius($name) {
+  @return map.get($radii, $name);
 }
 
 :root {
@@ -15,25 +27,25 @@
 
   // ---- Button ----
   --theme--button-text-color: #{color('white')};
-  --theme--button-radius: var(--radius-none);
-  --theme--button-padding: var(--size-button-padding);
-  --theme--button-gap: var(--spacing-sm);
+  --theme--button-radius: #{radius('none')};
+  --theme--button-padding: #{size('button-padding')};
+  --theme--button-gap: #{spacing('sm')};
   --theme--button-background-hover-light: #{rgba(color('white'), 0.2)};
   --theme--button-background-hover-dark: #{rgba(color('gray'), 0.1)};
   --theme--button-background-hover-color: var(--theme--button-background-hover-light);
   --theme--button-transition: background 0.2s ease;
   --theme--button-justify: center;
-  --theme--button-size: var(--size-button-medium);
+  --theme--button-size: #{size('button-medium')};
 
   // ---- Input ----
-  --theme--input-height: var(--size-input-height);
-  --theme--input-radio-size: var(--size-radio);
-  --theme--input-checkbox-size: var(--size-checkbox);
-  --theme--input-font-size: var(--font-size-md);
-  --theme--input-line-height: var(--size-input-height);
+  --theme--input-height: #{size('input-height')};
+  --theme--input-radio-size: #{size('radio')};
+  --theme--input-checkbox-size: #{size('checkbox')};
+  --theme--input-font-size: #{font('size-md')};
+  --theme--input-line-height: #{size('input-height')};
   --theme--input-color: #{color('text-primary')};
   --theme--input-placeholder-color: #{color('text-muted')};
-  --theme--input-padding: 0 var(--spacing-md);
+  --theme--input-padding: 0 #{spacing('md')};
 
   // ---- Flex ----
   --theme--flex-direction: row;
@@ -43,47 +55,47 @@
   --theme--flex-gap: normal;
 
   // ---- Sizing ----
-  --theme--icon-size: var(--size-icon);
-  --theme--icon-image-size: var(--size-icon-image);
+  --theme--icon-size: #{size('icon')};
+  --theme--icon-image-size: #{size('icon-image')};
 
   // ---- Filter panel ----
-  --theme--filter-panel-history-width: var(--panel-width);
+  --theme--filter-panel-history-width: #{size('panel-width')};
 
   // ---- List item ----
-  --theme--list-item-padding: var(--spacing-xs) var(--spacing-md);
-  --theme--list-item-radius: var(--radius-xs);
+  --theme--list-item-padding: #{spacing('xs')} #{spacing('md')};
+  --theme--list-item-radius: #{radius('xs')};
   --theme--list-item-transition: background 0.15s ease;
-  --theme--list-item-gap: var(--spacing-sm);
+  --theme--list-item-gap: #{spacing('sm')};
 
   // ---- Зеркала Global: typography ----
-  --theme--font-family-base: var(--font-family);
-  --theme--title-small-font-size: var(--font-size-xs);
-  --theme--control-label-small-font-size: var(--font-size-sm);
-  --theme--font-size-base: var(--font-size-base);
-  --theme--line-height-base: var(--line-height-base);
-  --theme--font-weight-regular: var(--font-weight-regular);
-  --theme--title-font-weight: var(--font-weight-regular);
-  --theme--control-label-font-weight: var(--font-weight-medium);
+  --theme--font-family-base: #{font('family')};
+  --theme--title-small-font-size: #{font('size-xs')};
+  --theme--control-label-small-font-size: #{font('size-sm')};
+  --theme--font-size-base: #{font('size-base')};
+  --theme--line-height-base: #{font('line-height-base')};
+  --theme--font-weight-regular: #{font('weight-regular')};
+  --theme--title-font-weight: #{font('weight-regular')};
+  --theme--control-label-font-weight: #{font('weight-medium')};
 
   // ---- Зеркала Global: spacing ----
-  --theme--spacing-2xs: var(--spacing-2xs);
-  --theme--spacing-sm: var(--spacing-sm);
-  --theme--spacing-md: var(--spacing-md);
-  --theme--spacing-lg: var(--spacing-lg);
-  --theme--spacing-xl: var(--spacing-xl);
-  --theme--spacing-xxl: var(--spacing-xxl);
+  --theme--spacing-2xs: #{spacing('2xs')};
+  --theme--spacing-sm: #{spacing('sm')};
+  --theme--spacing-md: #{spacing('md')};
+  --theme--spacing-lg: #{spacing('lg')};
+  --theme--spacing-xl: #{spacing('xl')};
+  --theme--spacing-xxl: #{spacing('xxl')};
 
   // ---- radius ----
-  --theme--radius-xs: var(--radius-xs);
-  --theme--input-radius: var(--radius-xs);
-  --theme--panel-radius: var(--radius-xs);
+  --theme--radius-xs: #{radius('xs')};
+  --theme--input-radius: #{radius('xs')};
+  --theme--panel-radius: #{radius('xs')};
 
   // ---- Зеркала Global: colors ----
 
   --theme--checkbox-color: #{color('primary')};
 
   --theme--header-background-color: #{color('primary')};
-  --theme--header-height: var(--header-height);
+  --theme--header-height: #{size('header-height')};
 
   --theme--color-gray: #{color('gray')};
   --theme--color-gray-light: #{color('gray-light')};
@@ -101,20 +113,20 @@
 
   --theme--badge-background-color: #{color('danger')};
   --theme--badge-text-color: #{color('white')};
-  --theme--badge-position-top: var(--spacing-2xs);
-  --theme--badge-position-right: var(--spacing-2xs);
+  --theme--badge-position-top: #{spacing('2xs')};
+  --theme--badge-position-right: #{spacing('2xs')};
 
-  --theme--fieldset-min-height: var(--form-field-height);
+  --theme--fieldset-min-height: #{size('form-field-height')};
   --theme--fieldset-title-background: var(--theme--app-background-color);
-  --theme--fieldset-title-padding: 0 var(--spacing-sm);
-  --theme--fieldset-title-left: var(--size-fieldset-title-left);
-  --theme--fieldset-title-top: calc(-1 * var(--spacing-sm));
-  --theme--action-size: var(--size-icon);
+  --theme--fieldset-title-padding: 0 #{spacing('sm')};
+  --theme--fieldset-title-left: #{size('fieldset-title-left')};
+  --theme--fieldset-title-top: calc(-1 * #{spacing('sm')});
+  --theme--action-size: #{size('icon')};
 }
 
 // Mobile-дефолты темы
 @media (max-width: $viewport-width-mobile) {
   :root {
-    --theme--button-padding: var(--size-button-padding-mobile);
+    --theme--button-padding: #{size('button-padding-mobile')};
   }
 }

@@ -1,17 +1,19 @@
-// Global: сырые справочные значения дизайн-системы.
-// Не знают о компонентах. Файл излучает CSS, поэтому @use-ится только в styles.scss;
-// компоненты получают Sass-брейкпоинт из mixins.
-// Цвета не дублируются в --color-*: палитра живёт в map $colors,
-// единственный потребитель — _theme.scss (читает на этапе сборки).
+// Global: сырые справочные значения дизайн-системы (палитра, типографика,
+// отступы, размеры, радиусы). Не знают о компонентах.
+// Файл не излучает CSS: значения живут в Sass-maps, единственный потребитель —
+// _theme.scss (читает на этапе сборки). Компоненты получают Sass-брейкпоинт из mixins.
 @use 'sass:color';
 
 // Серая база — источник производных цветов палитры
 // (значения кастомных свойств Sass не вычисляет).
 $color-gray: #7f878c;
 
-// Global-палитра: единый источник цветов для Theme-слоя.
+// Базовый шрифт — список, интерполируется как «Roboto, sans-serif».
+$font-family: Roboto, sans-serif;
+
+// ---- Colors ----
 $colors: (
-  // ---- Base ----
+  // Base
   'primary': #1074cc,
   'danger': #cc1910,
   'white': #fff,
@@ -20,56 +22,62 @@ $colors: (
   'gray-light': color.scale($color-gray, $lightness: 20%),
   'gray-dark': color.scale($color-gray, $lightness: -20%),
   'black-transparent-5': rgba(0, 0, 0, 0.05),
-  // ---- Text ----
+  // Text
   'text-primary': #2a3033,
   'text-secondary': $color-gray,
   'text-muted': #9aa1a6,
   'text-light': #8c9499,
   'text-dark': #64676b,
-  // ---- Border ----
+  // Border
   'border': #e5e7eb,
   'border-light': #e1e4e6,
   'border-checkbox': #999,
-  // ---- Background ----
+  // Background
   'bg-hover': #fafafa,
   'bg-btn': #eff1f2
 );
 
-:root {
-  // ---- Typography ----
-  --font-family: Roboto, sans-serif;
-  --font-size-base: 16px;
-  --font-size-md: 14px;
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --line-height-base: 1.5;
+// ---- Typography ----
+$typography: (
+  'family': $font-family,
+  'size-base': 16px,
+  'size-md': 14px,
+  'size-xs': 11px,
+  'size-sm': 12px,
+  'weight-regular': 400,
+  'weight-medium': 500,
+  'line-height-base': 1.5,
+);
 
-  // ---- Spacing ----
-  --spacing-2xs: 4px;
-  --spacing-xs: 6px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 20px;
-  --spacing-xxl: 24px;
+// ---- Spacing ----
+$spacing: (
+  '2xs': 4px,
+  'xs': 6px,
+  'sm': 8px,
+  'md': 12px,
+  'lg': 16px,
+  'xl': 20px,
+  'xxl': 24px,
+);
 
-  // ---- Sizes ----
-  --size-button-medium: 40px;
-  --size-button-padding: 18px;
-  --size-button-padding-mobile: 10px;
-  --size-checkbox: 18px;
-  --size-radio: 32px;
-  --size-icon: 20px;
-  --size-icon-image: 32px;
-  --size-input-height: 20px;
-  --header-height: 56px;
-  --panel-width: 216px;
-  --form-field-height: 48px;
-  --size-fieldset-title-left: 9px;
+// ---- Sizes ----
+$sizes: (
+  'button-medium': 40px,
+  'button-padding': 18px,
+  'button-padding-mobile': 10px,
+  'checkbox': 18px,
+  'radio': 32px,
+  'icon': 20px,
+  'icon-image': 32px,
+  'input-height': 20px,
+  'header-height': 56px,
+  'panel-width': 216px,
+  'form-field-height': 48px,
+  'fieldset-title-left': 9px,
+);
 
-  // ---- Border Radius ----
-  --radius-none: 0;
-  --radius-xs: 4px;
-}
+// ---- Border Radius ----
+$radii: (
+  'none': 0,
+  'xs': 4px,
+);
