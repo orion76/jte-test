@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
-import { Icon, UImageType } from '../icon/icon';
+import { Icon } from '../icon/icon';
+import { UImageType } from '../icon/types';
 import { IButton, UIconPlace } from './types';
 
 @Component({

@@ -8,9 +8,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IconRegistry, ISvgData } from './icon-registry';
-
-export type UImageType = 'imageUrl' | 'svg';
+import { IconRegistry } from './icon-registry';
+import { ISvgData, UImageType } from './types';
 
 @Component({
   selector: '[app-icon]',

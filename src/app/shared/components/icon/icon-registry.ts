@@ -1,23 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DOM_PARSER } from '@shared/services/dom-parser';
 import { Observable, catchError, map, of, shareReplay, take, timeout } from 'rxjs';
-
-export interface ISvgData {
-  safeHtml: SafeHtml;
-  viewBox: string | null;
-}
-export interface ICacheProcessItem {
-  data?: ISvgData;
-  complete?: false;
-}
-export interface ICacheCompleteItem {
-  data?: ISvgData;
-  complete: true;
-}
-
-export type UCacheItem = ICacheProcessItem | ICacheCompleteItem;
+import { ISvgData } from './types';
 
 @Injectable({ providedIn: 'root' })
 export class IconRegistry {
