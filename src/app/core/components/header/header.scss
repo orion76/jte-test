@@ -44,24 +44,24 @@
   }
 
   .center {
+    // Grid вместо flex: search/add остаются плоскими детьми nav (мобильные
+    // правила порядка/видимости не ломаются), а overlay-контейнер занимает
+    // грид-полосу [меню + поиск] — панель накрывает кнопку поиска и не
+    // доходит до кнопки «Добавить» при любой ширине экрана.
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    align-items: center;
+    column-gap: var(--theme--spacing-lg);
     width: 100%;
     height: 100%;
 
-    // search/add прижаты влево к меню на любой ширине: зона занимает ровно
-    // [меню + поиск], overlay-панель заполняет её и накрывает кнопку поиска,
-    // а кнопка «Добавить» остаётся снаружи зоны и всегда видима.
-    .search-zone {
-      position: relative;
-      height: 100%;
-      --flex-gap: var(--theme--spacing-lg);
-      @include flex;
-    }
-
     .container {
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
+      grid-column: 1 / 3;
+      grid-row: 1;
+      // containing block abspos-ребёнка — грид-область [меню + поиск],
+      // inset: 0 растягивает контейнер на всю область.
+      inset: 0;
       pointer-events: none;
     }
   }
@@ -77,8 +77,8 @@
       --flex-gap: 0;
     }
 
-    .search-zone {
-      --flex-gap: 0;
+    .center {
+      column-gap: 0;
     }
 
     .right {

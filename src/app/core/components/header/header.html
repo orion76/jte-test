@@ -10,12 +10,10 @@
 </div>
 
 <nav class="panel center">
-  <div class="search-zone">
-    <app-menu class="pages" [items]="pagesMenu"></app-menu>
-    <app-overlay-outlet outletId="search-form-desktop" viewport="desktop" class="container">
-    </app-overlay-outlet>
-    <button [app-button]="buttons['search']" (click)="onSearchOpen()"></button>
-  </div>
+  <app-menu class="pages" [items]="pagesMenu"></app-menu>
+  <app-overlay-outlet outletId="search-form-desktop" viewport="desktop" class="container">
+  </app-overlay-outlet>
+  <button [app-button]="buttons['search']" (click)="onSearchOpen()"></button>
   <button [app-button]="buttons['add']"></button>
 </nav>
 <div class="panel right">
