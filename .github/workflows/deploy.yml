@@ -27,10 +27,10 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npx ng build --base-href /jte-test/
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
         with:
           enablement: true
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist/jte-app/browser
 
@@ -42,4 +42,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
