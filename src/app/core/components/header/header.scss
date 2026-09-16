@@ -50,7 +50,7 @@
     .container {
       top: 0;
       bottom: 0;
-      width: calc(100% - (var(--theme--size-btn) + var(--theme--spacing-lg) / 2));
+      width: calc(100% - (var(--theme--button-size) + var(--theme--spacing-lg) / 2));
       pointer-events: none;
     }
   }

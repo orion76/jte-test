@@ -1,26 +1,30 @@
 // Theme: семантические переменные темы — дефолты компонентов на весь сайт.
 // Обязательный префикс theme; ссылаются на Global-слой из variables.scss.
 
+@use 'breakpoints' as *;
+
 :root {
   // ---- App ----
   --theme--app-background-color: var(--color-white);
 
   // ---- Button ----
   --theme--button-text-color: var(--color-white);
-  --theme--button-radius: 0px;
-  --theme--button-padding: 18px;
+  --theme--button-radius: var(--radius-none);
+  --theme--button-padding: var(--size-button-padding);
   --theme--button-gap: var(--spacing-sm);
-  --theme--button-background-color-hover-light: rgba(from var(--color-white) r g b / .2);
-  --theme--button-background-color-hover-dark: rgba(from var(--color-gray) r g b /.1);
-  --theme--button-background-hover-color: var(--theme--button-background-color-hover-light);
+  --theme--button-background-hover-light: rgba(from var(--color-white) r g b / .2);
+  --theme--button-background-hover-dark: rgba(from var(--color-gray) r g b /.1);
+  --theme--button-background-hover-color: var(--theme--button-background-hover-light);
   --theme--button-transition: background 0.2s ease;
+  --theme--button-justify: center;
+  --theme--button-size: var(--size-button-medium);
 
   // ---- Input ----
-  --theme--input-height: 20px;
-  --theme--input-radio-size: 32px;
-  --theme--input-checkbox-size: 18px;
+  --theme--input-height: var(--size-input-height);
+  --theme--input-radio-size: var(--size-radio);
+  --theme--input-checkbox-size: var(--size-checkbox);
   --theme--input-font-size: var(--font-size-md);
-  --theme--input-line-height: var(--spacing-xl);
+  --theme--input-line-height: var(--size-input-height);
   --theme--input-color: var(--color-text-primary);
   --theme--input-placeholder-color: var(--color-text-muted);
   --theme--input-padding: 0 var(--spacing-md);
@@ -33,17 +37,17 @@
   --theme--flex-gap: normal;
 
   // ---- Sizing ----
-  --theme--size-btn: 40px;
-  --theme--icon-size: 20px;
-  --theme--icon-image-size: 32px;
+  --theme--icon-size: var(--size-icon);
+  --theme--icon-image-size: var(--size-icon-image);
 
   // ---- Filter panel ----
-  --theme--filter-panel-history-width: 216px;
+  --theme--filter-panel-history-width: var(--panel-width);
 
   // ---- List item ----
   --theme--list-item-padding: var(--spacing-xs) var(--spacing-md);
   --theme--list-item-radius: var(--radius-xs);
   --theme--list-item-transition: background 0.15s ease;
+  --theme--list-item-gap: var(--spacing-sm);
 
   // ---- Зеркала Global: typography ----
   --theme--font-family-base: var(--font-family);
@@ -51,27 +55,22 @@
   --theme--control-label-small-font-size: var(--font-size-sm);
   --theme--font-size-base: var(--font-size-base);
   --theme--line-height-base: var(--line-height-base);
-  --theme--line-height-control: var(--line-height-control);
-  --theme--title-middle-font-size: var(--font-size-md);
   --theme--font-weight-regular: var(--font-weight-regular);
   --theme--title-font-weight: var(--font-weight-regular);
-  --theme--title-color: var(--color-black);
   --theme--control-label-font-weight: var(--font-weight-medium);
 
   // ---- Зеркала Global: spacing ----
-  --theme--spacing-3xs: var(--spacing-3xs);
   --theme--spacing-2xs: var(--spacing-2xs);
-  --theme--spacing-xs: var(--spacing-xs);
   --theme--spacing-sm: var(--spacing-sm);
   --theme--spacing-md: var(--spacing-md);
   --theme--spacing-lg: var(--spacing-lg);
   --theme--spacing-xl: var(--spacing-xl);
-
-  --theme--filter-panel-top-space: var(--spacing-3xs);
+  --theme--spacing-xxl: var(--spacing-xxl);
 
   // ---- radius ----
   --theme--radius-xs: var(--radius-xs);
-  --theme--form-section-radius: var(--radius-xs);
+  --theme--input-radius: var(--radius-xs);
+  --theme--panel-radius: var(--radius-xs);
 
 
   // ---- Зеркала Global: colors ----
@@ -79,17 +78,13 @@
   --theme--checkbox-color: var(--color-primary);
 
   --theme--header-background-color: var(--color-primary);
-  --theme--header-height: 56px;
-
-  --theme--color-danger: var(--color-danger);
-  --theme--text-white-color: var(--color-white);
+  --theme--header-height: var(--header-height);
 
   --theme--color-gray: var(--color-gray);
   --theme--color-gray-light: var(--color-gray-light);
   --theme--color-black-transparent-5: var(--color-black-transparent-5);
   --theme--color-text-primary: var(--color-text-primary);
   --theme--color-text-secondary: var(--color-text-secondary);
-  --theme--color-text-muted: var(--color-text-muted);
   --theme--color-text-light: var(--color-text-light);
   --theme--color-text-dark: var(--color-text-dark);
   --theme--color-border: var(--color-border);
@@ -100,11 +95,22 @@
 
 
   --theme--badge-background-color: var(--color-danger);
+  --theme--badge-text-color: var(--color-white);
   --theme--badge-position-top: var(--spacing-2xs);
   --theme--badge-position-right: var(--spacing-2xs);
 
 
-  --theme--outlined-border-height: 3rem;
+  --theme--fieldset-min-height: var(--form-field-height);
+  --theme--fieldset-title-background: var(--theme--app-background-color);
+  --theme--fieldset-title-padding: 0 var(--spacing-sm);
+  --theme--fieldset-title-left: var(--size-fieldset-title-left);
+  --theme--fieldset-title-top: calc(-1 * var(--spacing-sm));
+  --theme--action-size: var(--size-icon);
+}
 
-  --theme-fieldset-min-height: 3rem;
+// Mobile-дефолты темы
+@media (max-width: $viewport-width-mobile) {
+  :root {
+    --theme--button-padding: var(--size-button-padding-mobile);
+  }
 }

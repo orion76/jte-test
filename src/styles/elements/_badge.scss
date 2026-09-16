@@ -1,11 +1,6 @@
 @use 'mixins' as *;
 
 
-@property --badge-background-color {
-  syntax: "*";
-  inherits: false;
-}
-
 .badge {
   --local--badge-background-color: var(--badge-background-color, var(--theme--badge-background-color));
   --local--badge-position-top: var(--badge-position-top, var(--theme--badge-position-top));
@@ -15,7 +10,7 @@
   @include flex;
   position: absolute;
   background: var(--local--badge-background-color);
-  color: var(--theme--text-white-color);
+  color: var(--theme--badge-text-color);
 
 
   top: var(--local--badge-position-top);

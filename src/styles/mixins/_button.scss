@@ -1,5 +1,3 @@
-@use 'structured' as *;
-
 @mixin button-reset {
   border: none;
   background: transparent;
@@ -14,11 +12,12 @@
   --local--button-transition: var(--button-transition, var(--theme--button-transition));
   --local--button-padding: var(--button-padding, var(--theme--button-padding));
   --local--button-gap: var(--button-gap, var(--theme--button-gap));
+  --local--button-justify: var(--button-justify, var(--theme--button-justify));
 
   @include button-reset;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: var(--local--button-justify);
   gap: var(--local--button-gap);
   padding: var(--local--button-padding);
   border-radius: var(--local--button-radius);
@@ -30,9 +29,4 @@
   &:hover {
     background: var(--local--button-background-hover-color);
   }
-
-  @media (max-width: $viewport-width-mobile) {
-    --button-padding: 10px;
-  }
-
 }

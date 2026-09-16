@@ -21,11 +21,8 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --line-height-base: 1.5;
-  --line-height-label: 1.25;
-  --line-height-control: 1;
 
   // ---- Spacing ----
-  --spacing-3xs: 2px;
   --spacing-2xs: 4px;
   --spacing-xs: 6px;
   --spacing-sm: 8px;
@@ -34,9 +31,23 @@
   --spacing-xl: 20px;
   --spacing-xxl: 24px;
 
+  // ---- Sizes ----
+  --size-button-medium: 40px;
+  --size-button-padding: 18px;
+  --size-button-padding-mobile: 10px;
+  --size-checkbox: 18px;
+  --size-radio: 32px;
+  --size-icon: 20px;
+  --size-icon-image: 32px;
+  --size-input-height: 20px;
+  --header-height: 56px;
+  --panel-width: 216px;
+  --form-field-height: 48px;
+  --size-fieldset-title-left: 9px;
+
   // ---- Border Radius ----
+  --radius-none: 0;
   --radius-xs: 4px;
-  --radius-full: 100px;
 
   // ---- Text ----
   --color-text-primary: #2A3033;

@@ -57,7 +57,7 @@
   inherits: false;
 }
 
-@property --button-icon-size {
+@property --button-justify {
   syntax: "*";
   inherits: false;
 }
@@ -89,6 +89,59 @@
 }
 
 @property --input-placeholder-color {
+  syntax: "*";
+  inherits: false;
+}
+
+// Override: list-item
+@property --list-item-padding {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --list-item-radius {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --list-item-transition {
+  syntax: "*";
+  inherits: false;
+}
+
+// Override: fieldset
+@property --fieldset-title-background {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --fieldset-title-padding {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --fieldset-title-left {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --fieldset-title-top {
+  syntax: "*";
+  inherits: false;
+}
+
+// Override: badge
+@property --badge-background-color {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --badge-position-top {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --badge-position-right {
   syntax: "*";
   inherits: false;
 }

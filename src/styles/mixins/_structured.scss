@@ -1,5 +1,4 @@
-$viewport-width-mobile: 414px;
-
+@forward 'breakpoints';
 
 
 // ---- Flex ----
@@ -28,8 +27,9 @@ $viewport-width-mobile: 414px;
   --local--list-item-radius: var(--list-item-radius, var(--theme--list-item-radius));
   --local--list-item-transition: var(--list-item-transition, var(--theme--list-item-transition));
 
-  --flex-gap: var(--theme--spacing-sm);
   @include flex;
+  // Дефолтный gap объявляется после flex-локали, чтобы не затирать --flex-gap потребителя
+  --local--flex-gap: var(--flex-gap, var(--theme--list-item-gap));
 
   padding: var(--local--list-item-padding);
   border-radius: var(--local--list-item-radius);
@@ -37,19 +37,24 @@ $viewport-width-mobile: 414px;
 }
 
 @mixin fieldset() {
+  --local--fieldset-title-background: var(--fieldset-title-background, var(--theme--fieldset-title-background));
+  --local--fieldset-title-padding: var(--fieldset-title-padding, var(--theme--fieldset-title-padding));
+  --local--fieldset-title-left: var(--fieldset-title-left, var(--theme--fieldset-title-left));
+  --local--fieldset-title-top: var(--fieldset-title-top, var(--theme--fieldset-title-top));
+
   display: flex;
   position: relative;
   align-items: center;
   border: 1px solid var(--theme--color-border-light);
-  min-height: var(--theme-fieldset-min-height);
+  min-height: var(--theme--fieldset-min-height);
 
   .title {
     position: absolute;
     z-index: 1;
-    padding: 0 .5rem;
-    left: 9px;
-    top: -.5rem;
-    background-color: white;
+    padding: var(--local--fieldset-title-padding);
+    left: var(--local--fieldset-title-left);
+    top: var(--local--fieldset-title-top);
+    background-color: var(--local--fieldset-title-background);
   }
 }
 

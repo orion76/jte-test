@@ -36,7 +36,7 @@
     --input-padding: var(--theme--spacing-lg);
     @include input;
     flex: 1;
-    border-radius: var(--theme--form-section-radius);
+    border-radius: var(--theme--input-radius);
     background: transparent;
   }
 }

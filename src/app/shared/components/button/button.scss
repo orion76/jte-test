@@ -14,6 +14,6 @@
 
 :host-context(.modal) {
   --button-text-color: var(--theme--color-text-primary);
-  --button-background-hover-color: var(--theme--button-background-color-hover-dark);
-  justify-content: start;
+  --button-background-hover-color: var(--theme--button-background-hover-dark);
+  --button-justify: start;
 }

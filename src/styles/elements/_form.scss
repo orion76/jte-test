@@ -36,8 +36,8 @@
   @include button;
   margin-right: var(--theme--spacing-sm);
   background: var(--theme--color-bg-btn);
-  width: var(--icon-size, var(--theme--icon-size));
-  height: var(--icon-size, var(--theme--icon-size));
+  width: var(--theme--action-size);
+  height: var(--theme--action-size);
 
   .text {
     position: relative;
