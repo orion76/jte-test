@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IOverlayManager, IOverlayOpenOptions, TOpenSignal } from './types';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class OverlayManager implements IOverlayManager {
   readonly outlets: Map<string, TOpenSignal> = new Map<string, TOpenSignal>();
 

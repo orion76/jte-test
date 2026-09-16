@@ -5,7 +5,7 @@ import { IViewportObserver, UViewport } from './types';
 
 const MOBILE_SCREEN = '(max-width: 414px)';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class ViewportObserver implements IViewportObserver {
   readonly viewport = signal<UViewport>('desktop');
 

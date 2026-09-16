@@ -7,7 +7,7 @@ import {
   OnInit,
   output,
 } from '@angular/core';
-import { ThemeManager } from '@core/services/theme-manager/theme-manager';
+import { THEME_MANAGER } from '@core/services/theme-manager/injection-token';
 import { IThemeManager } from '@core/services/theme-manager/types';
 import { Button } from '../button/button';
 import { IButton } from '../button/types';
@@ -27,7 +27,7 @@ import { IButton } from '../button/types';
 export class MobileModalLayout implements OnInit, OnDestroy {
   readonly title = input<string>();
   readonly closed = output<boolean>();
-  private themeManager: IThemeManager = inject(ThemeManager);
+  private themeManager: IThemeManager = inject(THEME_MANAGER);
 
   protected readonly buttonBack: IButton = { id: 'back', icon: 'arrow-back', ariaLabel: 'Назад' };
   ngOnInit(): void {

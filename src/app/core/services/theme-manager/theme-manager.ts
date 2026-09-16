@@ -7,7 +7,7 @@ export const deviceThemes: TLayoutThemes = {
   'mobile-modal': { statusBarColor: '#ffffff' },
 };
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class ThemeManager implements IThemeManager {
   private meta = inject(Meta);
   private document = inject(DOCUMENT);

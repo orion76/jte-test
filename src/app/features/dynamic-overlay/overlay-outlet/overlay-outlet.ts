@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { UViewport } from '@core/services/viewport-observer/types';
 import { MobileModalLayout } from '@shared/components';
-import { OverlayManager } from '../overlay-manager';
+import { OVERLAY_MANAGER } from '../injection-token';
 import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '../tokens';
 import { IOverlayManager, IOverlayOpenOptions } from '../types';
 
@@ -32,7 +32,7 @@ export class OverlayOutlet implements OnInit {
   readonly outletId = input.required<string>();
   readonly viewport = input.required<UViewport>();
 
-  private overlayManager: IOverlayManager = inject(OverlayManager);
+  private overlayManager: IOverlayManager = inject(OVERLAY_MANAGER);
   parentInjector = inject(Injector);
   overlayInjector!: Injector;
 

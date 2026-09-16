@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { VIEWPORT_OBSERVER } from '@core/services/viewport-observer/injection-token';
 import { IViewportObserver } from '@core/services/viewport-observer/types';
-import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
 import { Button } from '@shared/components/button/button';
 import { IButton } from '@shared/components/button/types';
 
@@ -12,7 +12,7 @@ import { IButton } from '@shared/components/button/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserPanel {
-  public readonly layout: IViewportObserver = inject(ViewportObserver);
+  public readonly layout: IViewportObserver = inject(VIEWPORT_OBSERVER);
   protected readonly buttons: Record<string, IButton> = {
     notifications: {
       id: 'notifications',

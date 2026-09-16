@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PAGES_MENU } from '@app/app-menu.config';
+import { VIEWPORT_OBSERVER } from '@core/services/viewport-observer/injection-token';
 import { IViewportObserver } from '@core/services/viewport-observer/types';
-import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
-import { OverlayManager } from '@features/dynamic-overlay/overlay-manager';
+import { OVERLAY_MANAGER } from '@features/dynamic-overlay/injection-token';
 import { OverlayOutlet } from '@features/dynamic-overlay/overlay-outlet/overlay-outlet';
 import { IOverlayManager, IOverlayOpenOptions } from '@features/dynamic-overlay/types';
 import { Menu } from '@shared/components';
@@ -20,8 +20,8 @@ import { UserPanel } from '../user-panel/user-panel';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
-  protected viewportObserver: IViewportObserver = inject(ViewportObserver);
-  protected overlayManager: IOverlayManager = inject(OverlayManager);
+  protected viewportObserver: IViewportObserver = inject(VIEWPORT_OBSERVER);
+  protected overlayManager: IOverlayManager = inject(OVERLAY_MANAGER);
 
   protected readonly pagesMenu: IMenuItemData[] = inject(PAGES_MENU);
 

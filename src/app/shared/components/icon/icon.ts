@@ -8,7 +8,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IconRegistry } from './icon-registry';
+import { ICON_REGISTRY } from './injection-token';
 import { IIconRegistry, ISvgData, UImageType } from './types';
 
 @Component({
@@ -28,7 +28,7 @@ export class Icon implements OnInit {
   protected svgAttributes!: ISvgData;
 
   private cdr = inject(ChangeDetectorRef);
-  private registry: IIconRegistry = inject(IconRegistry);
+  private registry: IIconRegistry = inject(ICON_REGISTRY);
   private destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {

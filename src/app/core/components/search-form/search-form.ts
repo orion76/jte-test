@@ -8,8 +8,8 @@ import {
   model,
   signal,
 } from '@angular/core';
+import { VIEWPORT_OBSERVER } from '@core/services/viewport-observer/injection-token';
 import { IViewportObserver } from '@core/services/viewport-observer/types';
-import { ViewportObserver } from '@core/services/viewport-observer/viewport-observer';
 import { OVERLAY_OUTLET_CLOSE_EVENT_TOKEN } from '@features/dynamic-overlay/tokens';
 import { Button } from '@shared/components/button/button';
 import { IButton } from '@shared/components/button/types';
@@ -27,7 +27,7 @@ import { FilterPanel } from './filter-panel/filter-panel';
   },
 })
 export class SearchForm {
-  protected viewportObserver: IViewportObserver = inject(ViewportObserver);
+  protected viewportObserver: IViewportObserver = inject(VIEWPORT_OBSERVER);
 
   readonly query = model<string>('');
   history = signal<string>('');

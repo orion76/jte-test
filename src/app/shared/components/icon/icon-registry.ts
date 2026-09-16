@@ -5,7 +5,7 @@ import { DOM_PARSER } from '@shared/services/dom-parser';
 import { Observable, catchError, map, of, shareReplay, take, timeout } from 'rxjs';
 import { IIconRegistry, ISvgData } from './types';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class IconRegistry implements IIconRegistry {
   private requestTimeout = 10_000;
   private cache = new Map<string, Observable<ISvgData | undefined>>();
