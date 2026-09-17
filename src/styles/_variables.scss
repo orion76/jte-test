@@ -18,9 +18,9 @@ $colors: (
   'danger': #cc1910,
   'white': #fff,
   'black': #000,
-  'gray': $color-gray,
-  'gray-light': color.scale($color-gray, $lightness: 20%),
-  'gray-dark': color.scale($color-gray, $lightness: -20%),
+  'gray': #7f878c,
+  'gray-light': #f5f5f5,
+  'gray-dark': #eee,
   'black-transparent-5': rgba(0, 0, 0, 0.05),
   // Text
   'text-primary': #2a3033,
