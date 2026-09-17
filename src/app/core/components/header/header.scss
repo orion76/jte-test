@@ -79,6 +79,25 @@
 
     .center {
       column-gap: 0;
+
+      // Мобильный порядок пунктов топбара (по макету): add → меню → search.
+      // Колонки grid после переупорядочивания: [add][меню][search],
+      // поэтому overlay-область [меню + search] — линии 2 / 4.
+      .add {
+        order: 0;
+      }
+
+      .pages {
+        order: 1;
+      }
+
+      .search {
+        order: 2;
+      }
+
+      .container {
+        grid-column: 2 / 4;
+      }
     }
 
     .right {
