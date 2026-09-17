@@ -2,6 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideMenus } from './app-menu.config';
+import { provideDeviceThemes } from './app-theme.config';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -10,5 +11,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideMenus(),
+    provideDeviceThemes(),
   ],
 };

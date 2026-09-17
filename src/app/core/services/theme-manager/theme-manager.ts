@@ -1,19 +1,16 @@
 import { DOCUMENT, inject, Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { IThemeManager, TLayoutThemes, ULayoutTheme } from './types';
-
-export const deviceThemes: TLayoutThemes = {
-  default: { statusBarColor: '#1074CC' },
-  'mobile-modal': { statusBarColor: '#ffffff' },
-};
+import { DEVICE_THEMES } from '@app/app-theme.config';
+import { IThemeManager, ULayoutTheme } from './types';
 
 @Injectable()
 export class ThemeManager implements IThemeManager {
   private meta = inject(Meta);
   private document = inject(DOCUMENT);
+  private themes = inject(DEVICE_THEMES);
 
   private setStatusBarColor(theme: ULayoutTheme) {
-    const color = deviceThemes[theme].statusBarColor;
+    const color = this.themes[theme].statusBarColor;
 
     this.meta.updateTag({ name: 'theme-color', content: color });
     this.document.body.style.backgroundColor = color;
